@@ -1,0 +1,199 @@
+﻿<UserControl x:Class="QuanLyThuVien.View.BookManageControlUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyThuVien.View"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:uc="clr-namespace:QuanLyThuVien.UserControlMain"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             DataContext="{StaticResource BookManageVM}"
+             Height="auto"
+             Width="auto">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="5" Grid.Row="0">
+            <materialDesign:Card>
+                <StackPanel
+                    Margin="5" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Left">
+                    <ComboBox
+                        Margin="15 0 0 0"
+                        FontSize="16"
+                        materialDesign:HintAssist.Hint="Chọn loại tìm kiếm">
+                        <ComboBoxItem
+                            Content="Android" />
+                        <ComboBoxItem
+                            Content="iOS" />
+                        <ComboBoxItem
+                            Content="Linux" />
+                        <ComboBoxItem
+                            Content="Windows" />
+                    </ComboBox>
+
+                    <TextBox
+                        Margin="15 0 0 0"
+                        FontSize="16"
+                        materialDesign:HintAssist.Hint="Nhập tìm kiếm"
+                        materialDesign:HintAssist.HelperText=""
+                        Width="300">
+
+                    </TextBox>
+
+                    <Button
+                        Background="#FF1A88CE"
+                        Margin="15 0 0 0"
+                        FontSize="16"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="150"
+                        Content="Tìm kiếm"/>
+
+                    <ComboBox
+                        Margin="15 0 0 0"
+                        FontSize="16"
+                        materialDesign:HintAssist.Hint="Trạng thái sách">
+                        <ComboBoxItem
+                            Content="Android" />
+                        <ComboBoxItem
+                            Content="iOS" />
+                        <ComboBoxItem
+                            Content="Linux" />
+                        <ComboBoxItem
+                            Content="Windows" />
+                    </ComboBox>
+                </StackPanel>
+
+            </materialDesign:Card>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Separator Margin="5"></Separator>
+        </Grid>
+
+        <Grid Margin="5" Grid.Row="2">
+            <materialDesign:Card>
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <ComboBox
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            materialDesign:HintAssist.Hint="ID tác giả">
+                            <ComboBoxItem Content="Android" />
+                            <ComboBoxItem Content="iOS" />
+                            <ComboBoxItem Content="Linux" />
+                            <ComboBoxItem Content="Windows" />
+                        </ComboBox>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <ComboBox
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            materialDesign:HintAssist.Hint="ID thể loại">
+                            <ComboBoxItem Content="Android" />
+                            <ComboBoxItem Content="iOS" />
+                            <ComboBoxItem Content="Linux" />
+                            <ComboBoxItem Content="Windows" />
+                        </ComboBox>
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <TextBox
+                            Text="{Binding Sach.Ten, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            materialDesign:HintAssist.Hint="Tên sách"
+                            materialDesign:HintAssist.HelperText=""
+                            Width="300" />
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <TextBox
+                            Text="{Binding Sach.SoLuong, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            materialDesign:HintAssist.Hint="Số lượng"
+                            materialDesign:HintAssist.HelperText=""
+                            Width="300" />
+                    </Grid>
+                    <Grid Grid.Column="4">
+                        <TextBox
+                            Text="{Binding Sach.Gia, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            materialDesign:HintAssist.Hint="Giá"
+                            materialDesign:HintAssist.HelperText=""
+                            Width="300" />
+                    </Grid>
+                    <Grid Grid.Column="5">
+                        <DatePicker
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            Width="150"
+                            SelectedDate="{Binding Sach.NgayXuatBan, UpdateSourceTrigger=PropertyChanged}"
+                            materialDesign:HintAssist.Hint="Ngày xuất bản"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    </Grid>
+                    <Grid Grid.Column="6">
+                        <Button
+                            Background="#FF1A88CE"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Width="150"
+                            Content="Lưu"/>
+                    </Grid>
+                </Grid>
+
+            </materialDesign:Card>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Separator Margin="5"></Separator>
+        </Grid>
+
+        <Grid Margin="5" Grid.Row="4">
+            <materialDesign:Card>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
+                    <ListView FontSize="20">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding}"></GridViewColumn>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Sach.ID}"></GridViewColumn>
+                                <GridViewColumn Header="Tác giả" DisplayMemberBinding="{Binding TacGia.ID}"></GridViewColumn>
+                                <GridViewColumn Header="Thể loại" DisplayMemberBinding="{Binding TheLoai.ID}"></GridViewColumn>
+                                <GridViewColumn Header="Tên sách" DisplayMemberBinding="{Binding Sach.TenSach}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày xuất bản" DisplayMemberBinding="{Binding Sach.NgayXuatBan}"></GridViewColumn>
+                                <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding Sach.SoLuong}"></GridViewColumn>
+                                <GridViewColumn Header="Giá" DisplayMemberBinding="{Binding Sach.Gia}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</UserControl>

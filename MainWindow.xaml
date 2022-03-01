@@ -1,0 +1,606 @@
+﻿<Window x:Class="QuanLyThuVien.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyThuVien"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:uc="clr-namespace:QuanLyThuVien.UserControlMain"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        DataContext="{StaticResource MainVM}"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Name="mainWindow"
+        Title="Trang Chủ" Height="800" Width="1500">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction 
+                Command="{Binding LoadedWindowCommand}"
+                CommandParameter="{Binding ElementName=mainWindow}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}"></uc:ControlBarUC>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <materialDesign:Card Margin="5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="bookBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=bookBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí sách"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Thêm"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="bookTypeBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=bookTypeBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí thể loại sách"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Thêm"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="authorBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=authorBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí tác giả"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Thêm"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="issueBookBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=issueBookBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí mượn sách"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Lập phiếu mượn"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="returnBookBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=returnBookBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí trả sách"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Lập phiếu bồi thường"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xác nhận trả"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="indemnifyBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=indemnifyBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí bồi thường"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xác nhận bồi thường"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="customerBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=customerBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí khách hàng"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Khoá khách hàng"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Thêm"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="staffBtn"
+                                Margin="4 0"           
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"         
+                                MinHeight="40" 
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=staffBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí nhân viên"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Thêm"
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                 </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+                            
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="roleBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=roleBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí chức vụ"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Thêm"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="accountBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=accountBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Quản lí tài khoản"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Khoá tài khoản"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Thêm"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                            <Button
+                                HorizontalContentAlignment="Left"
+                                x:Name="statisticsBtn"
+                                Margin="4 0"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Height="auto"
+                                MinHeight="40"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                Background="#FF1A88CE"
+                                FontSize="18"
+                                Command="{Binding ChangeViewCommand}"
+                                CommandParameter="{Binding ElementName=statisticsBtn}">
+                                <StackPanel>
+                                    <TextBlock Text="Thống kê báo cáo"></TextBlock>
+                                    <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
+                                        <TreeViewItem Visibility="Collapsed">
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Thêm"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+
+                                            <Button
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="auto"
+                                                MinWidth="120"
+                                                Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                Background="#FFC32C2C"
+                                                FontSize="18"/>
+                                        </TreeViewItem>
+                                    </TreeView>
+                                </StackPanel>
+                            </Button>
+                            <Separator FontWeight="Bold" Margin="4 5"></Separator>
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </materialDesign:Card>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="5">
+                    <materialDesign:Card>
+                        <TextBlock
+                            Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                            FontWeight="Bold"
+                            TextAlignment="Center"
+                            Text="{Binding ViewTitle}" />
+                    </materialDesign:Card>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="5">
+                    <materialDesign:Card>
+                        <ContentControl x:Name="mainContent" Content="{Binding SelectView}"/>
+                    </materialDesign:Card>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

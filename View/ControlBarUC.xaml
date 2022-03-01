@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="QuanLyThuVien.UserControlMain.ControlBarUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyThuVien.UserControlMain"
+             mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             Name="ucControlBar">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseLeftButtonDown">
+            <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=ucControlBar}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <materialDesign:ColorZone
+            Background="#FF1A88CE"
+            Mode="Inverted"
+            Padding="16">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Width" Value="40"></Setter>
+                            <Setter Property="Height" Value="40"></Setter>
+                            <Setter Property="Margin" Value="5 0 0 0"></Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button
+                        Command="{Binding MinimizeWindowCommand}"
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                        
+                        Content="{materialDesign:PackIcon Kind=WindowMinimize}" Background="#FFFFEA00" />
+                    <Button
+                        Command="{Binding MaximizeWindowCommand}"
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                        
+                        Content="{materialDesign:PackIcon Kind=WindowMaximize}" Background="#FF0CA200" />
+                    <Button
+                        Command="{Binding CloseWindowCommand}"
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                        
+                        Content="{materialDesign:PackIcon Kind=WindowClose}" Background="#FFC30000" />
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
+                    <TextBlock
+                            VerticalAlignment="Center"
+                            Margin="16 0 0 0"
+                            Text="{Binding Tag, ElementName=ucControlBar}" />
+
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+    </Grid>
+</UserControl>

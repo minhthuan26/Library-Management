@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1a5a23fa53e4ef6be177424429830ea" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLiThuVienModel.ChiTietPhieuBoiThuong" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.ChiTietPhieuMuon" Width="1.5" PointX="8.25" PointY="4.75" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.ChucVu" Width="1.5" PointX="5.75" PointY="9.375" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.KhachHang" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.NhanVien" Width="1.5" PointX="10.25" PointY="8.875" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.PhieuBoiThuong" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.PhieuMuon" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.Sach" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.sysdiagram" Width="1.5" PointX="10.75" PointY="2.75" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.TacGia" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.TaiKhoan" Width="1.5" PointX="8" PointY="9" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.TheLoai" Width="1.5" PointX="0.75" PointY="2.25" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_CTPBT_PBT" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_CTPBT_S" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_CTPM_KH" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_CTPM_PM" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_CTPM_S" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_TK_CV" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_NV_TK" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_PBT_PM" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_S_TG" />
+        <AssociationConnector Association="QuanLiThuVienModel.FK_S_TL" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
