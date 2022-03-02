@@ -20,7 +20,7 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Name="mainWindow"
-        Title="Trang Chủ" Height="800" Width="1500">
+        Title="Quản lí thư viện" Height="800" Width="1500">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction 
@@ -28,7 +28,7 @@
                 CommandParameter="{Binding ElementName=mainWindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
+    <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -588,6 +588,7 @@
                 <Grid Grid.Row="0" Margin="5">
                     <materialDesign:Card>
                         <TextBlock
+                            Margin="5"
                             Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                             FontWeight="Bold"
                             TextAlignment="Center"

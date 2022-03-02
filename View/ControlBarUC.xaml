@@ -53,9 +53,11 @@
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
                     <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" />
                     <TextBlock
-                            VerticalAlignment="Center"
-                            Margin="16 0 0 0"
-                            Text="{Binding Tag, ElementName=ucControlBar}" />
+                        VerticalAlignment="Center"
+                        Margin="16 0 0 0"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="{Binding Tag, ElementName=ucControlBar}" />
 
                 </StackPanel>
             </DockPanel>

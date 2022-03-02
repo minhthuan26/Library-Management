@@ -17,9 +17,9 @@ namespace QuanLyThuVien.ViewModel
     {
         public bool IsLoaded = false;
         private BaseViewModel _selectView;
-        public BaseViewModel SelectView { get { return _selectView; } set { _selectView = value; OnPropertyChanged();} }
+        public BaseViewModel SelectView { get { if (_selectView == null) _selectView = new GeneralManageViewModel(); return _selectView; } set { _selectView = value; OnPropertyChanged();} }
         private string _viewTitle;
-        public string ViewTitle { get { return _viewTitle; } set { _viewTitle = value; OnPropertyChanged(); } }
+        public string ViewTitle { get { if (_viewTitle == null) _viewTitle = "Tổng quan"; return _viewTitle; } set { _viewTitle = value; OnPropertyChanged(); } }
         private static Button _currentBtn = new Button();
         public static Button CurrentBtn { get { return _currentBtn; } set { _currentBtn = value; } }
         public ICommand LoadedWindowCommand { get; set; }
@@ -40,6 +40,7 @@ namespace QuanLyThuVien.ViewModel
                 var loginVM = loginWindow.DataContext as LoginViewModel;
                 if (loginVM.IsLogin)
                 {
+                    GeneralManageViewModel generalManageVM = new GeneralManageViewModel();
                     p.Show();
                 }
                 else
@@ -78,6 +79,7 @@ namespace QuanLyThuVien.ViewModel
                     {new BookTypeManageViewModel(), "Quản lí thể loại sách" },
                     {new AuthorManageViewModel(), "Quản lí tác giả" },
                     {new RoleManageViewModel(), "Quản lí chức vụ" },
+                    {new GeneralManageViewModel(), "Tổng quan" },
                     {new StatisticsManageViewModel(), "Báo cáo thống kê" }
                 };
                 //MessageBox.Show(buttonName);
@@ -110,10 +112,9 @@ namespace QuanLyThuVien.ViewModel
                 else
                 {
                     SelectView = null;
-                    expandButton(p);
                     CurrentBtn = new Button();
-                    ViewTitle = "";
-                    //MessageBox.Show("giong");
+                    expandButton(p);
+                    ViewTitle = null;
                 }
                 
             });

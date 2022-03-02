@@ -83,293 +83,293 @@ namespace QuanLyThuVien.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ChiTietPhieuBoiThuong> ChiTietPhieuBoiThuong
+        public ObjectSet<ChiTietPhieuBoiThuong> ChiTietPhieuBoiThuongs
         {
             get
             {
-                if ((_ChiTietPhieuBoiThuong == null))
+                if ((_ChiTietPhieuBoiThuongs == null))
                 {
-                    _ChiTietPhieuBoiThuong = base.CreateObjectSet<ChiTietPhieuBoiThuong>("ChiTietPhieuBoiThuong");
+                    _ChiTietPhieuBoiThuongs = base.CreateObjectSet<ChiTietPhieuBoiThuong>("ChiTietPhieuBoiThuongs");
                 }
-                return _ChiTietPhieuBoiThuong;
+                return _ChiTietPhieuBoiThuongs;
             }
         }
-        private ObjectSet<ChiTietPhieuBoiThuong> _ChiTietPhieuBoiThuong;
+        private ObjectSet<ChiTietPhieuBoiThuong> _ChiTietPhieuBoiThuongs;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ChiTietPhieuMuon> ChiTietPhieuMuon
+        public ObjectSet<ChiTietPhieuMuon> ChiTietPhieuMuons
         {
             get
             {
-                if ((_ChiTietPhieuMuon == null))
+                if ((_ChiTietPhieuMuons == null))
                 {
-                    _ChiTietPhieuMuon = base.CreateObjectSet<ChiTietPhieuMuon>("ChiTietPhieuMuon");
+                    _ChiTietPhieuMuons = base.CreateObjectSet<ChiTietPhieuMuon>("ChiTietPhieuMuons");
                 }
-                return _ChiTietPhieuMuon;
+                return _ChiTietPhieuMuons;
             }
         }
-        private ObjectSet<ChiTietPhieuMuon> _ChiTietPhieuMuon;
+        private ObjectSet<ChiTietPhieuMuon> _ChiTietPhieuMuons;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ChucVu> ChucVu
+        public ObjectSet<ChucVu> ChucVus
         {
             get
             {
-                if ((_ChucVu == null))
+                if ((_ChucVus == null))
                 {
-                    _ChucVu = base.CreateObjectSet<ChucVu>("ChucVu");
+                    _ChucVus = base.CreateObjectSet<ChucVu>("ChucVus");
                 }
-                return _ChucVu;
+                return _ChucVus;
             }
         }
-        private ObjectSet<ChucVu> _ChucVu;
+        private ObjectSet<ChucVu> _ChucVus;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<KhachHang> KhachHang
+        public ObjectSet<KhachHang> KhachHangs
         {
             get
             {
-                if ((_KhachHang == null))
+                if ((_KhachHangs == null))
                 {
-                    _KhachHang = base.CreateObjectSet<KhachHang>("KhachHang");
+                    _KhachHangs = base.CreateObjectSet<KhachHang>("KhachHangs");
                 }
-                return _KhachHang;
+                return _KhachHangs;
             }
         }
-        private ObjectSet<KhachHang> _KhachHang;
+        private ObjectSet<KhachHang> _KhachHangs;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<NhanVien> NhanVien
+        public ObjectSet<NhanVien> NhanViens
         {
             get
             {
-                if ((_NhanVien == null))
+                if ((_NhanViens == null))
                 {
-                    _NhanVien = base.CreateObjectSet<NhanVien>("NhanVien");
+                    _NhanViens = base.CreateObjectSet<NhanVien>("NhanViens");
                 }
-                return _NhanVien;
+                return _NhanViens;
             }
         }
-        private ObjectSet<NhanVien> _NhanVien;
+        private ObjectSet<NhanVien> _NhanViens;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PhieuBoiThuong> PhieuBoiThuong
+        public ObjectSet<PhieuBoiThuong> PhieuBoiThuongs
         {
             get
             {
-                if ((_PhieuBoiThuong == null))
+                if ((_PhieuBoiThuongs == null))
                 {
-                    _PhieuBoiThuong = base.CreateObjectSet<PhieuBoiThuong>("PhieuBoiThuong");
+                    _PhieuBoiThuongs = base.CreateObjectSet<PhieuBoiThuong>("PhieuBoiThuongs");
                 }
-                return _PhieuBoiThuong;
+                return _PhieuBoiThuongs;
             }
         }
-        private ObjectSet<PhieuBoiThuong> _PhieuBoiThuong;
+        private ObjectSet<PhieuBoiThuong> _PhieuBoiThuongs;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PhieuMuon> PhieuMuon
+        public ObjectSet<PhieuMuon> PhieuMuons
         {
             get
             {
-                if ((_PhieuMuon == null))
+                if ((_PhieuMuons == null))
                 {
-                    _PhieuMuon = base.CreateObjectSet<PhieuMuon>("PhieuMuon");
+                    _PhieuMuons = base.CreateObjectSet<PhieuMuon>("PhieuMuons");
                 }
-                return _PhieuMuon;
+                return _PhieuMuons;
             }
         }
-        private ObjectSet<PhieuMuon> _PhieuMuon;
+        private ObjectSet<PhieuMuon> _PhieuMuons;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Sach> Sach
+        public ObjectSet<Sach> Saches
         {
             get
             {
-                if ((_Sach == null))
+                if ((_Saches == null))
                 {
-                    _Sach = base.CreateObjectSet<Sach>("Sach");
+                    _Saches = base.CreateObjectSet<Sach>("Saches");
                 }
-                return _Sach;
+                return _Saches;
             }
         }
-        private ObjectSet<Sach> _Sach;
+        private ObjectSet<Sach> _Saches;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<sysdiagram> sysdiagram
+        public ObjectSet<sysdiagram> sysdiagrams
         {
             get
             {
-                if ((_sysdiagram == null))
+                if ((_sysdiagrams == null))
                 {
-                    _sysdiagram = base.CreateObjectSet<sysdiagram>("sysdiagram");
+                    _sysdiagrams = base.CreateObjectSet<sysdiagram>("sysdiagrams");
                 }
-                return _sysdiagram;
+                return _sysdiagrams;
             }
         }
-        private ObjectSet<sysdiagram> _sysdiagram;
+        private ObjectSet<sysdiagram> _sysdiagrams;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TacGia> TacGia
+        public ObjectSet<TacGia> TacGias
         {
             get
             {
-                if ((_TacGia == null))
+                if ((_TacGias == null))
                 {
-                    _TacGia = base.CreateObjectSet<TacGia>("TacGia");
+                    _TacGias = base.CreateObjectSet<TacGia>("TacGias");
                 }
-                return _TacGia;
+                return _TacGias;
             }
         }
-        private ObjectSet<TacGia> _TacGia;
+        private ObjectSet<TacGia> _TacGias;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TaiKhoan> TaiKhoan
+        public ObjectSet<TaiKhoan> TaiKhoans
         {
             get
             {
-                if ((_TaiKhoan == null))
+                if ((_TaiKhoans == null))
                 {
-                    _TaiKhoan = base.CreateObjectSet<TaiKhoan>("TaiKhoan");
+                    _TaiKhoans = base.CreateObjectSet<TaiKhoan>("TaiKhoans");
                 }
-                return _TaiKhoan;
+                return _TaiKhoans;
             }
         }
-        private ObjectSet<TaiKhoan> _TaiKhoan;
+        private ObjectSet<TaiKhoan> _TaiKhoans;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TheLoai> TheLoai
+        public ObjectSet<TheLoai> TheLoais
         {
             get
             {
-                if ((_TheLoai == null))
+                if ((_TheLoais == null))
                 {
-                    _TheLoai = base.CreateObjectSet<TheLoai>("TheLoai");
+                    _TheLoais = base.CreateObjectSet<TheLoai>("TheLoais");
                 }
-                return _TheLoai;
+                return _TheLoais;
             }
         }
-        private ObjectSet<TheLoai> _TheLoai;
+        private ObjectSet<TheLoai> _TheLoais;
 
         #endregion
 
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ChiTietPhieuBoiThuong EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ChiTietPhieuBoiThuongs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToChiTietPhieuBoiThuong(ChiTietPhieuBoiThuong chiTietPhieuBoiThuong)
+        public void AddToChiTietPhieuBoiThuongs(ChiTietPhieuBoiThuong chiTietPhieuBoiThuong)
         {
-            base.AddObject("ChiTietPhieuBoiThuong", chiTietPhieuBoiThuong);
+            base.AddObject("ChiTietPhieuBoiThuongs", chiTietPhieuBoiThuong);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ChiTietPhieuMuon EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ChiTietPhieuMuons EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToChiTietPhieuMuon(ChiTietPhieuMuon chiTietPhieuMuon)
+        public void AddToChiTietPhieuMuons(ChiTietPhieuMuon chiTietPhieuMuon)
         {
-            base.AddObject("ChiTietPhieuMuon", chiTietPhieuMuon);
+            base.AddObject("ChiTietPhieuMuons", chiTietPhieuMuon);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ChucVu EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ChucVus EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToChucVu(ChucVu chucVu)
+        public void AddToChucVus(ChucVu chucVu)
         {
-            base.AddObject("ChucVu", chucVu);
+            base.AddObject("ChucVus", chucVu);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the KhachHang EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the KhachHangs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToKhachHang(KhachHang khachHang)
+        public void AddToKhachHangs(KhachHang khachHang)
         {
-            base.AddObject("KhachHang", khachHang);
+            base.AddObject("KhachHangs", khachHang);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the NhanVien EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the NhanViens EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToNhanVien(NhanVien nhanVien)
+        public void AddToNhanViens(NhanVien nhanVien)
         {
-            base.AddObject("NhanVien", nhanVien);
+            base.AddObject("NhanViens", nhanVien);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PhieuBoiThuong EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PhieuBoiThuongs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPhieuBoiThuong(PhieuBoiThuong phieuBoiThuong)
+        public void AddToPhieuBoiThuongs(PhieuBoiThuong phieuBoiThuong)
         {
-            base.AddObject("PhieuBoiThuong", phieuBoiThuong);
+            base.AddObject("PhieuBoiThuongs", phieuBoiThuong);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PhieuMuon EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PhieuMuons EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPhieuMuon(PhieuMuon phieuMuon)
+        public void AddToPhieuMuons(PhieuMuon phieuMuon)
         {
-            base.AddObject("PhieuMuon", phieuMuon);
+            base.AddObject("PhieuMuons", phieuMuon);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Sach EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Saches EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSach(Sach sach)
+        public void AddToSaches(Sach sach)
         {
-            base.AddObject("Sach", sach);
+            base.AddObject("Saches", sach);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the sysdiagram EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTosysdiagram(sysdiagram sysdiagram)
+        public void AddTosysdiagrams(sysdiagram sysdiagram)
         {
-            base.AddObject("sysdiagram", sysdiagram);
+            base.AddObject("sysdiagrams", sysdiagram);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TacGia EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the TacGias EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTacGia(TacGia tacGia)
+        public void AddToTacGias(TacGia tacGia)
         {
-            base.AddObject("TacGia", tacGia);
+            base.AddObject("TacGias", tacGia);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TaiKhoan EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the TaiKhoans EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTaiKhoan(TaiKhoan taiKhoan)
+        public void AddToTaiKhoans(TaiKhoan taiKhoan)
         {
-            base.AddObject("TaiKhoan", taiKhoan);
+            base.AddObject("TaiKhoans", taiKhoan);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TheLoai EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the TheLoais EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTheLoai(TheLoai theLoai)
+        public void AddToTheLoais(TheLoai theLoai)
         {
-            base.AddObject("TheLoai", theLoai);
+            base.AddObject("TheLoais", theLoai);
         }
 
         #endregion
@@ -1001,7 +1001,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_TK_CV", "TaiKhoan")]
-        public EntityCollection<TaiKhoan> TaiKhoan
+        public EntityCollection<TaiKhoan> TaiKhoans
         {
             get
             {
@@ -1239,7 +1239,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "ChiTietPhieuMuon")]
-        public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuon
+        public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuons
         {
             get
             {
@@ -1651,7 +1651,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_PBT", "ChiTietPhieuBoiThuong")]
-        public EntityCollection<ChiTietPhieuBoiThuong> ChiTietPhieuBoiThuong
+        public EntityCollection<ChiTietPhieuBoiThuong> ChiTietPhieuBoiThuongs
         {
             get
             {
@@ -1823,7 +1823,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_PM", "ChiTietPhieuMuon")]
-        public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuon
+        public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuons
         {
             get
             {
@@ -1845,7 +1845,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_PBT_PM", "PhieuBoiThuong")]
-        public EntityCollection<PhieuBoiThuong> PhieuBoiThuong
+        public EntityCollection<PhieuBoiThuong> PhieuBoiThuongs
         {
             get
             {
@@ -1882,8 +1882,7 @@ namespace QuanLyThuVien.Model
         /// <param name="gia">Initial value of the Gia property.</param>
         /// <param name="ngayXuatBan">Initial value of the NgayXuatBan property.</param>
         /// <param name="soLuong">Initial value of the SoLuong property.</param>
-        /// <param name="trangThai">Initial value of the TrangThai property.</param>
-        public static Sach CreateSach(global::System.String id, global::System.String tenSach, global::System.Double gia, global::System.DateTime ngayXuatBan, global::System.Int32 soLuong, global::System.String trangThai)
+        public static Sach CreateSach(global::System.String id, global::System.String tenSach, global::System.Double gia, global::System.DateTime ngayXuatBan, global::System.Int32 soLuong)
         {
             Sach sach = new Sach();
             sach.ID = id;
@@ -1891,7 +1890,6 @@ namespace QuanLyThuVien.Model
             sach.Gia = gia;
             sach.NgayXuatBan = ngayXuatBan;
             sach.SoLuong = soLuong;
-            sach.TrangThai = trangThai;
             return sach;
         }
 
@@ -2073,26 +2071,26 @@ namespace QuanLyThuVien.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String TrangThai
+        public global::System.String HinhAnh
         {
             get
             {
-                return _TrangThai;
+                return _HinhAnh;
             }
             set
             {
-                OnTrangThaiChanging(value);
-                ReportPropertyChanging("TrangThai");
-                _TrangThai = StructuralObject.SetValidValue(value, false, "TrangThai");
-                ReportPropertyChanged("TrangThai");
-                OnTrangThaiChanged();
+                OnHinhAnhChanging(value);
+                ReportPropertyChanging("HinhAnh");
+                _HinhAnh = StructuralObject.SetValidValue(value, true, "HinhAnh");
+                ReportPropertyChanged("HinhAnh");
+                OnHinhAnhChanged();
             }
         }
-        private global::System.String _TrangThai;
-        partial void OnTrangThaiChanging(global::System.String value);
-        partial void OnTrangThaiChanged();
+        private global::System.String _HinhAnh;
+        partial void OnHinhAnhChanging(global::System.String value);
+        partial void OnHinhAnhChanged();
 
         #endregion
 
@@ -2105,7 +2103,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_S", "ChiTietPhieuBoiThuong")]
-        public EntityCollection<ChiTietPhieuBoiThuong> ChiTietPhieuBoiThuong
+        public EntityCollection<ChiTietPhieuBoiThuong> ChiTietPhieuBoiThuongs
         {
             get
             {
@@ -2127,7 +2125,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_S", "ChiTietPhieuMuon")]
-        public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuon
+        public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuons
         {
             get
             {
@@ -2493,7 +2491,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TG", "Sach")]
-        public EntityCollection<Sach> Sach
+        public EntityCollection<Sach> Saches
         {
             get
             {
@@ -2715,7 +2713,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_NV_TK", "NhanVien")]
-        public EntityCollection<NhanVien> NhanVien
+        public EntityCollection<NhanVien> NhanViens
         {
             get
             {
@@ -2821,7 +2819,7 @@ namespace QuanLyThuVien.Model
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TL", "Sach")]
-        public EntityCollection<Sach> Sach
+        public EntityCollection<Sach> Saches
         {
             get
             {
