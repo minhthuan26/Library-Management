@@ -46,7 +46,7 @@ namespace QuanLyThuVien.ViewModel
             else
             {
                 string passEncode = MD5Hash(Base64Encode(Password));
-                var resultCount = DataProvider.Ins.DB.TaiKhoan.Where(taiKhoan => taiKhoan.TenTaiKhoan == AccountName && taiKhoan.MatKhau == passEncode).Count();
+                var resultCount = DataProvider.Ins.DB.TaiKhoans.Where(taiKhoan => taiKhoan.TenTaiKhoan == AccountName && taiKhoan.MatKhau == passEncode).Count();
                 if(resultCount > 0)
                 {
                     IsLogin = true;

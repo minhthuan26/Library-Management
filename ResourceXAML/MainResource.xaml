@@ -17,6 +17,7 @@
     <viewmodel:AuthorManageViewModel x:Key="AuthorManageVM"></viewmodel:AuthorManageViewModel>
     <viewmodel:BookTypeManageViewModel x:Key="BookTypeManageVM"></viewmodel:BookTypeManageViewModel>
     <viewmodel:RoleManageViewModel x:Key="RoleManageVM"></viewmodel:RoleManageViewModel>
+    <viewmodel:GeneralManageViewModel x:Key="GeneralManageVM"></viewmodel:GeneralManageViewModel>
 
     <DataTemplate x:Name="StaffManageControlUC" DataType="{x:Type viewmodel:StaffManageViewModel}">
         <view:StaffManageControlUC Content="{Binding}"/>
@@ -50,6 +51,9 @@
     </DataTemplate>
     <DataTemplate x:Name="RoleManageControlUC" DataType="{x:Type viewmodel:RoleManageViewModel}">
         <view:RoleManageControlUC Content="{Binding}"/>
+    </DataTemplate>
+    <DataTemplate x:Name="GeneralManageControlUC" DataType="{x:Type viewmodel:GeneralManageViewModel}">
+        <view:GeneralManageControlUC Content="{Binding}"/>
     </DataTemplate>
     
 </ResourceDictionary>
