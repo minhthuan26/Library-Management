@@ -55,7 +55,6 @@
                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                 Height="auto"
                                 MinHeight="40"
-                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                 Background="#FF1A88CE"
                                 FontSize="18"
                                 Command="{Binding ChangeViewCommand}"
@@ -69,16 +68,17 @@
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Thêm"
-                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
 
                                             <Button
+                                                Name="bookEditBtn"
+                                                CommandParameter="{Binding ElementName=bookEditBtn}"
+                                                Command="{Binding EditCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Sửa"
-                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
 
@@ -598,7 +598,7 @@
 
                 <Grid Grid.Row="1" Margin="5">
                     <materialDesign:Card>
-                        <ContentControl x:Name="mainContent" Content="{Binding SelectView}"/>
+                        <ContentControl x:Name="mainContent" Content="{Binding SelectView, UpdateSourceTrigger=PropertyChanged}"/>
                     </materialDesign:Card>
                 </Grid>
             </Grid>

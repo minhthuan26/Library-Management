@@ -2216,6 +2216,8 @@ namespace QuanLyThuVien.Model
             }
         }
 
+        public object Book { get; internal set; }
+
         #endregion
 
     }
