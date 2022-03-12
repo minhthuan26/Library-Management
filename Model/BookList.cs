@@ -14,5 +14,7 @@ namespace QuanLyThuVien.Model
         public int STT { get { return _stt; } set { _stt = value; OnPropertyChanged(); } }
         private Sach _book;
         public Sach Book { get { return _book; } set { _book = value; OnPropertyChanged(); } }
+        private string _hoTenTacGia;
+        public string HoTenTacGia { get { return _hoTenTacGia; } set { _hoTenTacGia = value; OnPropertyChanged(); } }
     }
 }

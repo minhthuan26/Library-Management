@@ -64,6 +64,9 @@
                                     <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
                                         <TreeViewItem Visibility="Collapsed">
                                             <Button
+                                                Name="bookAddBtn"
+                                                CommandParameter="{Binding ElementName=bookAddBtn}"
+                                                Command="{Binding AddCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
@@ -83,6 +86,9 @@
                                                 FontSize="18"/>
 
                                             <Button
+                                                Name="bookDeleteBtn"
+                                                CommandParameter="{Binding ElementName=bookDeleteBtn}"
+                                                Command="{Binding DeleteCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"

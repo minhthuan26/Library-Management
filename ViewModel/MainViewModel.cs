@@ -25,6 +25,8 @@ namespace QuanLyThuVien.ViewModel
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand ChangeViewCommand { get; set; }
         public ICommand EditCommand { get; set; }
+        public ICommand AddCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -116,6 +118,8 @@ namespace QuanLyThuVien.ViewModel
                     CurrentBtn = new Button();
                     expandButton(p);
                     ViewTitle = null;
+                    SelectedItem = null;
+                    IsClick = false;
                 }
                 
             });
@@ -127,7 +131,28 @@ namespace QuanLyThuVien.ViewModel
                 return true;
             }, (p) =>
             {
-                IsEditClick = true;
+                IsClick = true;
+            });
+
+            AddCommand = new RelayCommand<Button>((p) =>
+            {
+                //if (SelectedItem == null)
+                //    return false;
+                return true;
+            }, (p) =>
+            {
+                SelectedItem = null;
+                IsClick = true;
+            });
+
+            DeleteCommand = new RelayCommand<Button>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                
             });
         }
 
