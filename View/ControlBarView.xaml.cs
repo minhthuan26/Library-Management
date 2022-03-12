@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVien.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuanLyThuVien.View
+namespace QuanLyThuVien.UserControlMain
 {
     /// <summary>
-    /// Interaction logic for IssueBookManageControlUC.xaml
+    /// Interaction logic for UserControlUC.xaml
     /// </summary>
-    public partial class IssueBookManageControlUC : UserControl
+    public partial class ControlBarView : UserControl
     {
-        public IssueBookManageControlUC()
+        public ControlBarViewModel Viewmodel { get; set; }
+        public ControlBarView()
         {
             InitializeComponent();
+            this.DataContext = Viewmodel = new ControlBarViewModel();
         }
     }
 }

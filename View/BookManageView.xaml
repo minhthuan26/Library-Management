@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="QuanLyThuVien.View.BookManageControlUC"
+﻿<UserControl x:Class="QuanLyThuVien.View.BookManageView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,7 +13,6 @@
              TextElement.FontSize="13"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-             DataContext="{StaticResource BookManageVM}"
              Height="auto"
              Width="auto">
     <!--<i:Interaction.Triggers>
@@ -82,7 +81,7 @@
                             Content="Windows" />
                     </ComboBox>
                 </StackPanel>
-
+ 
             </materialDesign:Card>
         </Grid>
 
@@ -106,27 +105,36 @@
 
                     <Grid Grid.Column="0">
                         <ComboBox
+                            SelectedItem="{Binding SelectedAuthor, Mode=TwoWay}"
+                            ItemsSource="{Binding AuthorList}"
                             IsEnabled="{Binding IsEnable}"
                             Margin="15 0 0 0"
                             FontSize="16"
-                            materialDesign:HintAssist.Hint="ID tác giả">
-                            <ComboBoxItem Content="Android" />
-                            <ComboBoxItem Content="iOS" />
-                            <ComboBoxItem Content="Linux" />
-                            <ComboBoxItem Content="Windows" />
+                            materialDesign:HintAssist.Hint="Tác giả">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock>
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0} {1}">
+                                                <Binding Path="Ho"/>
+                                                <Binding Path="Ten"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
                         </ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="1">
                         <ComboBox
+                            SelectedItem="{Binding SelectedBookType, Mode=TwoWay}"
+                            ItemsSource="{Binding BookTypeList}"
+                            DisplayMemberPath="TenTheLoai"
                             IsEnabled="{Binding IsEnable}"
                             Margin="15 0 0 0"
                             FontSize="16"
-                            materialDesign:HintAssist.Hint="ID thể loại">
-                            <ComboBoxItem Content="Android" />
-                            <ComboBoxItem Content="iOS" />
-                            <ComboBoxItem Content="Linux" />
-                            <ComboBoxItem Content="Windows" />
+                            materialDesign:HintAssist.Hint="Thể loại">
                         </ComboBox>
                     </Grid>
                     <Grid Grid.Column="2">
@@ -137,34 +145,35 @@
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Tên sách"
                             materialDesign:HintAssist.HelperText=""
-                            Width="300" />
+                            Width="150" />
                     </Grid>
                     <Grid Grid.Column="3">
                         <TextBox
                             IsEnabled="{Binding IsEnable}"
-                            Text="{Binding SoLuong, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding SoLuong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Số lượng"
                             materialDesign:HintAssist.HelperText=""
-                            Width="300" />
+                            Width="150" />
                     </Grid>
                     <Grid Grid.Column="4">
                         <TextBox
                             IsEnabled="{Binding IsEnable}"
                             Text="{Binding Gia, UpdateSourceTrigger=PropertyChanged}"
-                            Margin="15 0 0 0"
+                            Margin="15,0,0,0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Giá"
                             materialDesign:HintAssist.HelperText=""
-                            Width="300" />
+                            Width="150" Height="46" VerticalAlignment="Bottom" />
                     </Grid>
                     <Grid Grid.Column="5">
                         <DatePicker
+                            VerticalAlignment="Bottom"
                             IsEnabled="{Binding IsEnable}"
                             Margin="15 0 0 0"
-                            FontSize="16"
-                            Width="150"
+                            FontSize="14.5"
+                            Width="130"
                             SelectedDate="{Binding NgayXuatBan, UpdateSourceTrigger=PropertyChanged}"
                             materialDesign:HintAssist.Hint="Ngày xuất bản"
                             materialDesign:TextFieldAssist.HasClearButton="True"
@@ -197,7 +206,6 @@
                             Content="Lưu"/>
                     </Grid>
                 </Grid>
-
             </materialDesign:Card>
         </Grid>
 
@@ -220,7 +228,7 @@
                             <GridView>
                                 <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
                                 <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Book.ID}"></GridViewColumn>
-                                <GridViewColumn Header="Tác giả" DisplayMemberBinding="{Binding Book.TacGia.Ten}"></GridViewColumn>
+                                <GridViewColumn Header="Tác giả" DisplayMemberBinding="{Binding HoTenTacGia}"></GridViewColumn>
                                 <GridViewColumn Header="Thể loại" DisplayMemberBinding="{Binding Book.TheLoai.TenTheLoai}">
                                     <!--<GridViewColumn.CellTemplate>
                                         <DataTemplate>

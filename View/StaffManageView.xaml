@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="QuanLyThuVien.View.AccountManageControlUC"
+﻿<UserControl x:Class="QuanLyThuVien.View.StaffManageView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,7 +13,6 @@
              TextElement.FontSize="13"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-             DataContext="{StaticResource AccountManageVM}"
              Height="auto"
              Width="auto">
     <Grid>
@@ -52,7 +51,7 @@
                         materialDesign:HintAssist.Hint="Nhập tìm kiếm"
                         materialDesign:HintAssist.HelperText=""
                         Width="300">
-
+                        
                     </TextBox>
 
                     <Button
@@ -63,7 +62,7 @@
                         Width="150"
                         Content="Tìm kiếm"/>
                 </StackPanel>
-
+                
             </materialDesign:Card>
         </Grid>
 
@@ -79,40 +78,58 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0">
                         <TextBox
-                            Text="{Binding TaiKhoan.TenTaiKhoan, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding NhanVien.Ho, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
-                            materialDesign:HintAssist.Hint="Tên tài khoản"
+                            materialDesign:HintAssist.Hint="Họ"
                             materialDesign:HintAssist.HelperText=""
                             Width="300"/>
                     </Grid>
 
                     <Grid Grid.Column="1">
                         <TextBox
-                            Text="{Binding TaiKhoan.MatKhau, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding NhanVien.Ten, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
-                            materialDesign:HintAssist.Hint="Mật khẩu"
+                            materialDesign:HintAssist.Hint="Tên"
                             materialDesign:HintAssist.HelperText=""
                             Width="300"/>
                     </Grid>
-                    
                     <Grid Grid.Column="2">
-                        <ComboBox
+                        <TextBox
+                            Text="{Binding NhanVien.SoDienThoai, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
-                            materialDesign:HintAssist.Hint="Chức vụ">
-                            <ComboBoxItem Content="Android" />
-                            <ComboBoxItem Content="iOS" />
-                            <ComboBoxItem Content="Linux" />
-                            <ComboBoxItem Content="Windows" />
-                        </ComboBox>
+                            materialDesign:HintAssist.Hint="Số điện thoại"
+                            materialDesign:HintAssist.HelperText=""
+                            Width="300" />
                     </Grid>
                     <Grid Grid.Column="3">
+                        <TextBox
+                            Text="{Binding NhanVien.DiaChi, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            materialDesign:HintAssist.Hint="Địa chỉ"
+                            materialDesign:HintAssist.HelperText=""
+                            Width="300" />
+                    </Grid>
+                    <Grid Grid.Column="4">
+                        <DatePicker
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            Width="150"
+                            SelectedDate="{Binding NhanVien.NgaySinh, UpdateSourceTrigger=PropertyChanged}"
+                            materialDesign:HintAssist.Hint="Ngày sinh"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    </Grid>
+                    <Grid Grid.Column="5">
                         <Button
                             Background="#FF1A88CE"
                             Margin="15 0 0 0"
@@ -138,10 +155,13 @@
                             <GridView>
                                 <GridViewColumn Header="STT" DisplayMemberBinding="{Binding}"></GridViewColumn>
                                 <GridViewColumn Header="ID" DisplayMemberBinding="{Binding NhanVien.ID}"></GridViewColumn>
-                                <GridViewColumn Header="Tên tài khoản" DisplayMemberBinding="{Binding NhanVien.Họ}"></GridViewColumn>
-                                <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding NhanVien.Tên}"></GridViewColumn>
-                                <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding NhanVien.NgaySinh}"></GridViewColumn>
-                                </GridView>
+                                <GridViewColumn Header="Họ" DisplayMemberBinding="{Binding NhanVien.Họ}"></GridViewColumn>
+                                <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding NhanVien.Tên}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding NhanVien.NgaySinh}"></GridViewColumn>
+                                <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding NhanVien.SoDienThoai}"></GridViewColumn>
+                                <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding NhanVien.DiaChi}"></GridViewColumn>
+                                <GridViewColumn Header="ID tài khoản" DisplayMemberBinding="{Binding TaiKhoan.ID}"></GridViewColumn>
+                            </GridView>
                         </ListView.View>
                     </ListView>
                 </ScrollViewer>

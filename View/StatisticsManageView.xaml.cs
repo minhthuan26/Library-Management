@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVien.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,14 @@ using System.Windows.Shapes;
 namespace QuanLyThuVien.View
 {
     /// <summary>
-    /// Interaction logic for GeneralManageControlUC.xaml
+    /// Interaction logic for StatisticsManageCotronlUC.xaml
     /// </summary>
-    public partial class GeneralManageControlUC : UserControl
+    public partial class StatisticsManageView : UserControl
     {
-        public GeneralManageControlUC()
+        public StatisticsManageView()
         {
             InitializeComponent();
+            DataContext = new StatisticsManageViewModel();
         }
     }
 }

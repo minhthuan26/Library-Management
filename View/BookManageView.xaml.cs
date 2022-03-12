@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVien.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,14 @@ using System.Windows.Shapes;
 namespace QuanLyThuVien.View
 {
     /// <summary>
-    /// Interaction logic for BookTypeManageControlUC.xaml
+    /// Interaction logic for BookManageControlUC.xaml
     /// </summary>
-    public partial class BookTypeManageControlUC : UserControl
+    public partial class BookManageView : UserControl
     {
-        public BookTypeManageControlUC()
+        public BookManageView()
         {
             InitializeComponent();
+            DataContext = new BookManageViewModel();
         }
     }
 }

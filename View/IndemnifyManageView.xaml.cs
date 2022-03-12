@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVien.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,14 @@ using System.Windows.Shapes;
 namespace QuanLyThuVien.View
 {
     /// <summary>
-    /// Interaction logic for RoleManageControlUC.xaml
+    /// Interaction logic for IndemnifyManageControlUC.xaml
     /// </summary>
-    public partial class RoleManageControlUC : UserControl
+    public partial class IndemnifyManageView : UserControl
     {
-        public RoleManageControlUC()
+        public IndemnifyManageView()
         {
             InitializeComponent();
+            DataContext = new IndemnifyManageViewModel();
         }
     }
 }

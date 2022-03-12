@@ -15,7 +15,6 @@ namespace QuanLyThuVien.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        public bool IsLoaded = false;
         private BaseViewModel _selectView;
         public BaseViewModel SelectView { get { if (_selectView == null) _selectView = new GeneralManageViewModel(); return _selectView; } set { _selectView = value; OnPropertyChanged(); } }
         private string _viewTitle;
@@ -25,11 +24,12 @@ namespace QuanLyThuVien.ViewModel
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand ChangeViewCommand { get; set; }
         public ICommand EditCommand { get; set; }
+        public ICommand AddCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                IsLoaded = true;
                 if (p == null)
                     return;
                 p.Hide();
@@ -116,6 +116,8 @@ namespace QuanLyThuVien.ViewModel
                     CurrentBtn = new Button();
                     expandButton(p);
                     ViewTitle = null;
+                    SelectedItem = null;
+                    IsClick = false;
                 }
                 
             });
@@ -127,7 +129,28 @@ namespace QuanLyThuVien.ViewModel
                 return true;
             }, (p) =>
             {
-                IsEditClick = true;
+                IsClick = true;
+            });
+
+            AddCommand = new RelayCommand<Button>((p) =>
+            {
+                //if (SelectedItem == null)
+                //    return false;
+                return true;
+            }, (p) =>
+            {
+                SelectedItem = null;
+                IsClick = true;
+            });
+
+            DeleteCommand = new RelayCommand<Button>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                
             });
         }
 

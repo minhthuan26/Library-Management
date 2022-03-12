@@ -14,18 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuanLyThuVien.UserControlMain
+namespace QuanLyThuVien.View
 {
     /// <summary>
-    /// Interaction logic for UserControlUC.xaml
+    /// Interaction logic for StaffManageControlUC.xaml
     /// </summary>
-    public partial class ControlBarUC : UserControl
+    public partial class StaffManageView : UserControl
     {
-        public ControlBarViewModel Viewmodel { get; set; }
-        public ControlBarUC()
+        public StaffManageView()
         {
             InitializeComponent();
-            this.DataContext = Viewmodel = new ControlBarViewModel();
+            DataContext = new StaffManageViewModel();
         }
     }
 }

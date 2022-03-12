@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVien.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,12 @@ namespace QuanLyThuVien.View
     /// <summary>
     /// Interaction logic for AuthorManageControlUC.xaml
     /// </summary>
-    public partial class AuthorManageControlUC : UserControl
+    public partial class AuthorManageView : UserControl
     {
-        public AuthorManageControlUC()
+        public AuthorManageView()
         {
             InitializeComponent();
+            DataContext = new AuthorManageViewModel();
         }
     }
 }

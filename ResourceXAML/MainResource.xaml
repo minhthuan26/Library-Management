@@ -4,56 +4,56 @@
     xmlns:viewmodel="clr-namespace:QuanLyThuVien.ViewModel"
     xmlns:view="clr-namespace:QuanLyThuVien.View">
     
-    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <!--<viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
-    <viewmodel:StaffManageViewModel x:Key="StaffManageVM"></viewmodel:StaffManageViewModel>
-    <viewmodel:BookManageViewModel x:Key="BookManageVM"></viewmodel:BookManageViewModel>
-    <viewmodel:StatisticsManageViewModel x:Key="StatisticsManageVM"></viewmodel:StatisticsManageViewModel>
+    <viewmodel:StaffManageViewModel x:Key="StaffManageVM"></viewmodel:StaffManageViewModel>-->
+    <!--<viewmodel:BookManageViewModel x:Key="BookManageVM"></viewmodel:BookManageViewModel>-->
+    <!--<viewmodel:StatisticsManageViewModel x:Key="StatisticsManageVM"></viewmodel:StatisticsManageViewModel>
     <viewmodel:CustomerManageViewModel x:Key="CustomerManageVM"></viewmodel:CustomerManageViewModel>
     <viewmodel:AccountManageViewModel x:Key="AccountManageVM"></viewmodel:AccountManageViewModel>
     <viewmodel:IssueBookManageViewModel x:Key="IssueBookManageVM"></viewmodel:IssueBookManageViewModel>
     <viewmodel:ReturnBookManageViewModel x:Key="ReturnBookManageVM"></viewmodel:ReturnBookManageViewModel>
     <viewmodel:IndemnifyManageViewModel x:Key="IndemnifyManageVM"></viewmodel:IndemnifyManageViewModel>
-    <viewmodel:AuthorManageViewModel x:Key="AuthorManageVM"></viewmodel:AuthorManageViewModel>
-    <viewmodel:BookTypeManageViewModel x:Key="BookTypeManageVM"></viewmodel:BookTypeManageViewModel>
-    <viewmodel:RoleManageViewModel x:Key="RoleManageVM"></viewmodel:RoleManageViewModel>
-    <viewmodel:GeneralManageViewModel x:Key="GeneralManageVM"></viewmodel:GeneralManageViewModel>
+    <viewmodel:AuthorManageViewModel x:Key="AuthorManageVM"></viewmodel:AuthorManageViewModel>-->
+    <!--<viewmodel:BookTypeManageViewModel x:Key="BookTypeManageVM"></viewmodel:BookTypeManageViewModel>-->
+    <!--<viewmodel:RoleManageViewModel x:Key="RoleManageVM"></viewmodel:RoleManageViewModel>-->
+    <!--<viewmodel:GeneralManageViewModel x:Key="GeneralManageVM"></viewmodel:GeneralManageViewModel>-->
 
     <DataTemplate x:Name="StaffManageControlUC" DataType="{x:Type viewmodel:StaffManageViewModel}">
-        <view:StaffManageControlUC Content="{Binding}"/>
+        <view:StaffManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="BookManageControlUC" DataType="{x:Type viewmodel:BookManageViewModel}">
-        <view:BookManageControlUC Content="{Binding}"/>
+        <view:BookManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="CustomerManageControlUC" DataType="{x:Type viewmodel:CustomerManageViewModel}">
-        <view:CustomerManageControlUC Content="{Binding}"/>
+        <view:CustomerManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="IssueBookManageControlUC" DataType="{x:Type viewmodel:IssueBookManageViewModel}">
-        <view:IssueBookManageControlUC Content="{Binding}"/>
+        <view:IssueBookManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="ReturnBookManageControlUC" DataType="{x:Type viewmodel:ReturnBookManageViewModel}">
-        <view:ReturnBookManageControlUC Content="{Binding}"/>
+        <view:ReturnBookManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="IndemnifyManageControlUC" DataType="{x:Type viewmodel:IndemnifyManageViewModel}">
-        <view:IndemnifyManageControlUC Content="{Binding}"/>
+        <view:IndemnifyManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="AccountManageControlUC" DataType="{x:Type viewmodel:AccountManageViewModel}">
-        <view:AccountManageControlUC Content="{Binding}"/>
+        <view:AccountManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="StatisticsManageControlUC" DataType="{x:Type viewmodel:StatisticsManageViewModel}">
-        <view:StatisticsManageControlUC Content="{Binding}"/>
+        <view:StatisticsManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="AuthorManageControlUC" DataType="{x:Type viewmodel:AuthorManageViewModel}">
-        <view:AuthorManageControlUC Content="{Binding}"/>
+        <view:AuthorManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="BookTypeManageControlUC" DataType="{x:Type viewmodel:BookTypeManageViewModel}">
-        <view:BookManageControlUC Content="{Binding}"/>
+        <view:BookManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="RoleManageControlUC" DataType="{x:Type viewmodel:RoleManageViewModel}">
-        <view:RoleManageControlUC Content="{Binding}"/>
+        <view:RoleManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="GeneralManageControlUC" DataType="{x:Type viewmodel:GeneralManageViewModel}">
-        <view:GeneralManageControlUC Content="{Binding}"/>
+        <view:GeneralManageView Content="{Binding}"/>
     </DataTemplate>
     
 </ResourceDictionary>
