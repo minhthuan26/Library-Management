@@ -7,8 +7,8 @@
     <!--<viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:StaffManageViewModel x:Key="StaffManageVM"></viewmodel:StaffManageViewModel>
-    <!--<viewmodel:BookManageViewModel x:Key="BookManageVM"></viewmodel:BookManageViewModel>-->
-    <!--<viewmodel:StatisticsManageViewModel x:Key="StatisticsManageVM"></viewmodel:StatisticsManageViewModel>
+    <viewmodel:BookManageViewModel x:Key="BookManageVM"></viewmodel:BookManageViewModel>
+    <viewmodel:StatisticsManageViewModel x:Key="StatisticsManageVM"></viewmodel:StatisticsManageViewModel>
     <viewmodel:CustomerManageViewModel x:Key="CustomerManageVM"></viewmodel:CustomerManageViewModel>
     <viewmodel:AccountManageViewModel x:Key="AccountManageVM"></viewmodel:AccountManageViewModel>
     <viewmodel:IssueBookManageViewModel x:Key="IssueBookManageVM"></viewmodel:IssueBookManageViewModel>
