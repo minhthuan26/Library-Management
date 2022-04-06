@@ -8,7 +8,7 @@
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:StaffManageViewModel x:Key="StaffManageVM"></viewmodel:StaffManageViewModel>
     <!--<viewmodel:BookManageViewModel x:Key="BookManageVM"></viewmodel:BookManageViewModel>-->
-    <viewmodel:StatisticsManageViewModel x:Key="StatisticsManageVM"></viewmodel:StatisticsManageViewModel>
+    <!--<viewmodel:StatisticsManageViewModel x:Key="StatisticsManageVM"></viewmodel:StatisticsManageViewModel>
     <viewmodel:CustomerManageViewModel x:Key="CustomerManageVM"></viewmodel:CustomerManageViewModel>
     <viewmodel:AccountManageViewModel x:Key="AccountManageVM"></viewmodel:AccountManageViewModel>
     <viewmodel:IssueBookManageViewModel x:Key="IssueBookManageVM"></viewmodel:IssueBookManageViewModel>
@@ -16,7 +16,8 @@
     <viewmodel:IndemnifyManageViewModel x:Key="IndemnifyManageVM"></viewmodel:IndemnifyManageViewModel>
     <viewmodel:AuthorManageViewModel x:Key="AuthorManageVM"></viewmodel:AuthorManageViewModel>
     <viewmodel:BookTypeManageViewModel x:Key="BookTypeManageVM"></viewmodel:BookTypeManageViewModel>
-    <viewmodel:RoleManageViewModel x:Key="RoleManageVM"></viewmodel:RoleManageViewModel>-->
+    <viewmodel:RoleManageViewModel x:Key="RoleManageVM"></viewmodel:RoleManageViewModel>
+    <viewmodel:GeneralManageViewModel x:Key="GeneralManageVM"></viewmodel:GeneralManageViewModel>-->
 
     <DataTemplate x:Name="StaffManageControlUC" DataType="{x:Type viewmodel:StaffManageViewModel}">
         <view:StaffManageView Content="{Binding}"/>
