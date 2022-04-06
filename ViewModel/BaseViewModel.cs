@@ -11,8 +11,8 @@ namespace QuanLyThuVien.ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        private static bool _isEditClick;
-        public static bool IsEditClick { get { return _isEditClick; } set { _isEditClick = value; } }
+        private static bool _isClick;
+        public static bool IsClick { get { return _isClick; } set { _isClick = value; } }
         private bool _isEnable;
         public bool IsEnable { get { return _isEnable; } set { _isEnable = value; OnPropertyChanged(); } }
         private static object? _selectedItem;
