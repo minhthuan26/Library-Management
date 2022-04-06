@@ -25,6 +25,7 @@ namespace QuanLyThuVien
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainViewModel();
         }
     }
 }

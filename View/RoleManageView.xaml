@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="QuanLyThuVien.View.RoleManageControlUC"
+﻿<UserControl x:Class="QuanLyThuVien.View.RoleManageView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,7 +13,6 @@
              TextElement.FontSize="13"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-             DataContext="{StaticResource RoleManageVM}"
              Height="auto"
              Width="auto">
     <Grid>

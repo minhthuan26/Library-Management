@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="QuanLyThuVien.View.ReturnBookManageControlUC"
+﻿<UserControl x:Class="QuanLyThuVien.View.IndemnifyManageView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,7 +13,6 @@
              TextElement.FontSize="13"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-             DataContext="{StaticResource ReturnBookManageVM }"
              Height="auto"
              Width="auto">
     <Grid>
@@ -63,7 +62,7 @@
                     <ComboBox
                         Margin="15 0 0 0"
                         FontSize="16"
-                        materialDesign:HintAssist.Hint="Trạng thái phiếu mượn">
+                        materialDesign:HintAssist.Hint="Trạng thái phiếu bồi thường">
                         <ComboBoxItem
                             Content="Android" />
                         <ComboBoxItem
@@ -89,9 +88,10 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="STT" DisplayMemberBinding="{Binding}"></GridViewColumn>
-                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding PhieuMuon.ID}"></GridViewColumn>
-                                <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding PhieuMuon.NgayLapPhieu}"></GridViewColumn>
-                                <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding PhieuMuon.TrangThai}"></GridViewColumn>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding PhieuBoiThuong.ID}"></GridViewColumn>
+                                <GridViewColumn Header="ID phiếu mượn" DisplayMemberBinding="{Binding PhieuMuon.ID}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding PhieuBoiThuong.NgayLapPhieu}"></GridViewColumn>
+                                <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding PhieuBoiThuong.TrangThai}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

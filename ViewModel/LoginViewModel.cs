@@ -1,4 +1,5 @@
-﻿using QuanLyThuVien.Model;
+﻿using QuanLyThuVien.Encryption;
+using QuanLyThuVien.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,9 @@ namespace QuanLyThuVien.ViewModel
             }
             else
             {
-                string passEncode = MD5Hash(Base64Encode(Password));
+                //string passEncode = MD5Hash(Base64Encode(Password));
+                //string tmp = MaHoa.Affine.Encode("hentoithubay", 5, 6);
+                string passEncode = MaHoa.MD5.Encode(MaHoa.Base64.Encode(Password));
                 var resultCount = DataProvider.Ins.DB.TaiKhoans.Where(taiKhoan => taiKhoan.TenTaiKhoan == AccountName && taiKhoan.MatKhau == passEncode).Count();
                 if(resultCount > 0)
                 {
@@ -59,24 +62,5 @@ namespace QuanLyThuVien.ViewModel
                 }
             }
         }
-        public static string Base64Encode(string plainText)
-        {
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
-            return System.Convert.ToBase64String(plainTextBytes);
-        }
-
-        public static string MD5Hash(string input)
-        {
-            StringBuilder hash = new StringBuilder();
-            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
-            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
-
-            for (int i = 0; i < bytes.Length; i++)
-            {
-                hash.Append(bytes[i].ToString("x2"));
-            }
-            return hash.ToString();
-        }
-
     }
 }

@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace QuanLyThuVien.View
 {
     /// <summary>
-    /// Interaction logic for BookManageControlUC.xaml
+    /// Interaction logic for ReturnBookManageControlUC.xaml
     /// </summary>
-    public partial class BookManageControlUC : UserControl
+    public partial class ReturnBookManageView : UserControl
     {
-        public BookManageControlUC()
+        public ReturnBookManageView()
         {
             InitializeComponent();
-            DataContext = new BookManageViewModel();
+            DataContext = new ReturnBookManageViewModel();
         }
     }
 }

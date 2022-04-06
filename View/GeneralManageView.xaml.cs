@@ -19,9 +19,9 @@ namespace QuanLyThuVien.View
     /// <summary>
     /// Interaction logic for GeneralManageControlUC.xaml
     /// </summary>
-    public partial class GeneralManageControlUC : UserControl
+    public partial class GeneralManageView : UserControl
     {
-        public GeneralManageControlUC()
+        public GeneralManageView()
         {
             InitializeComponent();
             DataContext = new GeneralManageViewModel();

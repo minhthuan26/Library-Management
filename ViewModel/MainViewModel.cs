@@ -15,7 +15,6 @@ namespace QuanLyThuVien.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        public bool IsLoaded = false;
         private BaseViewModel _selectView;
         public BaseViewModel SelectView { get { if (_selectView == null) _selectView = new GeneralManageViewModel(); return _selectView; } set { _selectView = value; OnPropertyChanged(); } }
         private string _viewTitle;
@@ -31,7 +30,6 @@ namespace QuanLyThuVien.ViewModel
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                IsLoaded = true;
                 if (p == null)
                     return;
                 p.Hide();
