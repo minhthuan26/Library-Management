@@ -17,14 +17,16 @@ namespace QuanLyThuVien.ViewModel
     {
         public bool IsLoaded = false;
         private BaseViewModel _selectView;
-        public BaseViewModel SelectView { get { if (_selectView == null) _selectView = new GeneralManageViewModel(); return _selectView; } set { _selectView = value; OnPropertyChanged();} }
+        public BaseViewModel SelectView { get { if (_selectView == null) _selectView = new GeneralManageViewModel(); return _selectView; } set { _selectView = value; OnPropertyChanged(); } }
         private string _viewTitle;
         public string ViewTitle { get { if (_viewTitle == null) _viewTitle = "Tổng quan"; return _viewTitle; } set { _viewTitle = value; OnPropertyChanged(); } }
         private static Button _currentBtn = new Button();
         public static Button CurrentBtn { get { return _currentBtn; } set { _currentBtn = value; } }
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand ChangeViewCommand { get; set; }
-        public ICommand StaffManageCommand { get; set; }
+        public ICommand EditCommand { get; set; }
+        public ICommand AddCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -40,6 +42,7 @@ namespace QuanLyThuVien.ViewModel
                 var loginVM = loginWindow.DataContext as LoginViewModel;
                 if (loginVM.IsLogin)
                 {
+                    //BookManageViewModel test = new BookManageViewModel(true);
                     GeneralManageViewModel generalManageVM = new GeneralManageViewModel();
                     p.Show();
                 }
@@ -115,12 +118,45 @@ namespace QuanLyThuVien.ViewModel
                     CurrentBtn = new Button();
                     expandButton(p);
                     ViewTitle = null;
+                    SelectedItem = null;
+                    IsClick = false;
                 }
                 
             });
+
+            EditCommand = new RelayCommand<Button>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                IsClick = true;
+            });
+
+            AddCommand = new RelayCommand<Button>((p) =>
+            {
+                //if (SelectedItem == null)
+                //    return false;
+                return true;
+            }, (p) =>
+            {
+                SelectedItem = null;
+                IsClick = true;
+            });
+
+            DeleteCommand = new RelayCommand<Button>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                
+            });
         }
-        
-        FrameworkElement getWindowParent(Button btn)
+
+        FrameworkElement getParent(Button btn)
         {
             FrameworkElement parent = btn;
             while (parent.Parent != null)

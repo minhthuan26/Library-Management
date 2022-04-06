@@ -11,11 +11,21 @@ namespace QuanLyThuVien.ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        private static bool _isClick;
+        public static bool IsClick { get { return _isClick; } set { _isClick = value; } }
+        private bool _isEnable;
+        public bool IsEnable { get { return _isEnable; } set { _isEnable = value; OnPropertyChanged(); } }
+        private static object? _selectedItem;
+        public static object? SelectedItem { get { return _selectedItem; } set { _selectedItem = value; } }
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public void setIsEnable()
+        {
+            IsEnable = true? IsEnable = false : IsEnable = true;
         }
     }
 
