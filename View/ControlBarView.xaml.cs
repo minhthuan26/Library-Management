@@ -19,10 +19,10 @@ namespace QuanLyThuVien.UserControlMain
     /// <summary>
     /// Interaction logic for UserControlUC.xaml
     /// </summary>
-    public partial class ControlBarUC : UserControl
+    public partial class ControlBarView : UserControl
     {
         public ControlBarViewModel Viewmodel { get; set; }
-        public ControlBarUC()
+        public ControlBarView()
         {
             InitializeComponent();
             this.DataContext = Viewmodel = new ControlBarViewModel();
