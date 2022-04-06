@@ -4,7 +4,7 @@
     xmlns:viewmodel="clr-namespace:QuanLyThuVien.ViewModel"
     xmlns:view="clr-namespace:QuanLyThuVien.View">
     
-    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <!--<viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:StaffManageViewModel x:Key="StaffManageVM"></viewmodel:StaffManageViewModel>
     <viewmodel:BookManageViewModel x:Key="BookManageVM"></viewmodel:BookManageViewModel>
@@ -17,7 +17,7 @@
     <viewmodel:AuthorManageViewModel x:Key="AuthorManageVM"></viewmodel:AuthorManageViewModel>
     <viewmodel:BookTypeManageViewModel x:Key="BookTypeManageVM"></viewmodel:BookTypeManageViewModel>
     <viewmodel:RoleManageViewModel x:Key="RoleManageVM"></viewmodel:RoleManageViewModel>
-    <viewmodel:GeneralManageViewModel x:Key="GeneralManageVM"></viewmodel:GeneralManageViewModel>
+    <viewmodel:GeneralManageViewModel x:Key="GeneralManageVM"></viewmodel:GeneralManageViewModel>-->
 
     <DataTemplate x:Name="StaffManageControlUC" DataType="{x:Type viewmodel:StaffManageViewModel}">
         <view:StaffManageControlUC Content="{Binding}"/>
