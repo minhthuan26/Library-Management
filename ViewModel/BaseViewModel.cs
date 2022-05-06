@@ -13,6 +13,10 @@ namespace QuanLyThuVien.ViewModel
     {
         private static bool _isClick;
         public static bool IsClick { get { return _isClick; } set { _isClick = value; } }
+        private static bool _isAdd;
+        public static bool IsAdd { get { return _isAdd; } set { _isAdd = value; } }
+        private static bool _isDelete;
+        public static bool IsDelete { get { return _isDelete; } set { _isDelete = value; } }
         private bool _isEnable;
         public bool IsEnable { get { return _isEnable; } set { _isEnable = value; OnPropertyChanged(); } }
         private static object? _selectedItem;

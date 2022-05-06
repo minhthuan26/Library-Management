@@ -15,6 +15,8 @@ namespace QuanLyThuVien.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        private static BaseViewModel _currentView;
+        public static BaseViewModel CurrentView { get { return _currentView; } set { _currentView = value; } }
         private BaseViewModel _selectView;
         public BaseViewModel SelectView { get { if (_selectView == null) _selectView = new GeneralManageViewModel(); return _selectView; } set { _selectView = value; OnPropertyChanged(); } }
         private string _viewTitle;
@@ -97,7 +99,7 @@ namespace QuanLyThuVien.ViewModel
                             expandButton(CurrentBtn);
                             CurrentBtn = p;
                             expandButton(p);
-                            SelectView = (BaseViewModel)view.Value;
+                            CurrentView = SelectView = (BaseViewModel)view.Value;
                             foreach (var title in titleList)
                             {
                                 if (title.Key.ToString() == SelectView.ToString())
@@ -141,6 +143,7 @@ namespace QuanLyThuVien.ViewModel
             {
                 SelectedItem = null;
                 IsClick = true;
+                IsAdd = true;
             });
 
             DeleteCommand = new RelayCommand<Button>((p) =>
@@ -150,8 +153,16 @@ namespace QuanLyThuVien.ViewModel
                 return true;
             }, (p) =>
             {
+                BookList bookList = (BookList)SelectedItem;
+                Sach book = bookList.Book;
+                var recore = DataProvider.Ins.DB.Saches.Where(x => x.ID == book.ID);
+                DataProvider.Ins.DB.Saches.DeleteObject(book);
+                DataProvider.Ins.DB.SaveChanges();IsDelete = true;
+                BookManageViewModel bookManageViewModel = (BookManageViewModel)SelectView;
+                bookManageViewModel.setDefault();
                 
             });
+            
         }
 
         FrameworkElement getParent(Button btn)

@@ -72,15 +72,15 @@
 
         <Grid Margin="5" Grid.Row="2">
             <materialDesign:Card>
-                <Grid Margin="5">
-                    <Grid.ColumnDefinitions>
+                <WrapPanel Margin="5">
+                    <!--<Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>-->
 
-                    <Grid Grid.Column="0">
+                    <Grid Margin="5">
                         <TextBox
                             Text="{Binding TaiKhoan.TenTaiKhoan, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
@@ -90,7 +90,7 @@
                             Width="300"/>
                     </Grid>
 
-                    <Grid Grid.Column="1">
+                    <Grid Margin="5">
                         <TextBox
                             Text="{Binding TaiKhoan.MatKhau, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
@@ -99,8 +99,8 @@
                             materialDesign:HintAssist.HelperText=""
                             Width="300"/>
                     </Grid>
-                    
-                    <Grid Grid.Column="2">
+
+                    <Grid Margin="5">
                         <ComboBox
                             Margin="15 0 0 0"
                             FontSize="16"
@@ -111,7 +111,7 @@
                             <ComboBoxItem Content="Windows" />
                         </ComboBox>
                     </Grid>
-                    <Grid Grid.Column="3">
+                    <Grid Margin="5">
                         <Button
                             Background="#FF1A88CE"
                             Margin="15 0 0 0"
@@ -120,7 +120,7 @@
                             Width="150"
                             Content="Lưu"/>
                     </Grid>
-                </Grid>
+                </WrapPanel>
 
             </materialDesign:Card>
         </Grid>

@@ -49,12 +49,12 @@ namespace QuanLyThuVien.ViewModel
                     SelectedAuthor = SelectedItem.Book.TacGia;
                     SelectedBookType = SelectedItem.Book.TheLoai;
                 }
-                else
+                if (SelectedItem == null)
                 {
                     Ten = default;
                     SoLuong = default;
                     Gia = default;
-                    NgayXuatBan = default;
+                    NgayXuatBan = DateTime.Now;
                     SelectedAuthor = default;
                     SelectedBookType = default;
                 }
@@ -92,6 +92,7 @@ namespace QuanLyThuVien.ViewModel
         }
         public ICommand SaveCommand { get; set; }
         public ICommand CancelCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
         public BookManageViewModel()
         {
             setDefault();
@@ -99,7 +100,7 @@ namespace QuanLyThuVien.ViewModel
             {
                 if (IsClick || IsEnable)
                 {
-                    if (string.IsNullOrEmpty(Ten) || NgayXuatBan < DateTime.Parse("01/01/1900") || NgayXuatBan == null || SoLuong <= 0)
+                    if (string.IsNullOrEmpty(Ten) || NgayXuatBan < DateTime.Parse("01/01/1900") || NgayXuatBan == null || SoLuong < 0)
                     {
                         return false;
                     }
@@ -110,7 +111,7 @@ namespace QuanLyThuVien.ViewModel
                 return false;
             }, (p) =>
             {
-                if(BaseViewModel.SelectedItem != null)
+                if(BaseViewModel.SelectedItem != null && !IsAdd)
                 {
                     var book = DataProvider.Ins.DB.Saches.Where(x => x.ID == SelectedItem.Book.ID).SingleOrDefault();
                     book.TenSach = Ten;
@@ -119,6 +120,21 @@ namespace QuanLyThuVien.ViewModel
                     book.IDTacGia = SelectedAuthor.ID;
                     book.IDTheLoai = SelectedBookType.ID;
                     book.NgayXuatBan = NgayXuatBan;
+                    DataProvider.Ins.DB.SaveChanges();
+                    setDefault();
+                }
+                else if(IsAdd)
+                {
+                    var book = new Sach();
+                    book.ID = Guid.NewGuid().ToString();
+                    book.TenSach = Ten;
+                    book.SoLuong = SoLuong;
+                    book.Gia = Gia;
+                    book.IDTacGia = SelectedAuthor.ID;
+                    book.IDTheLoai = SelectedBookType.ID;
+                    book.NgayXuatBan = NgayXuatBan;
+                    book.TrangThai = "1";
+                    DataProvider.Ins.DB.AddToSaches(book);
                     DataProvider.Ins.DB.SaveChanges();
                     setDefault();
                 }
@@ -142,17 +158,33 @@ namespace QuanLyThuVien.ViewModel
                 setDefault();
                 
             });
+
+            //DeleteCommand = new RelayCommand<Button>((p) =>
+            //{
+            //    return true;
+            //}, (p) =>
+            //{
+            //    DataProvider.Ins.DB.DeleteObject(SelectedItem);
+            //    DataProvider.Ins.DB.SaveChanges();
+            //    setDefault();
+            //});
+            
         }
 
         public void setDefault()
         {
             AuthorList = new ObservableCollection<TacGia>(DataProvider.Ins.DB.TacGias);
             BookTypeList = new ObservableCollection<TheLoai>(DataProvider.Ins.DB.TheLoais);
-            loadList();
             BaseViewModel.SelectedItem = null;
             this.SelectedItem = null;
             IsEnable = false;
             IsClick = false;
+            IsAdd = false;
+            if(IsDelete)
+                List.Remove(SelectedItem);
+            IsDelete = false;
+            
+            loadList();
         }
         public void loadList()
         {

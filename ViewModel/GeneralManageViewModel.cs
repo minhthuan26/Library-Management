@@ -40,34 +40,39 @@ namespace QuanLyThuVien.ViewModel
             var bookList = DataProvider.Ins.DB.Saches;
             if (bookList == null)
                 BookCount = 0;
-            foreach(var item in bookList)
-            {
-                BookCount += item.SoLuong; 
-            }
+            else
+                foreach(var item in bookList)
+                {
+                    BookCount += item.SoLuong; 
+                }
 
             var IssueDetailList = DataProvider.Ins.DB.ChiTietPhieuMuons;
             if (IssueDetailList == null)
                 IssueBookDetailCount = 0;
-            foreach (var item in IssueDetailList)
-            {
-                IssueBookDetailCount += item.SoLuong;
-            }
+            else
+                foreach (var item in IssueDetailList)
+                {
+                    IssueBookDetailCount += item.SoLuong;
+                }
 
             var indemnifyList = DataProvider.Ins.DB.ChiTietPhieuBoiThuongs;
             if (indemnifyList == null)
                 IndemnifyDetailCount = 0;
-            foreach (var item in indemnifyList)
-            {
-                IndemnifyDetailCount += item.SoLuong;
-            }
+            
+            else
+                foreach (var item in indemnifyList)
+                {
+                    IndemnifyDetailCount += item.SoLuong;
+                }
 
             var customerList = DataProvider.Ins.DB.KhachHangs;
             if (customerList == null)
                 CustomerCount = 0;
-            foreach (var item in customerList)
-            {
-                CustomerCount ++;
-            }
+            else
+                foreach (var item in customerList)
+                {
+                    CustomerCount ++;
+                }
 
             return new GeneralManageViewModel(BookCount, IssueBookDetailCount, IndemnifyDetailCount, CustomerCount);
         }

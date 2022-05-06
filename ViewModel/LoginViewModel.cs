@@ -25,6 +25,7 @@ namespace QuanLyThuVien.ViewModel
         public LoginViewModel()
         {
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
+                var a = DataProvider.Ins.DB.Saches.ToList();
                 Login(p);
             });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => {

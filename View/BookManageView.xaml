@@ -91,19 +91,19 @@
 
         <Grid Margin="5" Grid.Row="2">
             <materialDesign:Card>
-                <Grid Margin="5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                <WrapPanel Margin="5">
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>-->
 
-                    <Grid Grid.Column="0">
+                    <Grid Margin="5">
                         <ComboBox
                             SelectedItem="{Binding SelectedAuthor, Mode=TwoWay}"
                             ItemsSource="{Binding AuthorList}"
@@ -126,7 +126,7 @@
                         </ComboBox>
                     </Grid>
 
-                    <Grid Grid.Column="1">
+                    <Grid Margin="5">
                         <ComboBox
                             SelectedItem="{Binding SelectedBookType, Mode=TwoWay}"
                             ItemsSource="{Binding BookTypeList}"
@@ -137,7 +137,7 @@
                             materialDesign:HintAssist.Hint="Thể loại">
                         </ComboBox>
                     </Grid>
-                    <Grid Grid.Column="2">
+                    <Grid Margin="5">
                         <TextBox
                             IsEnabled="{Binding IsEnable}"
                             Text="{Binding Ten, UpdateSourceTrigger=PropertyChanged}"
@@ -147,7 +147,7 @@
                             materialDesign:HintAssist.HelperText=""
                             Width="150" />
                     </Grid>
-                    <Grid Grid.Column="3">
+                    <Grid Margin="5">
                         <TextBox
                             IsEnabled="{Binding IsEnable}"
                             Text="{Binding SoLuong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
@@ -157,7 +157,7 @@
                             materialDesign:HintAssist.HelperText=""
                             Width="150" />
                     </Grid>
-                    <Grid Grid.Column="4">
+                    <Grid Margin="5">
                         <TextBox
                             IsEnabled="{Binding IsEnable}"
                             Text="{Binding Gia, UpdateSourceTrigger=PropertyChanged}"
@@ -167,7 +167,7 @@
                             materialDesign:HintAssist.HelperText=""
                             Width="150" Height="46" VerticalAlignment="Bottom" />
                     </Grid>
-                    <Grid Grid.Column="5">
+                    <Grid Margin="5">
                         <DatePicker
                             VerticalAlignment="Bottom"
                             IsEnabled="{Binding IsEnable}"
@@ -179,7 +179,7 @@
                             materialDesign:TextFieldAssist.HasClearButton="True"
                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                     </Grid>
-                    <Grid Grid.Column="6">
+                    <Grid Margin="5">
                         <Button
                             Name="cancelBtn"
                             Command="{Binding CancelCommand}"
@@ -192,7 +192,7 @@
                             Width="150"
                             Content="Huỷ"/>
                     </Grid>
-                    <Grid Grid.Column="7">
+                    <Grid Margin="5">
                         <Button
                             Name="saveBtn"
                             Command="{Binding SaveCommand}"
@@ -205,7 +205,7 @@
                             Width="150"
                             Content="Lưu"/>
                     </Grid>
-                </Grid>
+                </WrapPanel>
             </materialDesign:Card>
         </Grid>
 
@@ -216,7 +216,7 @@
         <Grid Margin="5" Grid.Row="4">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
-                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" FontSize="20">
+                    <ListView ItemsSource="{Binding List, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" FontSize="20">
                         <!--<ListView.Resources>
                             <Style TargetType="{x:Type GridViewColumnHeader}">
                                 <Setter Property="HorizontalAlignment" Value="Left" />
