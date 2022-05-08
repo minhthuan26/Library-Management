@@ -2091,6 +2091,30 @@ namespace QuanLyThuVien.Model
         private global::System.String _HinhAnh;
         partial void OnHinhAnhChanging(global::System.String value);
         partial void OnHinhAnhChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> TrangThai
+        {
+            get
+            {
+                return _TrangThai;
+            }
+            set
+            {
+                OnTrangThaiChanging(value);
+                ReportPropertyChanging("TrangThai");
+                _TrangThai = StructuralObject.SetValidValue(value, "TrangThai");
+                ReportPropertyChanged("TrangThai");
+                OnTrangThaiChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _TrangThai;
+        partial void OnTrangThaiChanging(Nullable<global::System.Int32> value);
+        partial void OnTrangThaiChanged();
 
         #endregion
 
@@ -2215,8 +2239,6 @@ namespace QuanLyThuVien.Model
                 }
             }
         }
-
-        public object Book { get; internal set; }
 
         #endregion
 
@@ -2392,13 +2414,11 @@ namespace QuanLyThuVien.Model
         /// Create a new TacGia object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="ho">Initial value of the Ho property.</param>
         /// <param name="ten">Initial value of the Ten property.</param>
-        public static TacGia CreateTacGia(global::System.String id, global::System.String ho, global::System.String ten)
+        public static TacGia CreateTacGia(global::System.String id, global::System.String ten)
         {
             TacGia tacGia = new TacGia();
             tacGia.ID = id;
-            tacGia.Ho = ho;
             tacGia.Ten = ten;
             return tacGia;
         }
@@ -2433,30 +2453,6 @@ namespace QuanLyThuVien.Model
         private global::System.String _ID;
         partial void OnIDChanging(global::System.String value);
         partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Ho
-        {
-            get
-            {
-                return _Ho;
-            }
-            set
-            {
-                OnHoChanging(value);
-                ReportPropertyChanging("Ho");
-                _Ho = StructuralObject.SetValidValue(value, false, "Ho");
-                ReportPropertyChanged("Ho");
-                OnHoChanged();
-            }
-        }
-        private global::System.String _Ho;
-        partial void OnHoChanging(global::System.String value);
-        partial void OnHoChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

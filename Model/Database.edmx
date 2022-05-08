@@ -86,6 +86,7 @@
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="IDTheLoai" Type="int" />
           <Property Name="HinhAnh" Type="varchar(max)" />
+          <Property Name="TrangThai" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -102,7 +103,6 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="varchar" MaxLength="128" Nullable="false" />
-          <Property Name="Ho" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Ten" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="TaiKhoan">
@@ -447,6 +447,7 @@
           <Property Name="SoLuong" Type="Int32" Nullable="false" />
           <Property Name="IDTheLoai" Type="Int32" />
           <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrangThai" Type="Int32" />
           <NavigationProperty Name="ChiTietPhieuBoiThuongs" Relationship="QuanLiThuVienModel.FK_CTPBT_S" FromRole="Sach" ToRole="ChiTietPhieuBoiThuong" />
           <NavigationProperty Name="ChiTietPhieuMuons" Relationship="QuanLiThuVienModel.FK_CTPM_S" FromRole="Sach" ToRole="ChiTietPhieuMuon" />
           <NavigationProperty Name="TacGia" Relationship="QuanLiThuVienModel.FK_S_TG" FromRole="Sach" ToRole="TacGia" />
@@ -467,7 +468,6 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="Ho" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Ten" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Saches" Relationship="QuanLiThuVienModel.FK_S_TG" FromRole="TacGia" ToRole="Sach" />
         </EntityType>
@@ -696,6 +696,7 @@
           <EntitySetMapping Name="Saches">
             <EntityTypeMapping TypeName="QuanLiThuVienModel.Sach">
               <MappingFragment StoreEntitySet="Sach">
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
                 <ScalarProperty Name="IDTheLoai" ColumnName="IDTheLoai" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
@@ -722,7 +723,6 @@
             <EntityTypeMapping TypeName="QuanLiThuVienModel.TacGia">
               <MappingFragment StoreEntitySet="TacGia">
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
-                <ScalarProperty Name="Ho" ColumnName="Ho" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

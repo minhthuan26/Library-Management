@@ -47,7 +47,7 @@
         <view:AuthorManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="BookTypeManageControlUC" DataType="{x:Type viewmodel:BookTypeManageViewModel}">
-        <view:BookManageView Content="{Binding}"/>
+        <view:BookTypeManageView Content="{Binding}"/>
     </DataTemplate>
     <DataTemplate x:Name="RoleManageControlUC" DataType="{x:Type viewmodel:RoleManageViewModel}">
         <view:RoleManageView Content="{Binding}"/>

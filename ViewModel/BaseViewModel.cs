@@ -11,6 +11,9 @@ namespace QuanLyThuVien.ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+
+        private string _isVisible;
+        public string IsVisible { get {if(_isVisible == null) _isVisible = "Hidden"; return _isVisible; } set { _isVisible = value; OnPropertyChanged(); } }
         private static bool _isClick;
         public static bool IsClick { get { return _isClick; } set { _isClick = value; } }
         private static bool _isAdd;

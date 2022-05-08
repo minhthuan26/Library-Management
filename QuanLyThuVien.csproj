@@ -9,14 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Model\Database.edmx" />
+    <Compile Remove="Model\Database.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <EntityDeploy Include="Model\Database.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Database.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <None Remove="Model\Database.edmx" />
+    <None Remove="Model\Database.edmx.diagram" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,14 +25,6 @@
   <ItemGroup>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Security" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Model\Database.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Database.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
 
 </Project>

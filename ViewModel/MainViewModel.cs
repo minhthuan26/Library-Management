@@ -28,6 +28,7 @@ namespace QuanLyThuVien.ViewModel
         public ICommand EditCommand { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
+        public ICommand ConfirmCommand { get; set; }
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -130,8 +131,9 @@ namespace QuanLyThuVien.ViewModel
                     return false;
                 return true;
             }, (p) =>
-            {
+            { 
                 IsClick = true;
+                IsAdd = false;
             });
 
             AddCommand = new RelayCommand<Button>((p) =>
@@ -146,23 +148,53 @@ namespace QuanLyThuVien.ViewModel
                 IsAdd = true;
             });
 
-            DeleteCommand = new RelayCommand<Button>((p) =>
+            DeleteCommand = new RelayCommand<Grid>((p) =>
             {
                 if (SelectedItem == null)
                     return false;
                 return true;
             }, (p) =>
             {
-                BookList bookList = (BookList)SelectedItem;
-                Sach book = bookList.Book;
-                var recore = DataProvider.Ins.DB.Saches.Where(x => x.ID == book.ID);
-                DataProvider.Ins.DB.Saches.DeleteObject(book);
-                DataProvider.Ins.DB.SaveChanges();IsDelete = true;
-                BookManageViewModel bookManageViewModel = (BookManageViewModel)SelectView;
-                bookManageViewModel.setDefault();
+                switch (ViewTitle)
+                {
+                    case "Quản lí sách":
+                        BookManageViewModel bookManageViewModel = (BookManageViewModel)SelectView;
+                        BookList bookList = (BookList)SelectedItem;
+                        Sach book = bookList.Book;
+                        DataProvider.Ins.DB.Saches.DeleteObject(book);
+                        DataProvider.Ins.DB.SaveChanges();
+                        bookManageViewModel.setDefault();
+                        CurrentView = SelectView;
+                        SelectView = null;
+                        p.Visibility = Visibility.Hidden;
+                        IsVisible = "Visible";
+                        break;
+
+                    case "Quản lí thể loại sách":
+                        BookTypeManageViewModel bookTypeManageViewModel = (BookTypeManageViewModel)SelectView;
+                        BookTypeList bookTypeList = (BookTypeList)SelectedItem;
+                        TheLoai bookType = bookTypeList.BookType;
+                        DataProvider.Ins.DB.TheLoais.DeleteObject(bookType);
+                        DataProvider.Ins.DB.SaveChanges();
+                        bookTypeManageViewModel.setDefault();
+                        CurrentView = SelectView;
+                        SelectView = null;
+                        p.Visibility = Visibility.Hidden;
+                        IsVisible = "Visible";
+                        break;
+                }
                 
             });
-            
+
+            ConfirmCommand = new RelayCommand<Grid>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                SelectView = CurrentView;
+                p.Visibility = Visibility.Visible;
+                IsVisible = "Hidden";
+            });
         }
 
         FrameworkElement getParent(Button btn)

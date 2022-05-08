@@ -33,9 +33,9 @@
         <EntityTypeShape EntityType="QuanLiThuVienModel.NhanVien" Width="1.5" PointX="10.25" PointY="8.875" />
         <EntityTypeShape EntityType="QuanLiThuVienModel.PhieuBoiThuong" Width="1.5" PointX="3" PointY="9" />
         <EntityTypeShape EntityType="QuanLiThuVienModel.PhieuMuon" Width="1.5" PointX="0.75" PointY="9" />
-        <EntityTypeShape EntityType="QuanLiThuVienModel.Sach" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.Sach" Width="1.5" PointX="3" PointY="4.25" />
         <EntityTypeShape EntityType="QuanLiThuVienModel.sysdiagram" Width="1.5" PointX="10.75" PointY="2.75" />
-        <EntityTypeShape EntityType="QuanLiThuVienModel.TacGia" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="QuanLiThuVienModel.TacGia" Width="1.5" PointX="0.75" PointY="5.25" />
         <EntityTypeShape EntityType="QuanLiThuVienModel.TaiKhoan" Width="1.5" PointX="8" PointY="9" />
         <EntityTypeShape EntityType="QuanLiThuVienModel.TheLoai" Width="1.5" PointX="0.75" PointY="2.25" />
         <AssociationConnector Association="QuanLiThuVienModel.FK_CTPBT_PBT" />
@@ -48,7 +48,7 @@
         <AssociationConnector Association="QuanLiThuVienModel.FK_PBT_PM" />
         <AssociationConnector Association="QuanLiThuVienModel.FK_S_TG" />
         <AssociationConnector Association="QuanLiThuVienModel.FK_S_TL" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
