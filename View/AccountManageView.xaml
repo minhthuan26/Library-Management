@@ -31,23 +31,19 @@
                     Orientation="Horizontal" 
                     HorizontalAlignment="Left">
                     <ComboBox
+                        ItemsSource="{Binding SearchTypeList}"
+                        SelectedItem="{Binding SearchType, UpdateSourceTrigger=PropertyChanged}"
                         Margin="15 0 0 0"
                         FontSize="16"
                         materialDesign:HintAssist.Hint="Chọn loại tìm kiếm">
-                        <ComboBoxItem
-                            Content="Android" />
-                        <ComboBoxItem
-                            Content="iOS" />
-                        <ComboBoxItem
-                            Content="Linux" />
-                        <ComboBoxItem
-                            Content="Windows" />
+                        
                     </ComboBox>
 
 
                     <TextBox
                         Margin="15 0 0 0"
                         FontSize="16"
+                        Text="{Binding SearchValue, UpdateSourceTrigger=PropertyChanged}"
                         materialDesign:HintAssist.Hint="Nhập tìm kiếm"
                         materialDesign:HintAssist.HelperText=""
                         Width="300">
@@ -61,6 +57,20 @@
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         Width="150"
                         Content="Tìm kiếm"/>
+
+                    <TextBlock
+                        Margin="15 0 0 0"
+                        FontSize="16"
+                        VerticalAlignment="Center"
+                        Text="Tình trạng sách: "/>
+
+                    <ComboBox
+                        ItemsSource="{Binding AccountStatusSearchList}"
+                        SelectedItem="{Binding AccountStatusSearch, UpdateSourceTrigger=PropertyChanged}"
+                        Margin="5 0 0 0"
+                        FontSize="16"
+                        materialDesign:HintAssist.Hint="Trạng thái sách">
+                    </ComboBox>
                 </StackPanel>
 
             </materialDesign:Card>
@@ -82,7 +92,8 @@
 
                     <Grid Margin="5">
                         <TextBox
-                            Text="{Binding TaiKhoan.TenTaiKhoan, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding AccountName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Tên tài khoản"
@@ -92,7 +103,8 @@
 
                     <Grid Margin="5">
                         <TextBox
-                            Text="{Binding TaiKhoan.MatKhau, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Mật khẩu"
@@ -102,17 +114,29 @@
 
                     <Grid Margin="5">
                         <ComboBox
+                            DisplayMemberPath="TenChucVu"
+                            SelectedItem="{Binding SelectedRole, Mode=TwoWay}"
+                            ItemsSource="{Binding RoleList}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Chức vụ">
-                            <ComboBoxItem Content="Android" />
-                            <ComboBoxItem Content="iOS" />
-                            <ComboBoxItem Content="Linux" />
-                            <ComboBoxItem Content="Windows" />
+                            
                         </ComboBox>
                     </Grid>
                     <Grid Margin="5">
                         <Button
+                            Command="{Binding CancelCommand}"
+                            Background="#FF1A88CE"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Width="150"
+                            Content="Huỷ"/>
+                    </Grid>
+                    <Grid Margin="5">
+                        <Button
+                            Command="{Binding SaveCommand}"
                             Background="#FF1A88CE"
                             Margin="15 0 0 0"
                             FontSize="16"
@@ -132,15 +156,18 @@
         <Grid Margin="5" Grid.Row="4">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
-                    <ListView FontSize="20">
+                    <ListView 
+                        ItemsSource="{Binding List, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                        FontSize="20">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding}"></GridViewColumn>
-                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding NhanVien.ID}"></GridViewColumn>
-                                <GridViewColumn Header="Tên tài khoản" DisplayMemberBinding="{Binding NhanVien.Họ}"></GridViewColumn>
-                                <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding NhanVien.Tên}"></GridViewColumn>
-                                <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding NhanVien.NgaySinh}"></GridViewColumn>
-                                </GridView>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                                <GridViewColumn Header="Tên tài khoản" DisplayMemberBinding="{Binding TenTaiKhoan}"></GridViewColumn>
+                                <GridViewColumn Header="Mật khẩu" DisplayMemberBinding="{Binding MatKhau}"></GridViewColumn>
+                                <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding ChucVu.TenChucVu}"></GridViewColumn>
+                                
+                            </GridView>
                         </ListView.View>
                     </ListView>
                 </ScrollViewer>

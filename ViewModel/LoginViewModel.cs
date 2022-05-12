@@ -1,4 +1,4 @@
-﻿using QuanLyThuVien.Encryption;
+﻿using MaHoa;
 using QuanLyThuVien.Model;
 using System;
 using System.Collections.Generic;
@@ -49,7 +49,8 @@ namespace QuanLyThuVien.ViewModel
             {
                 //string passEncode = MD5Hash(Base64Encode(Password));
                 //string tmp = MaHoa.Affine.Encode("hentoithubay", 5, 6);
-                string passEncode = MaHoa.MD5.Encode(MaHoa.Base64.Encode(Password));
+                //string passEncode = MaHoa.MD5.Encode(MaHoa.Base64.Encode(Password));
+                string passEncode = Cryption.Vigenere.Encode(Password, AccountName);
                 var resultCount = DataProvider.Ins.DB.TaiKhoans.Where(taiKhoan => taiKhoan.TenTaiKhoan == AccountName && taiKhoan.MatKhau == passEncode).Count();
                 if(resultCount > 0)
                 {

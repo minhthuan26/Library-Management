@@ -19,16 +19,16 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPBT_PBT", "PhieuBoiThuong", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.PhieuBoiThuong), "ChiTietPhieuBoiThuong", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuBoiThuong), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPBT_S", "Sach", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.Sach), "ChiTietPhieuBoiThuong", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuBoiThuong), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "KhachHang", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.KhachHang), "ChiTietPhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuMuon), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPM_PM", "PhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.PhieuMuon), "ChiTietPhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuMuon), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPM_S", "Sach", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.Sach), "ChiTietPhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuMuon), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_TK_CV", "ChucVu", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.ChucVu), "TaiKhoan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.TaiKhoan), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_NV_TK", "TaiKhoan", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.TaiKhoan), "NhanVien", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.NhanVien), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_PBT_PM", "PhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuanLyThuVien.Model.PhieuMuon), "PhieuBoiThuong", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.PhieuBoiThuong), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_S_TG", "TacGia", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.TacGia), "Sach", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.Sach), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_S_TL", "TheLoai", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.TheLoai), "Sach", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.Sach), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPBT_PBT", "PhieuBoiThuongs", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.PhieuBoiThuong), "ChiTietPhieuBoiThuongs", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuBoiThuong), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPBT_S", "Saches", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.Sach), "ChiTietPhieuBoiThuongs", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuBoiThuong), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "KhachHangs", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.KhachHang), "ChiTietPhieuMuons", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuMuon), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPM_PM", "PhieuMuons", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.PhieuMuon), "ChiTietPhieuMuons", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuMuon), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPM_S", "Saches", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.Sach), "ChiTietPhieuMuons", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuMuon), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_TK_CV", "ChucVus", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.ChucVu), "TaiKhoans", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.TaiKhoan), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_NV_TK", "TaiKhoans", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.TaiKhoan), "NhanViens", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.NhanVien), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_PBT_PM", "PhieuMuons", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuanLyThuVien.Model.PhieuMuon), "PhieuBoiThuongs", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.PhieuBoiThuong), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_S_TG", "TacGias", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.TacGia), "Saches", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.Sach), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_S_TL", "TheLoais", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.TheLoai), "Saches", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.Sach), true)]
 
 #endregion
 
@@ -566,16 +566,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_PBT", "PhieuBoiThuong")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_PBT", "PhieuBoiThuongs")]
         public PhieuBoiThuong PhieuBoiThuong
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "PhieuBoiThuong").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "PhieuBoiThuongs").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "PhieuBoiThuong").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "PhieuBoiThuongs").Value = value;
             }
         }
         /// <summary>
@@ -587,13 +587,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "PhieuBoiThuong");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "PhieuBoiThuongs");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "PhieuBoiThuong", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "PhieuBoiThuongs", value);
                 }
             }
         }
@@ -604,16 +604,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_S", "Sach")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_S", "Saches")]
         public Sach Sach
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPBT_S", "Sach").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPBT_S", "Saches").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPBT_S", "Sach").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPBT_S", "Saches").Value = value;
             }
         }
         /// <summary>
@@ -625,13 +625,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPBT_S", "Sach");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPBT_S", "Saches");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPBT_S", "Sach", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPBT_S", "Saches", value);
                 }
             }
         }
@@ -800,16 +800,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "KhachHang")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "KhachHangs")]
         public KhachHang KhachHang
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHang").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHangs").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHang").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHangs").Value = value;
             }
         }
         /// <summary>
@@ -821,13 +821,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHang");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHangs");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHang", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHangs", value);
                 }
             }
         }
@@ -838,16 +838,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_PM", "PhieuMuon")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_PM", "PhieuMuons")]
         public PhieuMuon PhieuMuon
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "PhieuMuon").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "PhieuMuons").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "PhieuMuon").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "PhieuMuons").Value = value;
             }
         }
         /// <summary>
@@ -859,13 +859,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "PhieuMuon");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "PhieuMuons");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "PhieuMuon", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "PhieuMuons", value);
                 }
             }
         }
@@ -876,16 +876,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_S", "Sach")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_S", "Saches")]
         public Sach Sach
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPM_S", "Sach").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPM_S", "Saches").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPM_S", "Sach").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPM_S", "Saches").Value = value;
             }
         }
         /// <summary>
@@ -897,13 +897,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPM_S", "Sach");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPM_S", "Saches");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPM_S", "Sach", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sach>("QuanLiThuVienModel.FK_CTPM_S", "Saches", value);
                 }
             }
         }
@@ -1000,18 +1000,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_TK_CV", "TaiKhoan")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_TK_CV", "TaiKhoans")]
         public EntityCollection<TaiKhoan> TaiKhoans
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TaiKhoan>("QuanLiThuVienModel.FK_TK_CV", "TaiKhoan");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TaiKhoan>("QuanLiThuVienModel.FK_TK_CV", "TaiKhoans");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TaiKhoan>("QuanLiThuVienModel.FK_TK_CV", "TaiKhoan", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TaiKhoan>("QuanLiThuVienModel.FK_TK_CV", "TaiKhoans", value);
                 }
             }
         }
@@ -1238,18 +1238,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "ChiTietPhieuMuon")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "ChiTietPhieuMuons")]
         public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuons
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_KH", "ChiTietPhieuMuon");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_KH", "ChiTietPhieuMuons");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_KH", "ChiTietPhieuMuon", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_KH", "ChiTietPhieuMuons", value);
                 }
             }
         }
@@ -1474,16 +1474,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_NV_TK", "TaiKhoan")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_NV_TK", "TaiKhoans")]
         public TaiKhoan TaiKhoan
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TaiKhoan>("QuanLiThuVienModel.FK_NV_TK", "TaiKhoan").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TaiKhoan>("QuanLiThuVienModel.FK_NV_TK", "TaiKhoans").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TaiKhoan>("QuanLiThuVienModel.FK_NV_TK", "TaiKhoan").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TaiKhoan>("QuanLiThuVienModel.FK_NV_TK", "TaiKhoans").Value = value;
             }
         }
         /// <summary>
@@ -1495,13 +1495,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TaiKhoan>("QuanLiThuVienModel.FK_NV_TK", "TaiKhoan");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TaiKhoan>("QuanLiThuVienModel.FK_NV_TK", "TaiKhoans");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TaiKhoan>("QuanLiThuVienModel.FK_NV_TK", "TaiKhoan", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TaiKhoan>("QuanLiThuVienModel.FK_NV_TK", "TaiKhoans", value);
                 }
             }
         }
@@ -1650,18 +1650,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_PBT", "ChiTietPhieuBoiThuong")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_PBT", "ChiTietPhieuBoiThuongs")]
         public EntityCollection<ChiTietPhieuBoiThuong> ChiTietPhieuBoiThuongs
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "ChiTietPhieuBoiThuong");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "ChiTietPhieuBoiThuongs");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "ChiTietPhieuBoiThuong", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_PBT", "ChiTietPhieuBoiThuongs", value);
                 }
             }
         }
@@ -1672,16 +1672,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_PBT_PM", "PhieuMuon")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_PBT_PM", "PhieuMuons")]
         public PhieuMuon PhieuMuon
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_PBT_PM", "PhieuMuon").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_PBT_PM", "PhieuMuons").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_PBT_PM", "PhieuMuon").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_PBT_PM", "PhieuMuons").Value = value;
             }
         }
         /// <summary>
@@ -1693,13 +1693,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_PBT_PM", "PhieuMuon");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_PBT_PM", "PhieuMuons");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_PBT_PM", "PhieuMuon", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PhieuMuon>("QuanLiThuVienModel.FK_PBT_PM", "PhieuMuons", value);
                 }
             }
         }
@@ -1822,18 +1822,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_PM", "ChiTietPhieuMuon")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_PM", "ChiTietPhieuMuons")]
         public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuons
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "ChiTietPhieuMuon");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "ChiTietPhieuMuons");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "ChiTietPhieuMuon", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "ChiTietPhieuMuons", value);
                 }
             }
         }
@@ -1844,18 +1844,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_PBT_PM", "PhieuBoiThuong")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_PBT_PM", "PhieuBoiThuongs")]
         public EntityCollection<PhieuBoiThuong> PhieuBoiThuongs
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PhieuBoiThuong>("QuanLiThuVienModel.FK_PBT_PM", "PhieuBoiThuong");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PhieuBoiThuong>("QuanLiThuVienModel.FK_PBT_PM", "PhieuBoiThuongs");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PhieuBoiThuong>("QuanLiThuVienModel.FK_PBT_PM", "PhieuBoiThuong", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PhieuBoiThuong>("QuanLiThuVienModel.FK_PBT_PM", "PhieuBoiThuongs", value);
                 }
             }
         }
@@ -2126,18 +2126,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_S", "ChiTietPhieuBoiThuong")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_S", "ChiTietPhieuBoiThuongs")]
         public EntityCollection<ChiTietPhieuBoiThuong> ChiTietPhieuBoiThuongs
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_S", "ChiTietPhieuBoiThuong");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_S", "ChiTietPhieuBoiThuongs");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_S", "ChiTietPhieuBoiThuong", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_S", "ChiTietPhieuBoiThuongs", value);
                 }
             }
         }
@@ -2148,18 +2148,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_S", "ChiTietPhieuMuon")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_S", "ChiTietPhieuMuons")]
         public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuons
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_S", "ChiTietPhieuMuon");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_S", "ChiTietPhieuMuons");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_S", "ChiTietPhieuMuon", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_S", "ChiTietPhieuMuons", value);
                 }
             }
         }
@@ -2170,16 +2170,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TG", "TacGia")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TG", "TacGias")]
         public TacGia TacGia
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TacGia>("QuanLiThuVienModel.FK_S_TG", "TacGia").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TacGia>("QuanLiThuVienModel.FK_S_TG", "TacGias").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TacGia>("QuanLiThuVienModel.FK_S_TG", "TacGia").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TacGia>("QuanLiThuVienModel.FK_S_TG", "TacGias").Value = value;
             }
         }
         /// <summary>
@@ -2191,13 +2191,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TacGia>("QuanLiThuVienModel.FK_S_TG", "TacGia");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TacGia>("QuanLiThuVienModel.FK_S_TG", "TacGias");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TacGia>("QuanLiThuVienModel.FK_S_TG", "TacGia", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TacGia>("QuanLiThuVienModel.FK_S_TG", "TacGias", value);
                 }
             }
         }
@@ -2208,16 +2208,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TL", "TheLoai")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TL", "TheLoais")]
         public TheLoai TheLoai
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TheLoai>("QuanLiThuVienModel.FK_S_TL", "TheLoai").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TheLoai>("QuanLiThuVienModel.FK_S_TL", "TheLoais").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TheLoai>("QuanLiThuVienModel.FK_S_TL", "TheLoai").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TheLoai>("QuanLiThuVienModel.FK_S_TL", "TheLoais").Value = value;
             }
         }
         /// <summary>
@@ -2229,13 +2229,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TheLoai>("QuanLiThuVienModel.FK_S_TL", "TheLoai");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TheLoai>("QuanLiThuVienModel.FK_S_TL", "TheLoais");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TheLoai>("QuanLiThuVienModel.FK_S_TL", "TheLoai", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TheLoai>("QuanLiThuVienModel.FK_S_TL", "TheLoais", value);
                 }
             }
         }
@@ -2488,18 +2488,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TG", "Sach")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TG", "Saches")]
         public EntityCollection<Sach> Saches
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sach>("QuanLiThuVienModel.FK_S_TG", "Sach");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sach>("QuanLiThuVienModel.FK_S_TG", "Saches");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sach>("QuanLiThuVienModel.FK_S_TG", "Sach", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sach>("QuanLiThuVienModel.FK_S_TG", "Saches", value);
                 }
             }
         }
@@ -2524,14 +2524,12 @@ namespace QuanLyThuVien.Model
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="tenTaiKhoan">Initial value of the TenTaiKhoan property.</param>
         /// <param name="matKhau">Initial value of the MatKhau property.</param>
-        /// <param name="trangThai">Initial value of the TrangThai property.</param>
-        public static TaiKhoan CreateTaiKhoan(global::System.Int32 id, global::System.String tenTaiKhoan, global::System.String matKhau, global::System.String trangThai)
+        public static TaiKhoan CreateTaiKhoan(global::System.Int32 id, global::System.String tenTaiKhoan, global::System.String matKhau)
         {
             TaiKhoan taiKhoan = new TaiKhoan();
             taiKhoan.ID = id;
             taiKhoan.TenTaiKhoan = tenTaiKhoan;
             taiKhoan.MatKhau = matKhau;
-            taiKhoan.TrangThai = trangThai;
             return taiKhoan;
         }
 
@@ -2641,9 +2639,9 @@ namespace QuanLyThuVien.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String TrangThai
+        public Nullable<global::System.Int32> TrangThai
         {
             get
             {
@@ -2653,13 +2651,13 @@ namespace QuanLyThuVien.Model
             {
                 OnTrangThaiChanging(value);
                 ReportPropertyChanging("TrangThai");
-                _TrangThai = StructuralObject.SetValidValue(value, false, "TrangThai");
+                _TrangThai = StructuralObject.SetValidValue(value, "TrangThai");
                 ReportPropertyChanged("TrangThai");
                 OnTrangThaiChanged();
             }
         }
-        private global::System.String _TrangThai;
-        partial void OnTrangThaiChanging(global::System.String value);
+        private Nullable<global::System.Int32> _TrangThai;
+        partial void OnTrangThaiChanging(Nullable<global::System.Int32> value);
         partial void OnTrangThaiChanged();
 
         #endregion
@@ -2672,16 +2670,16 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_TK_CV", "ChucVu")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_TK_CV", "ChucVus")]
         public ChucVu ChucVu
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ChucVu>("QuanLiThuVienModel.FK_TK_CV", "ChucVu").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ChucVu>("QuanLiThuVienModel.FK_TK_CV", "ChucVus").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ChucVu>("QuanLiThuVienModel.FK_TK_CV", "ChucVu").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ChucVu>("QuanLiThuVienModel.FK_TK_CV", "ChucVus").Value = value;
             }
         }
         /// <summary>
@@ -2693,13 +2691,13 @@ namespace QuanLyThuVien.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ChucVu>("QuanLiThuVienModel.FK_TK_CV", "ChucVu");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ChucVu>("QuanLiThuVienModel.FK_TK_CV", "ChucVus");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ChucVu>("QuanLiThuVienModel.FK_TK_CV", "ChucVu", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ChucVu>("QuanLiThuVienModel.FK_TK_CV", "ChucVus", value);
                 }
             }
         }
@@ -2710,18 +2708,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_NV_TK", "NhanVien")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_NV_TK", "NhanViens")]
         public EntityCollection<NhanVien> NhanViens
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NhanVien>("QuanLiThuVienModel.FK_NV_TK", "NhanVien");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NhanVien>("QuanLiThuVienModel.FK_NV_TK", "NhanViens");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NhanVien>("QuanLiThuVienModel.FK_NV_TK", "NhanVien", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NhanVien>("QuanLiThuVienModel.FK_NV_TK", "NhanViens", value);
                 }
             }
         }
@@ -2816,18 +2814,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TL", "Sach")]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_S_TL", "Saches")]
         public EntityCollection<Sach> Saches
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sach>("QuanLiThuVienModel.FK_S_TL", "Sach");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sach>("QuanLiThuVienModel.FK_S_TL", "Saches");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sach>("QuanLiThuVienModel.FK_S_TL", "Sach", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sach>("QuanLiThuVienModel.FK_S_TL", "Saches", value);
                 }
             }
         }

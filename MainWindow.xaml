@@ -504,24 +504,28 @@
                                                 FontSize="18"/>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=bookAddBtn}"
+                                                Command="{Binding AddCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Thêm"
-                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=bookEditBtn}"
+                                                Command="{Binding EditCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Sửa"
-                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding DeleteCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
