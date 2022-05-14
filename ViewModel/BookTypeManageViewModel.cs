@@ -93,7 +93,7 @@ namespace QuanLyThuVien.ViewModel
                     var bookType = new TheLoai();
                     bookType.TenTheLoai = Ten;
                     DataProvider.Ins.DB.AddToTheLoais(bookType);
-                    DataProvider.Ins.DB.SaveChanges();
+                    var a = DataProvider.Ins.DB.SaveChanges();
                     setDefault();
                 }
                 else
@@ -124,6 +124,7 @@ namespace QuanLyThuVien.ViewModel
                 return true;
             }, (p) =>
             {
+                setDefault();
                 List.Clear();
                 List = loadList(List,
                     DataProvider.Ins.DB.TheLoais.Where(x => x.TenTheLoai == SearchValue));
@@ -155,7 +156,7 @@ namespace QuanLyThuVien.ViewModel
             var bookTypeList = ((IEnumerable)data).Cast<object>().ToList();
             foreach (TheLoai bookType in bookTypeList)
             {
-                BookTypeList item = new BookTypeList();
+                var item = new BookTypeList();
                 item.STT = index;
                 item.BookType = bookType;
                 list.Add(item);

@@ -214,7 +214,7 @@ namespace QuanLyThuVien.ViewModel
                     int checkAuthor = DataProvider.Ins.DB.TacGias.Where(x => x.Ten == SelectedAuthor.Ten).Count();
                     if (checkAuthor > 0 && checkName > 0 && checkType > 0)
                     {
-                        MessageBox.Show("Không thể thêm mới sách đã tồn tại trong kho.");
+                        MessageBox.Show("Không thể thêm mới, sách đã tồn tại.");
                     }
                     else
                     {
@@ -270,23 +270,27 @@ namespace QuanLyThuVien.ViewModel
                         switch (BookStatusSearch)
                         {
                             case "Tất cả":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.TenSach == SearchValue));
                                 break;
 
                             case "Được lưu hành":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, 
                                     DataProvider.Ins.DB.Saches.Where(x => x.TenSach == SearchValue && x.TrangThai == 1));
                                 break;
 
                             case "Đang cho mượn":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List,
                                     DataProvider.Ins.DB.Saches.Where(x => x.TenSach == SearchValue && x.TrangThai == 2));
                                 break;
 
                             case "Hư hỏng / Mất":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List,
                                     DataProvider.Ins.DB.Saches.Where(x => x.TenSach == SearchValue && x.TrangThai == 3));
@@ -298,21 +302,25 @@ namespace QuanLyThuVien.ViewModel
                         switch (BookStatusSearch)
                         {
                             case "Tất cả":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.TheLoai.TenTheLoai == SearchValue));
                                 break;
 
                             case "Được lưu hành":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.TheLoai.TenTheLoai == SearchValue && x.TrangThai == 1));
                                 break;
 
                             case "Đang cho mượn":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.TheLoai.TenTheLoai == SearchValue && x.TrangThai == 2));
                                 break;
 
                             case "Hư hỏng / Mất":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.TheLoai.TenTheLoai == SearchValue && x.TrangThai == 3));
                                 break;
@@ -323,21 +331,25 @@ namespace QuanLyThuVien.ViewModel
                         switch (BookStatusSearch)
                         {
                             case "Tất cả":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.TacGia.Ten == SearchValue));
                                 break;
 
                             case "Được lưu hành":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.TacGia.Ten == SearchValue && x.TrangThai == 1));
                                 break;
 
                             case "Đang cho mượn":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.TacGia.Ten == SearchValue && x.TrangThai == 2));
                                 break;
 
                             case "Hư hỏng / Mất":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.TacGia.Ten == SearchValue && x.TrangThai == 3));
                                 break;
@@ -350,6 +362,7 @@ namespace QuanLyThuVien.ViewModel
                             case "Tất cả":
                                 try
                                 {
+                                    setDefault();
                                     int year = Int32.Parse(SearchValue);
                                     List.Clear();
                                     List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.NgayXuatBan.Year == year));
@@ -364,6 +377,7 @@ namespace QuanLyThuVien.ViewModel
                             case "Được lưu hành":
                                 try
                                 {
+                                    setDefault();
                                     int year = Int32.Parse(SearchValue);
                                     List.Clear();
                                     List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.NgayXuatBan.Year == year && x.TrangThai == 1));
@@ -378,6 +392,7 @@ namespace QuanLyThuVien.ViewModel
                             case "Đang cho mượn":
                                 try
                                 {
+                                    setDefault();
                                     int year = Int32.Parse(SearchValue);
                                     List.Clear();
                                     List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.NgayXuatBan.Year == year && x.TrangThai == 2));
@@ -392,6 +407,7 @@ namespace QuanLyThuVien.ViewModel
                             case "Hư hỏng / Mất":
                                 try
                                 {
+                                    setDefault();
                                     int year = Int32.Parse(SearchValue);
                                     List.Clear();
                                     List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.NgayXuatBan.Year == year && x.TrangThai == 3));
@@ -411,6 +427,7 @@ namespace QuanLyThuVien.ViewModel
                             case "Tất cả":
                                 try
                                 {
+                                    setDefault();
                                     float price = Int32.Parse(SearchValue);
                                     List.Clear();
                                     List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.Gia == price));
@@ -425,6 +442,7 @@ namespace QuanLyThuVien.ViewModel
                             case "Được lưu hành":
                                 try
                                 {
+                                    setDefault();
                                     float price = Int32.Parse(SearchValue);
                                     List.Clear();
                                     List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.Gia == price && x.TrangThai == 1));
@@ -439,6 +457,7 @@ namespace QuanLyThuVien.ViewModel
                             case "Đang cho mượn":
                                 try
                                 {
+                                    setDefault();
                                     float price = Int32.Parse(SearchValue);
                                     List.Clear();
                                     List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.Gia == price && x.TrangThai == 2));
@@ -453,6 +472,7 @@ namespace QuanLyThuVien.ViewModel
                             case "Hư hỏng / Mất":
                                 try
                                 {
+                                    setDefault();
                                     float price = Int32.Parse(SearchValue);
                                     List.Clear();
                                     List = loadList(List, DataProvider.Ins.DB.Saches.Where(x => x.Gia == price && x.TrangThai == 3));
@@ -470,23 +490,27 @@ namespace QuanLyThuVien.ViewModel
                         switch (BookStatusSearch)
                         {
                             case "Tất cả":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List, DataProvider.Ins.DB.Saches);
                                 break;
 
                             case "Được lưu hành":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List,
                                     DataProvider.Ins.DB.Saches.Where(x => x.TrangThai == 1));
                                 break;
 
                             case "Đang cho mượn":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List,
                                     DataProvider.Ins.DB.Saches.Where(x => x.TrangThai == 2));
                                 break;
 
                             case "Hư hỏng / Mất":
+                                setDefault();
                                 List.Clear();
                                 List = loadList(List,
                                     DataProvider.Ins.DB.Saches.Where(x => x.TrangThai == 3));

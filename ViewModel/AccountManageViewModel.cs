@@ -1,4 +1,5 @@
-﻿using MaHoa;
+﻿
+using MaHoa;
 using QuanLyThuVien.Model;
 using System;
 using System.Collections;
@@ -19,6 +20,8 @@ namespace QuanLyThuVien.ViewModel
         public ObservableCollection<TaiKhoan> List { get { return _list; } set { _list = value; OnPropertyChanged(); } }
         private ObservableCollection<ChucVu> _roleList;
         public ObservableCollection<ChucVu> RoleList { get { return _roleList; } set { _roleList = value; OnPropertyChanged(); } }
+        private ObservableCollection<NhanVien> _staffList;
+        public ObservableCollection<NhanVien> StaffList { get { return _staffList; } set { _staffList = value; OnPropertyChanged(); } }
         private string _accountName;
         public string AccountName { get { return _accountName; } set { _accountName = value; OnPropertyChanged(); } }
 
@@ -40,6 +43,21 @@ namespace QuanLyThuVien.ViewModel
             }
         }
 
+        private NhanVien _selectedStaff;
+        public NhanVien SelectedStaff
+        {
+            get
+            {
+                IsClick = false;
+                return (NhanVien)_selectedStaff;
+            }
+            set
+            {
+                _selectedStaff = value;
+                OnPropertyChanged();
+            }
+        }
+
         private List<string> _accountStatusSearchList = new List<string>()
         {
             "Tất cả",
@@ -57,7 +75,8 @@ namespace QuanLyThuVien.ViewModel
         {
             "Tất cả",
             "Theo tên",
-            "Theo chức vụ"
+            "Theo chức vụ",
+            "Theo nhân viên"
         };
         public List<string> SearchTypeList
         {
@@ -130,16 +149,19 @@ namespace QuanLyThuVien.ViewModel
                     AccountName = SelectedItem.TenTaiKhoan;
                     Password = SelectedItem.MatKhau;
                     SelectedRole = SelectedItem.ChucVu;
+                    SelectedStaff = SelectedItem.NhanVien;
                 }
                 if (SelectedItem == null)
                 {
                     AccountName = default;
                     Password = default;
                     SelectedRole = default;
+                    SelectedStaff = default;
                 }
                 OnPropertyChanged();
             }
         }
+        
 
         public ICommand SaveCommand { get; set; }
         public ICommand CancelCommand { get; set; }
@@ -153,12 +175,15 @@ namespace QuanLyThuVien.ViewModel
                 if (IsClick || IsEnable)
                 {
 
-                    if (string.IsNullOrEmpty(AccountName) || 
-                    string.IsNullOrEmpty(Password) || 
-                    SelectedRole == null)
+                    if (string.IsNullOrEmpty(AccountName) ||
+                        string.IsNullOrEmpty(Password) ||
+                        SelectedStaff == null ||
+                        SelectedRole == null)
                     {
                         return false;
                     }
+                    if (DataProvider.Ins.DB.TaiKhoans.Where(x => x.TenTaiKhoan == AccountName).Count() > 0)
+                        return false;
                     IsEnable = true;
                     return true;
                 }
@@ -172,26 +197,27 @@ namespace QuanLyThuVien.ViewModel
                     taiKhoan.TenTaiKhoan = AccountName;
                     taiKhoan.MatKhau = Cryption.Vigenere.Encode(Password, AccountName);
                     taiKhoan.ChucVu = SelectedRole;
+                    taiKhoan.NhanVien = SelectedStaff;
                     DataProvider.Ins.DB.SaveChanges();
                     setDefault();
                 }
                 else if (IsAdd)
                 {
                     int checkName = DataProvider.Ins.DB.TaiKhoans.Where(x => x.TenTaiKhoan == AccountName).Count();
-                    if (checkName > 0 )
+                    if (checkName > 0)
                     {
-                        MessageBox.Show("Không thể thêm mới sách đã tồn tại trong kho.");
+                        MessageBox.Show("Không thể thêm mới, tài khoản đã tồn tại.");
                     }
                     else
                     {
-                        TaiKhoan taiKhoan = new TaiKhoan();
+                        var taiKhoan = new TaiKhoan();
                         taiKhoan.TenTaiKhoan = AccountName;
                         taiKhoan.MatKhau = Cryption.Vigenere.Encode(Password, taiKhoan.ID.ToString());
                         taiKhoan.ChucVu = SelectedRole;
                         taiKhoan.TrangThai = 1;
+                        taiKhoan.NhanVien = SelectedStaff;
                         DataProvider.Ins.DB.AddToTaiKhoans(taiKhoan);
                         DataProvider.Ins.DB.SaveChanges();
-                        
                         setDefault();
                     }
                 }
@@ -199,8 +225,6 @@ namespace QuanLyThuVien.ViewModel
                 {
                     setDefault();
                 }
-
-                //MessageBox.Show(book.TenSach.ToString());
             });
 
             CancelCommand = new RelayCommand<Button>((p) =>
@@ -216,10 +240,122 @@ namespace QuanLyThuVien.ViewModel
                 setDefault();
 
             });
+
+            SearchCommand = new RelayCommand<TextBlock>((p) =>
+            {
+                if (SearchType == null)
+                    return false;
+                if (!SearchType.Contains("Tất cả") && string.IsNullOrEmpty(SearchValue))
+                    return false;
+                if (SearchType.Contains("Tất cả") && !string.IsNullOrEmpty(SearchValue))
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                switch (SearchType)
+                {
+                    case "Theo tên":
+                        switch (AccountStatusSearch)
+                        {
+                            case "Tất cả":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List, DataProvider.Ins.DB.TaiKhoans.Where(x => x.TenTaiKhoan == SearchValue));
+                                break;
+
+                            case "Được hoạt động":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List,
+                                    DataProvider.Ins.DB.TaiKhoans.Where(x => x.TenTaiKhoan == SearchValue && x.TrangThai == 1));
+                                break;
+
+                            case "Đang bị khoá":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List,
+                                    DataProvider.Ins.DB.TaiKhoans.Where(x => x.TenTaiKhoan == SearchValue && x.TrangThai == 0));
+                                break;
+                        }
+                        break;
+
+                    case "Theo chức vụ":
+                        switch (AccountStatusSearch)
+                        {
+                            case "Tất cả":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List, DataProvider.Ins.DB.TaiKhoans.Where(x => x.ChucVu.TenChucVu == SearchValue));
+                                break;
+
+                            case "Được hoạt động":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List, DataProvider.Ins.DB.TaiKhoans.Where(x => x.ChucVu.TenChucVu == SearchValue && x.TrangThai == 1));
+                                break;
+
+                            case "Đang bị khoá":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List, DataProvider.Ins.DB.TaiKhoans.Where(x => x.ChucVu.TenChucVu == SearchValue && x.TrangThai == 0));
+                                break;
+                        }
+                        break;
+
+                    case "Theo nhân viên":
+                        switch (AccountStatusSearch)
+                        {
+                            case "Tất cả":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List, DataProvider.Ins.DB.TaiKhoans.Where(x => x.NhanVien.HoVaTen == SearchValue));
+                                break;
+
+                            case "Được hoạt động":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List, DataProvider.Ins.DB.TaiKhoans.Where(x => x.NhanVien.HoVaTen == SearchValue && x.TrangThai == 1));
+                                break;
+
+                            case "Đang bị khoá":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List, DataProvider.Ins.DB.TaiKhoans.Where(x => x.NhanVien.HoVaTen == SearchValue && x.TrangThai == 0));
+                                break;
+                        }
+                        break;
+
+                    default:
+                        switch (AccountStatusSearch)
+                        {
+                            case "Tất cả":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List, DataProvider.Ins.DB.TaiKhoans);
+                                break;
+
+                            case "Được lưu hành":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List,
+                                    DataProvider.Ins.DB.TaiKhoans.Where(x => x.TrangThai == 1));
+                                break;
+
+                            case "Đang bị khoá":
+                                setDefault();
+                                List.Clear();
+                                List = loadList(List,
+                                    DataProvider.Ins.DB.TaiKhoans.Where(x => x.TrangThai == 0));
+                                break;
+                        }
+                        break;
+                }
+            });
         }
         public void setDefault()
         {
             RoleList = new ObservableCollection<ChucVu>(DataProvider.Ins.DB.ChucVus);
+            StaffList = new ObservableCollection<NhanVien>(DataProvider.Ins.DB.NhanViens);
             BaseViewModel.SelectedItem = null;
             this.SelectedItem = null;
             IsEnable = false;
@@ -231,15 +367,10 @@ namespace QuanLyThuVien.ViewModel
         public ObservableCollection<TaiKhoan> loadList(ObservableCollection<TaiKhoan> list, object data)
         {
             list = new ObservableCollection<TaiKhoan>();
-            var roleList = ((IEnumerable)data).Cast<object>().ToList();
-            foreach (TaiKhoan role in roleList)
+            var accountList = ((IEnumerable)data).Cast<object>().ToList();
+            foreach (TaiKhoan taiKhoan in accountList)
             {
-                TaiKhoan item = new TaiKhoan();
-                item.ID = role.ID;
-                item.TenTaiKhoan = role.TenTaiKhoan;
-                item.MatKhau = role.MatKhau;
-                item.ChucVu = role.ChucVu;
-                list.Add(item);
+                list.Add(taiKhoan);
             }
             return list;
         }

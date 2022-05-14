@@ -30,10 +30,6 @@ namespace QuanLyThuVien.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public void setIsEnable()
-        {
-            IsEnable = true? IsEnable = false : IsEnable = true;
-        }
     }
 
     class RelayCommand<T> : ICommand

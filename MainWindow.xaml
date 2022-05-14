@@ -168,6 +168,7 @@
                                     <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
                                         <TreeViewItem Visibility="Collapsed">
                                             <Button
+                                                Command="{Binding AddCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
@@ -177,6 +178,7 @@
                                                 FontSize="18"/>
 
                                             <Button
+                                                Command="{Binding EditCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
@@ -186,6 +188,8 @@
                                                 FontSize="18"/>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding DeleteCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
@@ -498,10 +502,14 @@
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
-                                                Content="Khoá tài khoản"
+                                                Content="Khoá / Mở khoá"
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding BlockAccountCommand}"
                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
-                                                FontSize="18"/>
+                                                FontSize="18">
+                                                
+                                            </Button>
 
                                             <Button
                                                 CommandParameter="{Binding ElementName=bookAddBtn}"
@@ -627,7 +635,7 @@
                         HorizontalAlignment="Center"
                         Margin="0 300 0 10"
                         FontSize="28"
-                        Text="Danh sách đã thay đổi."/>
+                        Text="{Binding MessageText, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Button
                         Name="confirmBtn"

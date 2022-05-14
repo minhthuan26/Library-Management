@@ -51,6 +51,8 @@
                     </TextBox>
 
                     <Button
+                        Command="{Binding SearchCommand}"
+                        CommandParameter="{Binding ElementName=SearchBox}"
                         Background="#FF1A88CE"
                         Margin="15 0 0 0"
                         FontSize="16"
@@ -62,7 +64,7 @@
                         Margin="15 0 0 0"
                         FontSize="16"
                         VerticalAlignment="Center"
-                        Text="Tình trạng sách: "/>
+                        Text="Tình trạng tài khoản: "/>
 
                     <ComboBox
                         ItemsSource="{Binding AccountStatusSearchList}"
@@ -124,6 +126,20 @@
                             
                         </ComboBox>
                     </Grid>
+
+                    <Grid Margin="5">
+                        <ComboBox
+                            DisplayMemberPath="HoVaTen"
+                            SelectedItem="{Binding SelectedStaff, Mode=TwoWay}"
+                            ItemsSource="{Binding StaffList}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            materialDesign:HintAssist.Hint="Nhân viên">
+
+                        </ComboBox>
+                    </Grid>
+
                     <Grid Margin="5">
                         <Button
                             Command="{Binding CancelCommand}"
@@ -156,7 +172,7 @@
         <Grid Margin="5" Grid.Row="4">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
-                    <ListView 
+                   <ListView 
                         ItemsSource="{Binding List, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                         SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                         FontSize="20">
@@ -166,7 +182,7 @@
                                 <GridViewColumn Header="Tên tài khoản" DisplayMemberBinding="{Binding TenTaiKhoan}"></GridViewColumn>
                                 <GridViewColumn Header="Mật khẩu" DisplayMemberBinding="{Binding MatKhau}"></GridViewColumn>
                                 <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding ChucVu.TenChucVu}"></GridViewColumn>
-                                
+                                <GridViewColumn Header="Nhân viên" DisplayMemberBinding="{Binding NhanVien.HoVaTen}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

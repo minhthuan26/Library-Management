@@ -23,12 +23,15 @@ namespace QuanLyThuVien.ViewModel
         public string ViewTitle { get { if (_viewTitle == null) _viewTitle = "Tổng quan"; return _viewTitle; } set { _viewTitle = value; OnPropertyChanged(); } }
         private static Button _currentBtn = new Button();
         public static Button CurrentBtn { get { return _currentBtn; } set { _currentBtn = value; } }
+        private string _messageText;
+        public string MessageText { get { return _messageText; } set { _messageText = value; OnPropertyChanged(); } }
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand ChangeViewCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand ConfirmCommand { get; set; }
+        public ICommand BlockAccountCommand { get; set; }
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -115,12 +118,15 @@ namespace QuanLyThuVien.ViewModel
                 }
                 else
                 {
-                    SelectView = null;
+                    IsEnable = false;
+                    IsClick = false;
+                    IsAdd = false;
+                    IsDelete = false;
+                    ViewTitle = null;
+                    BaseViewModel.SelectedItem = null;
                     CurrentBtn = new Button();
                     expandButton(p);
-                    ViewTitle = null;
-                    SelectedItem = null;
-                    IsClick = false;
+                    SelectView = null;
                 }
                 
             });
@@ -161,6 +167,7 @@ namespace QuanLyThuVien.ViewModel
                         BookManageViewModel bookManageViewModel = (BookManageViewModel)SelectView;
                         BookList bookList = (BookList)SelectedItem;
                         Sach book = bookList.Book;
+                        MessageText = "Đã xoá sách " + "\"" + book.TenSach + "\".";
                         DataProvider.Ins.DB.Saches.DeleteObject(book);
                         DataProvider.Ins.DB.SaveChanges();
                         bookManageViewModel.setDefault();
@@ -174,6 +181,7 @@ namespace QuanLyThuVien.ViewModel
                         BookTypeManageViewModel bookTypeManageViewModel = (BookTypeManageViewModel)SelectView;
                         BookTypeList bookTypeList = (BookTypeList)SelectedItem;
                         TheLoai bookType = bookTypeList.BookType;
+                        MessageText = "Đã xoá thể loại " + "\"" + bookType.TenTheLoai + "\".";
                         DataProvider.Ins.DB.TheLoais.DeleteObject(bookType);
                         DataProvider.Ins.DB.SaveChanges();
                         bookTypeManageViewModel.setDefault();
@@ -182,8 +190,56 @@ namespace QuanLyThuVien.ViewModel
                         p.Visibility = Visibility.Hidden;
                         IsVisible = "Visible";
                         break;
+
+                    case "Quản lí tác giả":
+                        AuthorManageViewModel authorManageViewModel = (AuthorManageViewModel)SelectView;
+                        AuthorList authorList = (AuthorList)SelectedItem;
+                        TacGia author = authorList.Author;
+                        MessageText = "Đã xoá tác giả " + "\"" + author.Ten + "\".";
+                        DataProvider.Ins.DB.TacGias.DeleteObject(author);
+                        DataProvider.Ins.DB.SaveChanges();
+                        authorManageViewModel.setDefault();
+                        CurrentView = SelectView;
+                        SelectView = null;
+                        p.Visibility = Visibility.Hidden;
+                        IsVisible = "Visible";
+                        break;
+
+                    case "Quản lí tài khoản":
+                        AccountManageViewModel accountManageViewModel = (AccountManageViewModel)SelectView;
+                        TaiKhoan taiKhoan = (TaiKhoan)SelectedItem;
+                        DataProvider.Ins.DB.TaiKhoans.DeleteObject(taiKhoan);
+                        MessageText = "Đã xoá tài khoản " + "\"" + taiKhoan.TenTaiKhoan + "\".";
+                        DataProvider.Ins.DB.SaveChanges();
+                        accountManageViewModel.setDefault();
+                        CurrentView = SelectView;
+                        SelectView = null;
+                        p.Visibility = Visibility.Hidden;
+                        IsVisible = "Visible";
+                        break;
                 }
                 
+            });
+
+            BlockAccountCommand = new RelayCommand<Grid>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                TaiKhoan taiKhoan = (TaiKhoan)SelectedItem;
+                taiKhoan.TrangThai = taiKhoan.TrangThai == 1 ? 0:1;
+                DataProvider.Ins.DB.SaveChanges();
+                AccountManageViewModel accountManage = (AccountManageViewModel)SelectView;
+                accountManage.setDefault();
+                CurrentView = SelectView;
+                SelectView = null;
+                p.Visibility = Visibility.Hidden;
+                MessageText = taiKhoan.TrangThai == 1 ?
+                    "Đã mở khoá tài khoản " + "\"" + taiKhoan.TenTaiKhoan + "\"." 
+                    : "Đã khoá tài khoản " + "\"" + taiKhoan.TenTaiKhoan + "\".";
+                IsVisible = "Visible";
             });
 
             ConfirmCommand = new RelayCommand<Grid>((p) =>

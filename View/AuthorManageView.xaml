@@ -30,23 +30,16 @@
                     Margin="5" 
                     Orientation="Horizontal" 
                     HorizontalAlignment="Left">
-                    <ComboBox
+                    <TextBlock
                         Margin="15 0 0 0"
                         FontSize="16"
-                        materialDesign:HintAssist.Hint="Chọn loại tìm kiếm">
-                        <ComboBoxItem
-                            Content="Android" />
-                        <ComboBoxItem
-                            Content="iOS" />
-                        <ComboBoxItem
-                            Content="Linux" />
-                        <ComboBoxItem
-                            Content="Windows" />
-                    </ComboBox>
+                        Text="Nhập tên tác giả: "
+                        VerticalAlignment="Center"/>
 
 
                     <TextBox
-                        Margin="15 0 0 0"
+                        Text="{Binding SearchValue, UpdateSourceTrigger=PropertyChanged}"
+                        Margin="5 0 0 0"
                         FontSize="16"
                         materialDesign:HintAssist.Hint="Nhập tìm kiếm"
                         materialDesign:HintAssist.HelperText=""
@@ -55,12 +48,30 @@
                     </TextBox>
 
                     <Button
+                        Command="{Binding SearchCommand, UpdateSourceTrigger=PropertyChanged}"
                         Background="#FF1A88CE"
                         Margin="15 0 0 0"
                         FontSize="16"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         Width="150"
                         Content="Tìm kiếm"/>
+
+                    <Button
+                        Command="{Binding RefreshCommand, UpdateSourceTrigger=PropertyChanged}"
+                        Background="#FF1A88CE"
+                        Margin="15 0 0 0"
+                        FontSize="16"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="150">
+                        <WrapPanel>
+                            <materialDesign:PackIcon Height="25" Width="25" Kind="Autorenew" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Text="Tải lại"/>
+                        </WrapPanel>
+
+                    </Button>
                 </StackPanel>
 
             </materialDesign:Card>
@@ -76,31 +87,32 @@
                     <!--<Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>-->
 
                     <Grid Margin="5">
                         <TextBox
-                            Text="{Binding TacGia.Ho, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding IsEnable}"
+                            Text="{Binding Ten, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
-                            materialDesign:HintAssist.Hint="Họ"
-                            materialDesign:HintAssist.HelperText=""
-                            Width="300"/>
-                    </Grid>
-
-                    <Grid Margin="5">
-                        <TextBox
-                            Text="{Binding TacGia.Ten, UpdateSourceTrigger=PropertyChanged}"
-                            Margin="15 0 0 0"
-                            FontSize="16"
-                            materialDesign:HintAssist.Hint="Tên"
-                            materialDesign:HintAssist.HelperText=""
+                            materialDesign:HintAssist.Hint="Tác giả"
                             Width="300"/>
                     </Grid>
 
                     <Grid Margin="5">
                         <Button
+                            Command="{Binding CancelCommand}"
+                            Background="#FF1A88CE"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Width="150"
+                            Content="Huỷ"/>
+                    </Grid>
+
+                    <Grid Margin="5">
+                        <Button
+                            Command="{Binding SaveCommand}"
                             Background="#FF1A88CE"
                             Margin="15 0 0 0"
                             FontSize="16"
@@ -120,14 +132,16 @@
         <Grid Margin="5" Grid.Row="4">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
-                    <ListView FontSize="20">
+                    <ListView
+                        ItemsSource="{Binding List, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                        FontSize="20">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding}"></GridViewColumn>
-                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding TacGia.ID}"></GridViewColumn>
-                                <GridViewColumn Header="Họ" DisplayMemberBinding="{Binding TacGia.Ho}"></GridViewColumn>
-                                <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding TacGia.Ten}"></GridViewColumn>
-                             </GridView>
+                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Author.ID}"></GridViewColumn>
+                                <GridViewColumn Header="Tác giả" DisplayMemberBinding="{Binding Author.Ten}"></GridViewColumn>
+                            </GridView>
                         </ListView.View>
                     </ListView>
                 </ScrollViewer>

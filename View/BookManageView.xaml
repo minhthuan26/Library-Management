@@ -252,6 +252,7 @@
                             </Style>
                         </ListView.Resources>-->
                         <ListView.View>
+                            
                             <GridView>
                                 <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
                                 <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Book.ID}"></GridViewColumn>
