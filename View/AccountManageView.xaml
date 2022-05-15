@@ -36,7 +36,7 @@
                         Margin="15 0 0 0"
                         FontSize="16"
                         materialDesign:HintAssist.Hint="Chọn loại tìm kiếm">
-                        
+
                     </ComboBox>
 
 
@@ -113,20 +113,7 @@
                             materialDesign:HintAssist.HelperText=""
                             Width="300"/>
                     </Grid>
-
-                    <Grid Margin="5">
-                        <ComboBox
-                            DisplayMemberPath="TenChucVu"
-                            SelectedItem="{Binding SelectedRole, Mode=TwoWay}"
-                            ItemsSource="{Binding RoleList}"
-                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
-                            Margin="15 0 0 0"
-                            FontSize="16"
-                            materialDesign:HintAssist.Hint="Chức vụ">
-                            
-                        </ComboBox>
-                    </Grid>
-
+                    
                     <Grid Margin="5">
                         <ComboBox
                             DisplayMemberPath="HoVaTen"
@@ -170,9 +157,14 @@
         </Grid>
 
         <Grid Margin="5" Grid.Row="4">
-            <materialDesign:Card>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500*"/>
+                <ColumnDefinition Width="195*"/>
+                <ColumnDefinition Width="527*"/>
+            </Grid.ColumnDefinitions>
+            <materialDesign:Card Grid.ColumnSpan="3">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
-                   <ListView 
+                    <ListView 
                         ItemsSource="{Binding List, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                         SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                         FontSize="20">
@@ -181,7 +173,7 @@
                                 <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
                                 <GridViewColumn Header="Tên tài khoản" DisplayMemberBinding="{Binding TenTaiKhoan}"></GridViewColumn>
                                 <GridViewColumn Header="Mật khẩu" DisplayMemberBinding="{Binding MatKhau}"></GridViewColumn>
-                                <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding ChucVu.TenChucVu}"></GridViewColumn>
+                                <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding NhanVien.ChucVu.TenChucVu}"></GridViewColumn>
                                 <GridViewColumn Header="Nhân viên" DisplayMemberBinding="{Binding NhanVien.HoVaTen}"></GridViewColumn>
                             </GridView>
                         </ListView.View>

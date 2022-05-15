@@ -42,7 +42,6 @@ namespace QuanLyThuVien.ViewModel
                 if (SelectedItem != null)
                 {
                     BaseViewModel.SelectedItem = SelectedItem;
-                    IsEnable = false;
                     Ten = SelectedItem.Book.TenSach;
                     SoLuong = SelectedItem.Book.SoLuong;
                     Gia = SelectedItem.Book.Gia;
@@ -67,7 +66,6 @@ namespace QuanLyThuVien.ViewModel
         {
             get
             {
-                IsClick = false;
                 return (TacGia)_selectedAuthor;
             }
             set
@@ -82,7 +80,6 @@ namespace QuanLyThuVien.ViewModel
         {
             get
             {
-                IsClick = false;
                 return (TheLoai)_selectedBookType;
             }
             set
@@ -178,7 +175,7 @@ namespace QuanLyThuVien.ViewModel
             setDefault();
             SaveCommand = new RelayCommand<Button>((p) =>
             {
-                if (IsClick || IsEnable)
+                if (IsClick)
                 {
 
                     if (string.IsNullOrEmpty(Ten) || NgayXuatBan < DateTime.Parse("01/01/1900")
@@ -188,7 +185,7 @@ namespace QuanLyThuVien.ViewModel
 
                         return false;
                     }
-                    IsEnable = true;
+                    //IsEnable = true;
                     return true;
                 }
 
@@ -241,7 +238,7 @@ namespace QuanLyThuVien.ViewModel
             });
             CancelCommand = new RelayCommand<Button>((p) =>
             {
-                if (IsClick || IsEnable)
+                if (IsClick)
                 {
                     IsEnable = true;
                     return true;
@@ -526,7 +523,6 @@ namespace QuanLyThuVien.ViewModel
             AuthorList = new ObservableCollection<TacGia>(DataProvider.Ins.DB.TacGias);
             BookTypeList = new ObservableCollection<TheLoai>(DataProvider.Ins.DB.TheLoais);
             BaseViewModel.SelectedItem = null;
-            this.SelectedItem = null;
             IsEnable = false;
             IsClick = false;
             IsAdd = false;
@@ -543,7 +539,7 @@ namespace QuanLyThuVien.ViewModel
                 BookList item = new BookList();
                 item.STT = index;
                 item.Book = book;
-                item.HoTenTacGia = book.TacGia.Ten;
+                //item.HoTenTacGia = book.TacGia.Ten;
                 list.Add(item);
                 index++;
             }

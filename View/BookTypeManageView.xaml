@@ -91,11 +91,11 @@
 
                     <Grid Margin="5">
                         <TextBox
-                            IsEnabled="{Binding IsEnable}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Text="{Binding Ten, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
-                            materialDesign:HintAssist.Hint="Thể loại"
+                            materialDesign:HintAssist.Hint="Chức vụ"
                             materialDesign:HintAssist.HelperText=""
                             Width="300"/>
                     </Grid>

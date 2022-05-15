@@ -32,6 +32,8 @@ namespace QuanLyThuVien.ViewModel
         public ICommand DeleteCommand { get; set; }
         public ICommand ConfirmCommand { get; set; }
         public ICommand BlockAccountCommand { get; set; }
+        public ICommand BlockCustomerCommand { get; set; }
+        public ICommand CreateIssueBookCommand { get; set; }
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -191,6 +193,20 @@ namespace QuanLyThuVien.ViewModel
                         IsVisible = "Visible";
                         break;
 
+                    case "Quản lí chức vụ":
+                        RoleManageViewModel roleManageViewModel = (RoleManageViewModel)SelectView;
+                        RoleList roleList = (RoleList)SelectedItem;
+                        ChucVu role = roleList.Role;
+                        MessageText = "Đã xoá chức vụ " + "\"" + role.TenChucVu + "\".";
+                        DataProvider.Ins.DB.ChucVus.DeleteObject(role);
+                        DataProvider.Ins.DB.SaveChanges();
+                        roleManageViewModel.setDefault();
+                        CurrentView = SelectView;
+                        SelectView = null;
+                        p.Visibility = Visibility.Hidden;
+                        IsVisible = "Visible";
+                        break;
+
                     case "Quản lí tác giả":
                         AuthorManageViewModel authorManageViewModel = (AuthorManageViewModel)SelectView;
                         AuthorList authorList = (AuthorList)SelectedItem;
@@ -199,6 +215,34 @@ namespace QuanLyThuVien.ViewModel
                         DataProvider.Ins.DB.TacGias.DeleteObject(author);
                         DataProvider.Ins.DB.SaveChanges();
                         authorManageViewModel.setDefault();
+                        CurrentView = SelectView;
+                        SelectView = null;
+                        p.Visibility = Visibility.Hidden;
+                        IsVisible = "Visible";
+                        break;
+
+                    case "Quản lí nhân viên":
+                        StaffManageViewModel staffManageViewModel = (StaffManageViewModel)SelectView;
+                        StaffList staffList = (StaffList)SelectedItem;
+                        NhanVien staff = staffList.Staff;
+                        MessageText = "Đã xoá nhân viên " + "\"" + staff.HoVaTen + "\".";
+                        DataProvider.Ins.DB.NhanViens.DeleteObject(staff);
+                        DataProvider.Ins.DB.SaveChanges();
+                        staffManageViewModel.setDefault();
+                        CurrentView = SelectView;
+                        SelectView = null;
+                        p.Visibility = Visibility.Hidden;
+                        IsVisible = "Visible";
+                        break;
+
+                    case "Quản lí khách hàng":
+                        CustomerManageViewModel customerManageViewModel = (CustomerManageViewModel)SelectView;
+                        CustomerList customerList = (CustomerList)SelectedItem;
+                        KhachHang khachHang = customerList.Customer;
+                        DataProvider.Ins.DB.KhachHangs.DeleteObject(khachHang);
+                        MessageText = "Đã xoá khách hàng " + "\"" + khachHang.HoVaTen + "\".";
+                        DataProvider.Ins.DB.SaveChanges();
+                        customerManageViewModel.setDefault();
                         CurrentView = SelectView;
                         SelectView = null;
                         p.Visibility = Visibility.Hidden;
@@ -242,6 +286,28 @@ namespace QuanLyThuVien.ViewModel
                 IsVisible = "Visible";
             });
 
+            BlockCustomerCommand = new RelayCommand<Grid>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                CustomerList customerList = (CustomerList)SelectedItem;
+                KhachHang khachHang = customerList.Customer;
+                khachHang.TrangThai = khachHang.TrangThai == 1 ? 0 : 1;
+                DataProvider.Ins.DB.SaveChanges();
+                CustomerManageViewModel customerManage = (CustomerManageViewModel)SelectView;
+                customerManage.setDefault();
+                CurrentView = SelectView;
+                SelectView = null;
+                p.Visibility = Visibility.Hidden;
+                MessageText = khachHang.TrangThai == 1 ?
+                    "Đã mở khoá khách hàng " + "\"" + khachHang.HoVaTen + "\"."
+                    : "Đã khoá khách hàng " + "\"" + khachHang.HoVaTen + "\".";
+                IsVisible = "Visible";
+            });
+
             ConfirmCommand = new RelayCommand<Grid>((p) =>
             {
                 return true;
@@ -250,6 +316,15 @@ namespace QuanLyThuVien.ViewModel
                 SelectView = CurrentView;
                 p.Visibility = Visibility.Visible;
                 IsVisible = "Hidden";
+            });
+
+            CreateIssueBookCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                CreateIssueWindow view = new CreateIssueWindow();
+                view.ShowDialog();
             });
         }
 

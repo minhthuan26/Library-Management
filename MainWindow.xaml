@@ -223,6 +223,7 @@
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Lập phiếu mượn"
+                                                Command="{Binding CreateIssueBookCommand}"
                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
@@ -355,30 +356,38 @@
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
-                                                Content="Khoá khách hàng"
+                                                Content="Khoá / Mở khoá"
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding BlockCustomerCommand}"
                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
-                                                FontSize="18"/>
+                                                FontSize="18">
+
+                                            </Button>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=bookAddBtn}"
+                                                Command="{Binding AddCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Thêm"
-                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=bookEditBtn}"
+                                                Command="{Binding EditCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Sửa"
-                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding DeleteCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
@@ -408,26 +417,33 @@
                                     <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
                                         <TreeViewItem Visibility="Collapsed">
                                             <Button
+                                                Command="{Binding AddCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Thêm"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
 
                                             <Button
+                                                Command="{Binding EditCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Sửa"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding DeleteCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Xoá"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
                                         </TreeViewItem>
@@ -452,6 +468,7 @@
                                     <TreeView Margin="-50 0 0 0" HorizontalAlignment="Stretch">
                                         <TreeViewItem Visibility="Collapsed">
                                             <Button
+                                                Command="{Binding AddCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
@@ -461,6 +478,7 @@
                                                 FontSize="18"/>
 
                                             <Button
+                                                Command="{Binding EditCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
@@ -470,6 +488,8 @@
                                                 FontSize="18"/>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding DeleteCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"

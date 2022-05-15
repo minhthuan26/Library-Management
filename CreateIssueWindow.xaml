@@ -1,0 +1,313 @@
+﻿<Window x:Class="QuanLyThuVien.CreateIssueWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyThuVien"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:uc="clr-namespace:QuanLyThuVien.UserControlMain"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="Black"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Height="500" Width="1000"
+        x:Name="createIssue"
+        Title="Lập phiếu mượn sách">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarView Tag="{Binding Title, ElementName=createIssue}"></uc:ControlBarView>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="5">
+                <materialDesign:Card>
+                    <TextBlock
+                        Margin="5"
+                        Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                        FontWeight="Bold"
+                        TextAlignment="Center"
+                        Text="Phiếu Mượn" />
+                </materialDesign:Card>
+            </Grid>
+            
+            <Grid Grid.Row="1" Margin="5">
+                <materialDesign:Card>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <materialDesign:Card 
+                            Grid.Row="0"
+                            Margin="5">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="60"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <TextBlock
+                                            Margin="5"
+                                            VerticalAlignment="Center"
+                                            FontSize="20"
+                                            Text="ID phiếu mượn: "/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <TextBlock
+                                            Margin="5"
+                                            VerticalAlignment="Center"
+                                            FontSize="20"
+                                            Text="{Binding ID, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="60"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <TextBlock
+                                            Margin="5"
+                                            VerticalAlignment="Center"
+                                            FontSize="20"
+                                            Text="Người lập phiếu: "/>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2">
+                                        <TextBlock
+                                            Margin="5"
+                                            VerticalAlignment="Center"
+                                            FontSize="20"
+                                            Text="{Binding Staff.HoVaTen, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="60"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <TextBlock
+                                        Margin="5"
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        Text="Ngày lập phiếu: "/>
+                                    </Grid>
+
+
+                                    <Grid Grid.Column="2">
+                                        <TextBlock
+                                        Margin="5"
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        Text="{Binding Date, StringFormat='dd/MM/yyyy', UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"/>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card 
+                            Grid.Row="1"
+                            Margin="5">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <materialDesign:Card Grid.Row="0" Margin="0 0 0 5">
+                                    <TextBlock
+                                        Margin="5"
+                                        FontSize="20"
+                                        Text="Chi tiết:" />
+                                </materialDesign:Card>
+
+                                <materialDesign:Card Grid.Row="1">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0">
+                                                <TextBlock
+                                                    Margin="5"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="20"
+                                                    Text="ID chi tiết: "/>
+                                            </Grid>
+
+                                            <Grid Grid.Column="2">
+                                                <TextBlock
+                                                    Margin="5"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="20"
+                                                    Text="{Binding DetailID, UpdateSourceTrigger=PropertyChanged}"/>
+                                            </Grid>
+                                        </Grid>
+
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0">
+                                                <TextBlock
+                                                    Margin="5"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="20"
+                                                    Text="Khách hàng: "/>
+                                            </Grid>
+
+                                            <Grid Grid.Column="2">
+                                                <ComboBox
+                                                    Margin="5 "
+                                                    DisplayMemberPath="HoVaTen"
+                                                    SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}"
+                                                    ItemsSource="{Binding CustomerList}"
+                                                    FontSize="20"
+                                                    materialDesign:HintAssist.Hint="Khách hàng"/>
+                                            </Grid>
+                                        </Grid>
+
+                                        <Grid Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock
+                                                    Grid.Column="0"
+                                                    Margin="5"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="20"
+                                                    Text="Sách: "/>
+
+                                                <ComboBox
+                                                    Grid.Column="1"
+                                                    Margin="5 "
+                                                    DisplayMemberPath="TenSach"
+                                                    SelectedItem="{Binding SelectedBook, Mode=TwoWay}"
+                                                    ItemsSource="{Binding BookList}"
+                                                    FontSize="20"
+                                                    materialDesign:HintAssist.Hint="Sách"/>
+                                            </Grid>
+
+                                            <Grid Grid.Column="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock
+                                                    Grid.Column="0"
+                                                    Margin="5"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="20"
+                                                    Text="Số lượng: "/>
+
+                                                <TextBox
+                                                    Grid.Column="1"
+                                                    Text="{Binding BookQuantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                    Margin="5"
+                                                    FontSize="20"
+                                                    materialDesign:HintAssist.Hint="{Binding Rest, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                            </Grid>
+                                        </Grid>
+
+                                        <Grid 
+                                            Grid.Row="3">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Button
+                                                Grid.Column="4"
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="40"
+                                                IsDefault="True"
+                                                Content="_Lưu"
+                                                Background="#FF1A88CE"
+                                                Width="160"
+                                                FontSize="20"
+                                                Command="{Binding }"
+                                                CommandParameter="{Binding ElementName=createIssue}"/>
+                                            <Button
+                                                Grid.Column="3"
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Height="40"
+                                                Content="_Huỷ"
+                                                Command="{Binding }"
+                                                CommandParameter="{Binding ElementName=createIssue}"
+                                                Background="#FF1A88CE"
+                                                Width="160"
+                                                FontSize="20" />
+                                        </Grid>
+                                    </Grid>
+                                </materialDesign:Card>
+                            </Grid>
+                        </materialDesign:Card>
+
+                    </Grid>
+
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

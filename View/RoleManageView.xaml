@@ -30,23 +30,16 @@
                     Margin="5" 
                     Orientation="Horizontal" 
                     HorizontalAlignment="Left">
-                    <ComboBox
+                    <TextBlock
                         Margin="15 0 0 0"
                         FontSize="16"
-                        materialDesign:HintAssist.Hint="Chọn loại tìm kiếm">
-                        <ComboBoxItem
-                            Content="Android" />
-                        <ComboBoxItem
-                            Content="iOS" />
-                        <ComboBoxItem
-                            Content="Linux" />
-                        <ComboBoxItem
-                            Content="Windows" />
-                    </ComboBox>
+                        Text="Nhập tên thể loại: "
+                        VerticalAlignment="Center"/>
 
 
                     <TextBox
-                        Margin="15 0 0 0"
+                        Text="{Binding SearchValue, UpdateSourceTrigger=PropertyChanged}"
+                        Margin="5 0 0 0"
                         FontSize="16"
                         materialDesign:HintAssist.Hint="Nhập tìm kiếm"
                         materialDesign:HintAssist.HelperText=""
@@ -55,12 +48,30 @@
                     </TextBox>
 
                     <Button
+                        Command="{Binding SearchCommand, UpdateSourceTrigger=PropertyChanged}"
                         Background="#FF1A88CE"
                         Margin="15 0 0 0"
                         FontSize="16"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         Width="150"
                         Content="Tìm kiếm"/>
+
+                    <Button
+                        Command="{Binding RefreshCommand, UpdateSourceTrigger=PropertyChanged}"
+                        Background="#FF1A88CE"
+                        Margin="15 0 0 0"
+                        FontSize="16"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="150">
+                        <WrapPanel>
+                            <materialDesign:PackIcon Height="25" Width="25" Kind="Autorenew" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Text="Tải lại"/>
+                        </WrapPanel>
+
+                    </Button>
                 </StackPanel>
 
             </materialDesign:Card>
@@ -72,24 +83,36 @@
 
         <Grid Margin="5" Grid.Row="2">
             <materialDesign:Card>
-                <Grid Margin="5">
-                    <Grid.ColumnDefinitions>
+                <WrapPanel Margin="5">
+                    <!--<Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                    </Grid.ColumnDefinitions>-->
 
-                    <Grid Grid.Column="0">
+                    <Grid Margin="5">
                         <TextBox
-                            Text="{Binding ChucVu.TenChucVu, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding Ten, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Chức vụ"
-                            materialDesign:HintAssist.HelperText=""
                             Width="300"/>
                     </Grid>
 
-                    <Grid Grid.Column="1">
+                    <Grid Margin="5">
                         <Button
+                            Command="{Binding CancelCommand}"
+                            Background="#FF1A88CE"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Width="150"
+                            Content="Huỷ"/>
+                    </Grid>
+
+                    <Grid Margin="5">
+                        <Button
+                            Command="{Binding SaveCommand}"
                             Background="#FF1A88CE"
                             Margin="15 0 0 0"
                             FontSize="16"
@@ -97,7 +120,7 @@
                             Width="150"
                             Content="Lưu"/>
                     </Grid>
-                </Grid>
+                </WrapPanel>
 
             </materialDesign:Card>
         </Grid>
@@ -109,12 +132,15 @@
         <Grid Margin="5" Grid.Row="4">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
-                    <ListView FontSize="20">
+                    <ListView
+                        ItemsSource="{Binding List, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                        FontSize="20">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding}"></GridViewColumn>
-                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ChucVu.ID}"></GridViewColumn>
-                                <GridViewColumn Header="Thể loại" DisplayMemberBinding="{Binding ChucVu.TenChucVu}"></GridViewColumn>
+                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Role.ID}"></GridViewColumn>
+                                <GridViewColumn Header="Thể loại" DisplayMemberBinding="{Binding Role.TenChucVu}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

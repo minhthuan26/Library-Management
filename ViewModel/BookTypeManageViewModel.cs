@@ -67,14 +67,13 @@ namespace QuanLyThuVien.ViewModel
             setDefault();
             SaveCommand = new RelayCommand<Button>((p) =>
             {
-                if (IsClick || IsEnable)
+                if (IsClick)
                 {
                     int count = DataProvider.Ins.DB.TheLoais.Where(x => x.TenTheLoai == Ten).Count();
                     if (string.IsNullOrEmpty(Ten) || count > 0)
                     {
                         return false;
                     }
-                    IsEnable = true;
                     return true;
                 }
 
@@ -105,7 +104,7 @@ namespace QuanLyThuVien.ViewModel
             });
             CancelCommand = new RelayCommand<Button>((p) =>
             {
-                if (IsClick || IsEnable)
+                if (IsClick)
                 {
                     IsEnable = true;
                     return true;
@@ -127,7 +126,7 @@ namespace QuanLyThuVien.ViewModel
                 setDefault();
                 List.Clear();
                 List = loadList(List,
-                    DataProvider.Ins.DB.TheLoais.Where(x => x.TenTheLoai == SearchValue));
+                    DataProvider.Ins.DB.TheLoais.Where(x => x.TenTheLoai.Contains(SearchValue)));
             });
 
             RefreshCommand = new RelayCommand<TextBlock>((p) =>

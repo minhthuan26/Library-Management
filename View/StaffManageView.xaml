@@ -30,24 +30,20 @@
                     Margin="5" 
                     Orientation="Horizontal" 
                     HorizontalAlignment="Left">
-                    <ComboBox
+                    <ComboBox 
+                        ItemsSource="{Binding SearchTypeList}"
+                        SelectedItem="{Binding SearchType, UpdateSourceTrigger=PropertyChanged}"
                         Margin="15 0 0 0"
                         FontSize="16"
                         materialDesign:HintAssist.Hint="Chọn loại tìm kiếm">
-                        <ComboBoxItem
-                            Content="Android" />
-                        <ComboBoxItem
-                            Content="iOS" />
-                        <ComboBoxItem
-                            Content="Linux" />
-                        <ComboBoxItem
-                            Content="Windows" />
-                    </ComboBox>
+                        </ComboBox>
 
 
                     <TextBox
+                        Name="searchBox"
                         Margin="15 0 0 0"
                         FontSize="16"
+                        Text="{Binding SearchValue, UpdateSourceTrigger=PropertyChanged}"
                         materialDesign:HintAssist.Hint="Nhập tìm kiếm"
                         materialDesign:HintAssist.HelperText=""
                         Width="300">
@@ -55,6 +51,8 @@
                     </TextBox>
 
                     <Button
+                        Command="{Binding SearchCommand}"
+                        CommandParameter="{Binding ElementName=SearchBox}"
                         Background="#FF1A88CE"
                         Margin="15 0 0 0"
                         FontSize="16"
@@ -72,65 +70,87 @@
 
         <Grid Margin="5" Grid.Row="2">
             <materialDesign:Card>
-                <Grid Margin="5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                <WrapPanel Margin="5">
 
-                    <Grid Grid.Column="0">
+                    <Grid Margin="5">
                         <TextBox
-                            Text="{Binding NhanVien.Ho, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding StaffName, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
-                            materialDesign:HintAssist.Hint="Họ"
+                            materialDesign:HintAssist.Hint="Họ và tên"
                             materialDesign:HintAssist.HelperText=""
                             Width="300"/>
                     </Grid>
-
-                    <Grid Grid.Column="1">
+                    
+                    <Grid Margin="5">
                         <TextBox
-                            Text="{Binding NhanVien.Ten, UpdateSourceTrigger=PropertyChanged}"
-                            Margin="15 0 0 0"
-                            FontSize="16"
-                            materialDesign:HintAssist.Hint="Tên"
-                            materialDesign:HintAssist.HelperText=""
-                            Width="300"/>
-                    </Grid>
-                    <Grid Grid.Column="2">
-                        <TextBox
-                            Text="{Binding NhanVien.SoDienThoai, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Số điện thoại"
                             materialDesign:HintAssist.HelperText=""
                             Width="300" />
                     </Grid>
-                    <Grid Grid.Column="3">
+                    
+                    <Grid Margin="5">
                         <TextBox
-                            Text="{Binding NhanVien.DiaChi, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Địa chỉ"
                             materialDesign:HintAssist.HelperText=""
                             Width="300" />
                     </Grid>
-                    <Grid Grid.Column="4">
+
+                    <Grid Margin="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="27*"/>
+                            <RowDefinition Height="19*"/>
+                        </Grid.RowDefinitions>
+                        <ComboBox
+                            SelectedItem="{Binding SelectedRole, Mode=TwoWay}"
+                            ItemsSource="{Binding RoleList}"
+                            DisplayMemberPath="TenChucVu"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            materialDesign:HintAssist.Hint="Chức vụ" Grid.RowSpan="2">
+                        </ComboBox>
+                    </Grid>
+
+                    <Grid Margin="5">
                         <DatePicker
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             Width="150"
-                            SelectedDate="{Binding NhanVien.NgaySinh, UpdateSourceTrigger=PropertyChanged}"
+                            SelectedDate="{Binding DateOfBirth, StringFormat='dd/MM/yyyy', UpdateSourceTrigger=PropertyChanged}"
                             materialDesign:HintAssist.Hint="Ngày sinh"
                             materialDesign:TextFieldAssist.HasClearButton="True"
                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                     </Grid>
-                    <Grid Grid.Column="5">
+
+                    <Grid Margin="5">
                         <Button
+                            Name="cancelBtn"
+                            Command="{Binding CancelCommand}"
+                            CommandParameter="{Binding ElementName=cancelBtn}"
+                            Background="#FF1A88CE"
+                            Margin="15 0 0 0"
+                            FontSize="16"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Width="150"
+                            Content="Huỷ"/>
+                    </Grid>
+                    
+                    <Grid Margin="5">
+                        <Button
+                            Name="saveBtn"
+                            Command="{Binding SaveCommand}"
+                            CommandParameter="{Binding ElementName=saveBtn}"
                             Background="#FF1A88CE"
                             Margin="15 0 0 0"
                             FontSize="16"
@@ -138,7 +158,7 @@
                             Width="150"
                             Content="Lưu"/>
                     </Grid>
-                </Grid>
+                </WrapPanel>
 
             </materialDesign:Card>
         </Grid>
@@ -150,17 +170,19 @@
         <Grid Margin="5" Grid.Row="4">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
-                    <ListView FontSize="20">
+                    <ListView 
+                        ItemsSource="{Binding List, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                        FontSize="20">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding}"></GridViewColumn>
-                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding NhanVien.ID}"></GridViewColumn>
-                                <GridViewColumn Header="Họ" DisplayMemberBinding="{Binding NhanVien.Họ}"></GridViewColumn>
-                                <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding NhanVien.Tên}"></GridViewColumn>
-                                <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding NhanVien.NgaySinh}"></GridViewColumn>
-                                <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding NhanVien.SoDienThoai}"></GridViewColumn>
-                                <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding NhanVien.DiaChi}"></GridViewColumn>
-                                <GridViewColumn Header="ID tài khoản" DisplayMemberBinding="{Binding TaiKhoan.ID}"></GridViewColumn>
+                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Staff.ID}"></GridViewColumn>
+                                <GridViewColumn Header="Họ và tên" DisplayMemberBinding="{Binding Staff.HoVaTen}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding Staff.NgaySinh, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
+                                <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding Staff.SoDienThoai}"></GridViewColumn>
+                                <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Staff.DiaChi}"></GridViewColumn>
+                                <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding Staff.ChucVu.TenChucVu}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

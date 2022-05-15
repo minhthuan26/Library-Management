@@ -66,14 +66,13 @@ namespace QuanLyThuVien.ViewModel
             setDefault();
             SaveCommand = new RelayCommand<Button>((p) =>
             {
-                if (IsClick || IsEnable)
+                if (IsClick)
                 {
                     int count = DataProvider.Ins.DB.TacGias.Where(x => x.Ten == Ten).Count();
                     if (string.IsNullOrEmpty(Ten) || count > 0)
                     {
                         return false;
                     }
-                    IsEnable = true;
                     return true;
                 }
 
@@ -104,7 +103,7 @@ namespace QuanLyThuVien.ViewModel
             });
             CancelCommand = new RelayCommand<Button>((p) =>
             {
-                if (IsClick || IsEnable)
+                if (IsClick)
                 {
                     IsEnable = true;
                     return true;

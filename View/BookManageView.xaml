@@ -69,7 +69,6 @@
 
                     <Button
                         Command="{Binding SearchCommand}"
-                        CommandParameter="{Binding ElementName=SearchBox}"
                         Background="#FF1A88CE"
                         Margin="15 0 0 0"
                         FontSize="16"
@@ -126,7 +125,7 @@
                             DisplayMemberPath="Ten"
                             SelectedItem="{Binding SelectedAuthor, Mode=TwoWay}"
                             ItemsSource="{Binding AuthorList}"
-                            IsEnabled="{Binding IsEnable}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Tác giả">
@@ -154,7 +153,7 @@
                             SelectedItem="{Binding SelectedBookType, Mode=TwoWay}"
                             ItemsSource="{Binding BookTypeList}"
                             DisplayMemberPath="TenTheLoai"
-                            IsEnabled="{Binding IsEnable}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
                             materialDesign:HintAssist.Hint="Thể loại" Grid.RowSpan="2">
@@ -162,7 +161,7 @@
                     </Grid>
                     <Grid Margin="5">
                         <TextBox
-                            IsEnabled="{Binding IsEnable}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Text="{Binding Ten, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="16"
@@ -172,7 +171,7 @@
                     </Grid>
                     <Grid Margin="5">
                         <TextBox
-                            IsEnabled="{Binding IsEnable}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Text="{Binding SoLuong, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                             Margin="15 0 0 0"
                             FontSize="16"
@@ -182,7 +181,7 @@
                     </Grid>
                     <Grid Margin="5">
                         <TextBox
-                            IsEnabled="{Binding IsEnable}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Text="{Binding Gia, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15,0,0,0"
                             FontSize="16"
@@ -193,7 +192,7 @@
                     <Grid Margin="5">
                         <DatePicker
                             VerticalAlignment="Bottom"
-                            IsEnabled="{Binding IsEnable}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Margin="15 0 0 0"
                             FontSize="14.5"
                             Width="130"
@@ -207,7 +206,7 @@
                             Name="cancelBtn"
                             Command="{Binding CancelCommand}"
                             CommandParameter="{Binding ElementName=cancelBtn}"
-                            IsEnabled="{Binding IsEnable}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Background="#FF1A88CE"
                             Margin="15 0 0 0"
                             FontSize="16"
@@ -221,7 +220,7 @@
                             Name="saveBtn"
                             Command="{Binding SaveCommand}"
                             CommandParameter="{Binding ElementName=saveBtn}"
-                            IsEnabled="{Binding IsEnable}"
+                            IsEnabled="{Binding IsEnable, UpdateSourceTrigger=PropertyChanged}"
                             Background="#FF1A88CE"
                             Margin="15 0 0 0"
                             FontSize="16"
@@ -256,7 +255,7 @@
                             <GridView>
                                 <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
                                 <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Book.ID}"></GridViewColumn>
-                                <GridViewColumn Header="Tác giả" DisplayMemberBinding="{Binding HoTenTacGia}"></GridViewColumn>
+                                <GridViewColumn Header="Tác giả" DisplayMemberBinding="{Binding Book.TacGia.Ten}"></GridViewColumn>
                                 <GridViewColumn Header="Thể loại" DisplayMemberBinding="{Binding Book.TheLoai.TenTheLoai}">
                                     <!--<GridViewColumn.CellTemplate>
                                         <DataTemplate>
