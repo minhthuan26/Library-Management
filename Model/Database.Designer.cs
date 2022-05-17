@@ -19,13 +19,12 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPBT_KH", "KhachHang", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.KhachHang), "ChiTietPhieuBoiThuong", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuBoiThuong), true)]
 [assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPBT_PBT", "PhieuBoiThuong", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.PhieuBoiThuong), "ChiTietPhieuBoiThuong", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuBoiThuong), true)]
 [assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPBT_S", "Sach", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.Sach), "ChiTietPhieuBoiThuong", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuBoiThuong), true)]
-[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "KhachHang", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.KhachHang), "ChiTietPhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuMuon), true)]
 [assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPM_PM", "PhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.PhieuMuon), "ChiTietPhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuMuon), true)]
 [assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_CTPM_S", "Sach", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyThuVien.Model.Sach), "ChiTietPhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.ChiTietPhieuMuon), true)]
 [assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_NV_CV", "ChucVu", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuanLyThuVien.Model.ChucVu), "NhanVien", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.NhanVien), true)]
+[assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_PM_KH", "KhachHang", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuanLyThuVien.Model.KhachHang), "PhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.PhieuMuon), true)]
 [assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_PBT_NV", "NhanVien", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuanLyThuVien.Model.NhanVien), "PhieuBoiThuong", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.PhieuBoiThuong), true)]
 [assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_PM_NV", "NhanVien", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuanLyThuVien.Model.NhanVien), "PhieuMuon", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.PhieuMuon), true)]
 [assembly: EdmRelationshipAttribute("QuanLiThuVienModel", "FK_TK_NV", "NhanVien", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QuanLyThuVien.Model.NhanVien), "TaiKhoan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyThuVien.Model.TaiKhoan), true)]
@@ -490,30 +489,6 @@ namespace QuanLyThuVien.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String IDKhachHang
-        {
-            get
-            {
-                return _IDKhachHang;
-            }
-            set
-            {
-                OnIDKhachHangChanging(value);
-                ReportPropertyChanging("IDKhachHang");
-                _IDKhachHang = StructuralObject.SetValidValue(value, true, "IDKhachHang");
-                ReportPropertyChanged("IDKhachHang");
-                OnIDKhachHangChanged();
-            }
-        }
-        private global::System.String _IDKhachHang;
-        partial void OnIDKhachHangChanging(global::System.String value);
-        partial void OnIDKhachHangChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 SoLuong
@@ -562,44 +537,6 @@ namespace QuanLyThuVien.Model
         #endregion
 
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_KH", "KhachHang")]
-        public KhachHang KhachHang
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPBT_KH", "KhachHang").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPBT_KH", "KhachHang").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<KhachHang> KhachHangReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPBT_KH", "KhachHang");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPBT_KH", "KhachHang", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -786,30 +723,6 @@ namespace QuanLyThuVien.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String IDKhachHang
-        {
-            get
-            {
-                return _IDKhachHang;
-            }
-            set
-            {
-                OnIDKhachHangChanging(value);
-                ReportPropertyChanging("IDKhachHang");
-                _IDKhachHang = StructuralObject.SetValidValue(value, true, "IDKhachHang");
-                ReportPropertyChanged("IDKhachHang");
-                OnIDKhachHangChanged();
-            }
-        }
-        private global::System.String _IDKhachHang;
-        partial void OnIDKhachHangChanging(global::System.String value);
-        partial void OnIDKhachHangChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 SoLuong
@@ -834,44 +747,6 @@ namespace QuanLyThuVien.Model
         #endregion
 
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "KhachHang")]
-        public KhachHang KhachHang
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHang").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHang").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<KhachHang> KhachHangReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHang");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KhachHang>("QuanLiThuVienModel.FK_CTPM_KH", "KhachHang", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1253,40 +1128,18 @@ namespace QuanLyThuVien.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPBT_KH", "ChiTietPhieuBoiThuong")]
-        public EntityCollection<ChiTietPhieuBoiThuong> ChiTietPhieuBoiThuongs
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_PM_KH", "PhieuMuon")]
+        public EntityCollection<PhieuMuon> PhieuMuons
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_KH", "ChiTietPhieuBoiThuong");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PhieuMuon>("QuanLiThuVienModel.FK_PM_KH", "PhieuMuon");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuBoiThuong>("QuanLiThuVienModel.FK_CTPBT_KH", "ChiTietPhieuBoiThuong", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_CTPM_KH", "ChiTietPhieuMuon")]
-        public EntityCollection<ChiTietPhieuMuon> ChiTietPhieuMuons
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_KH", "ChiTietPhieuMuon");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_KH", "ChiTietPhieuMuon", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PhieuMuon>("QuanLiThuVienModel.FK_PM_KH", "PhieuMuon", value);
                 }
             }
         }
@@ -1604,17 +1457,17 @@ namespace QuanLyThuVien.Model
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="ngayLapPhieu">Initial value of the NgayLapPhieu property.</param>
-        /// <param name="trangThai">Initial value of the TrangThai property.</param>
         /// <param name="iDPhieuMuon">Initial value of the IDPhieuMuon property.</param>
         /// <param name="iDNguoiLap">Initial value of the IDNguoiLap property.</param>
-        public static PhieuBoiThuong CreatePhieuBoiThuong(global::System.String id, global::System.DateTime ngayLapPhieu, global::System.String trangThai, global::System.String iDPhieuMuon, global::System.String iDNguoiLap)
+        /// <param name="trangThai">Initial value of the TrangThai property.</param>
+        public static PhieuBoiThuong CreatePhieuBoiThuong(global::System.String id, global::System.DateTime ngayLapPhieu, global::System.String iDPhieuMuon, global::System.String iDNguoiLap, global::System.Int32 trangThai)
         {
             PhieuBoiThuong phieuBoiThuong = new PhieuBoiThuong();
             phieuBoiThuong.ID = id;
             phieuBoiThuong.NgayLapPhieu = ngayLapPhieu;
-            phieuBoiThuong.TrangThai = trangThai;
             phieuBoiThuong.IDPhieuMuon = iDPhieuMuon;
             phieuBoiThuong.IDNguoiLap = iDNguoiLap;
+            phieuBoiThuong.TrangThai = trangThai;
             return phieuBoiThuong;
         }
 
@@ -1678,30 +1531,6 @@ namespace QuanLyThuVien.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String TrangThai
-        {
-            get
-            {
-                return _TrangThai;
-            }
-            set
-            {
-                OnTrangThaiChanging(value);
-                ReportPropertyChanging("TrangThai");
-                _TrangThai = StructuralObject.SetValidValue(value, false, "TrangThai");
-                ReportPropertyChanged("TrangThai");
-                OnTrangThaiChanged();
-            }
-        }
-        private global::System.String _TrangThai;
-        partial void OnTrangThaiChanging(global::System.String value);
-        partial void OnTrangThaiChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.String IDPhieuMuon
         {
             get
@@ -1744,6 +1573,30 @@ namespace QuanLyThuVien.Model
         private global::System.String _IDNguoiLap;
         partial void OnIDNguoiLapChanging(global::System.String value);
         partial void OnIDNguoiLapChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TrangThai
+        {
+            get
+            {
+                return _TrangThai;
+            }
+            set
+            {
+                OnTrangThaiChanging(value);
+                ReportPropertyChanging("TrangThai");
+                _TrangThai = StructuralObject.SetValidValue(value, "TrangThai");
+                ReportPropertyChanged("TrangThai");
+                OnTrangThaiChanged();
+            }
+        }
+        private global::System.Int32 _TrangThai;
+        partial void OnTrangThaiChanging(global::System.Int32 value);
+        partial void OnTrangThaiChanged();
 
         #endregion
 
@@ -1866,15 +1719,17 @@ namespace QuanLyThuVien.Model
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="ngayLapPhieu">Initial value of the NgayLapPhieu property.</param>
-        /// <param name="trangThai">Initial value of the TrangThai property.</param>
         /// <param name="iDNguoiLap">Initial value of the IDNguoiLap property.</param>
-        public static PhieuMuon CreatePhieuMuon(global::System.String id, global::System.DateTime ngayLapPhieu, global::System.String trangThai, global::System.String iDNguoiLap)
+        /// <param name="trangThai">Initial value of the TrangThai property.</param>
+        /// <param name="iDKhachHang">Initial value of the IDKhachHang property.</param>
+        public static PhieuMuon CreatePhieuMuon(global::System.String id, global::System.DateTime ngayLapPhieu, global::System.String iDNguoiLap, global::System.Int32 trangThai, global::System.String iDKhachHang)
         {
             PhieuMuon phieuMuon = new PhieuMuon();
             phieuMuon.ID = id;
             phieuMuon.NgayLapPhieu = ngayLapPhieu;
-            phieuMuon.TrangThai = trangThai;
             phieuMuon.IDNguoiLap = iDNguoiLap;
+            phieuMuon.TrangThai = trangThai;
+            phieuMuon.IDKhachHang = iDKhachHang;
             return phieuMuon;
         }
 
@@ -1938,30 +1793,6 @@ namespace QuanLyThuVien.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String TrangThai
-        {
-            get
-            {
-                return _TrangThai;
-            }
-            set
-            {
-                OnTrangThaiChanging(value);
-                ReportPropertyChanging("TrangThai");
-                _TrangThai = StructuralObject.SetValidValue(value, false, "TrangThai");
-                ReportPropertyChanged("TrangThai");
-                OnTrangThaiChanged();
-            }
-        }
-        private global::System.String _TrangThai;
-        partial void OnTrangThaiChanging(global::System.String value);
-        partial void OnTrangThaiChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.String IDNguoiLap
         {
             get
@@ -1980,6 +1811,54 @@ namespace QuanLyThuVien.Model
         private global::System.String _IDNguoiLap;
         partial void OnIDNguoiLapChanging(global::System.String value);
         partial void OnIDNguoiLapChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TrangThai
+        {
+            get
+            {
+                return _TrangThai;
+            }
+            set
+            {
+                OnTrangThaiChanging(value);
+                ReportPropertyChanging("TrangThai");
+                _TrangThai = StructuralObject.SetValidValue(value, "TrangThai");
+                ReportPropertyChanged("TrangThai");
+                OnTrangThaiChanged();
+            }
+        }
+        private global::System.Int32 _TrangThai;
+        partial void OnTrangThaiChanging(global::System.Int32 value);
+        partial void OnTrangThaiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String IDKhachHang
+        {
+            get
+            {
+                return _IDKhachHang;
+            }
+            set
+            {
+                OnIDKhachHangChanging(value);
+                ReportPropertyChanging("IDKhachHang");
+                _IDKhachHang = StructuralObject.SetValidValue(value, false, "IDKhachHang");
+                ReportPropertyChanged("IDKhachHang");
+                OnIDKhachHangChanged();
+            }
+        }
+        private global::System.String _IDKhachHang;
+        partial void OnIDKhachHangChanging(global::System.String value);
+        partial void OnIDKhachHangChanged();
 
         #endregion
 
@@ -2003,6 +1882,44 @@ namespace QuanLyThuVien.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChiTietPhieuMuon>("QuanLiThuVienModel.FK_CTPM_PM", "ChiTietPhieuMuon", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("QuanLiThuVienModel", "FK_PM_KH", "KhachHang")]
+        public KhachHang KhachHang
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_PM_KH", "KhachHang").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_PM_KH", "KhachHang").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<KhachHang> KhachHangReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KhachHang>("QuanLiThuVienModel.FK_PM_KH", "KhachHang");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KhachHang>("QuanLiThuVienModel.FK_PM_KH", "KhachHang", value);
                 }
             }
         }

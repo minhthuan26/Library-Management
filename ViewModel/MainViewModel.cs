@@ -1,6 +1,7 @@
 ﻿using QuanLyThuVien.Model;
 using QuanLyThuVien.View;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -31,9 +32,12 @@ namespace QuanLyThuVien.ViewModel
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand ConfirmCommand { get; set; }
+        public ICommand ConfirmReturnBookCommand { get; set; }
         public ICommand BlockAccountCommand { get; set; }
         public ICommand BlockCustomerCommand { get; set; }
         public ICommand CreateIssueBookCommand { get; set; }
+        public ICommand EditIssueBookCommand { get; set; }
+        public ICommand SeeDetailIssueBookCommand { get; set; }
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -163,6 +167,7 @@ namespace QuanLyThuVien.ViewModel
                 return true;
             }, (p) =>
             {
+                var tmp = SelectedItem;
                 switch (ViewTitle)
                 {
                     case "Quản lí sách":
@@ -215,6 +220,25 @@ namespace QuanLyThuVien.ViewModel
                         DataProvider.Ins.DB.TacGias.DeleteObject(author);
                         DataProvider.Ins.DB.SaveChanges();
                         authorManageViewModel.setDefault();
+                        CurrentView = SelectView;
+                        SelectView = null;
+                        p.Visibility = Visibility.Hidden;
+                        IsVisible = "Visible";
+                        break;
+
+                    case "Quản lí mượn sách":
+                        IssueBookManageViewModel issueBookManageViewModel = (IssueBookManageViewModel)SelectView;
+                        IssueBookList issueBookList = (IssueBookList)SelectedItem;
+                        var detailList = ((IEnumerable)DataProvider.Ins.DB.ChiTietPhieuMuons.Where(x => x.PhieuMuon.ID == issueBookList.IssueBook.ID)).Cast<object>().ToList();
+                        foreach(ChiTietPhieuMuon chiTiet in detailList)
+                        {
+                            chiTiet.Sach.SoLuong++;
+                            DataProvider.Ins.DB.ChiTietPhieuMuons.DeleteObject(chiTiet);
+                        }
+                        MessageText = "Đã xoá phiếu mượn có ID " + "\"" + issueBookList.IssueBook.ID + "\".";
+                        DataProvider.Ins.DB.PhieuMuons.DeleteObject(issueBookList.IssueBook);
+                        DataProvider.Ins.DB.SaveChanges();
+                        issueBookManageViewModel.setDefault();
                         CurrentView = SelectView;
                         SelectView = null;
                         p.Visibility = Visibility.Hidden;
@@ -322,9 +346,57 @@ namespace QuanLyThuVien.ViewModel
             {
                 return true;
             }, (p) =>
-            {
+            {   
+                IssueBookManageViewModel issueBook = (IssueBookManageViewModel)SelectView;
                 CreateIssueWindow view = new CreateIssueWindow();
                 view.ShowDialog();
+            });
+
+            EditIssueBookCommand = new RelayCommand<object>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return false;
+            }, (p) =>
+            {
+                IssueBookManageViewModel issueBook = (IssueBookManageViewModel)SelectView;
+                CreateIssueWindow view = new CreateIssueWindow();
+                view.ShowDialog();
+                //if (!view.IsActive)
+
+            });
+
+            SeeDetailIssueBookCommand = new RelayCommand<object>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                DetailIssueBookWindow view = new DetailIssueBookWindow();
+                view.ShowDialog();
+
+            });
+
+            ConfirmReturnBookCommand = new RelayCommand<Grid>((p) =>
+            {
+                if(SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                var item = (IssueBookList)SelectedItem;
+                item.IssueBook.TrangThai = item.IssueBook.TrangThai == 1 ? 0:1;
+                DataProvider.Ins.DB.SaveChanges();
+                ReturnBookManageViewModel returnBookManageViewModel = (ReturnBookManageViewModel)SelectView;
+                returnBookManageViewModel.setDefault();
+                CurrentView = SelectView;
+                SelectView = null;
+                p.Visibility = Visibility.Hidden;
+                MessageText = item.IssueBook.TrangThai == 1 ?
+                    "Đã huỷ xác nhận trả đối với phiếu mượn có ID" + "\"" + item.IssueBook.ID + "\"."
+                    : "Đã xác nhận trả đối với phiếu mượn có ID" + "\"" + item.IssueBook.ID + "\".";
+                IsVisible = "Visible";
             });
         }
 

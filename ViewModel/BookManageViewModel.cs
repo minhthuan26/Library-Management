@@ -165,7 +165,6 @@ namespace QuanLyThuVien.ViewModel
                 OnPropertyChanged();
             }
         }
-
         
         public ICommand SaveCommand { get; set; }
         public ICommand CancelCommand { get; set; }

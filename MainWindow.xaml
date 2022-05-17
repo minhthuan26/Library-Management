@@ -232,7 +232,8 @@
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
-                                                Content="Sửa"
+                                                Content="Xem chi tiết"
+                                                Command="{Binding SeeDetailIssueBookCommand}"
                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
@@ -242,7 +243,8 @@
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Xoá"
-                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding DeleteCommand, UpdateSourceTrigger=PropertyChanged}"
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
                                         </TreeViewItem>
@@ -276,10 +278,12 @@
                                                 FontSize="18"/>
 
                                             <Button
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding ConfirmReturnBookCommand}"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
-                                                Content="Xác nhận trả"
+                                                Content="Xác nhận / Huỷ trả"
                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
@@ -650,7 +654,7 @@
                     Grid.Row="1"
                     Margin="5"
                     VerticalAlignment="Stretch">
-                    
+
                     <TextBlock
                         HorizontalAlignment="Center"
                         Margin="0 300 0 10"

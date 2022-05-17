@@ -18,7 +18,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Height="500" Width="1000"
+        Height="550" Width="1000"
         x:Name="createIssue"
         Title="Lập phiếu mượn sách">
     <Grid>
@@ -46,7 +46,7 @@
                         Text="Phiếu Mượn" />
                 </materialDesign:Card>
             </Grid>
-            
+
             <Grid Grid.Row="1" Margin="5">
                 <materialDesign:Card>
                     <Grid>
@@ -164,34 +164,12 @@
                                             <RowDefinition Height="auto"></RowDefinition>
                                             <RowDefinition Height="auto"></RowDefinition>
                                             <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition Height="auto"></RowDefinition>
                                             <RowDefinition></RowDefinition>
                                         </Grid.RowDefinitions>
 
                                         <Grid Grid.Row="0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition></ColumnDefinition>
-                                                <ColumnDefinition Width="60"></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-
-                                            <Grid Grid.Column="0">
-                                                <TextBlock
-                                                    Margin="5"
-                                                    VerticalAlignment="Center"
-                                                    FontSize="20"
-                                                    Text="ID chi tiết: "/>
-                                            </Grid>
-
-                                            <Grid Grid.Column="2">
-                                                <TextBlock
-                                                    Margin="5"
-                                                    VerticalAlignment="Center"
-                                                    FontSize="20"
-                                                    Text="{Binding DetailID, UpdateSourceTrigger=PropertyChanged}"/>
-                                            </Grid>
-                                        </Grid>
-
-                                        <Grid Grid.Row="1">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition></ColumnDefinition>
                                                 <ColumnDefinition Width="60"></ColumnDefinition>
@@ -217,7 +195,137 @@
                                             </Grid>
                                         </Grid>
 
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0" Margin="0 0 0 10">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock
+                                                    Grid.Column="0"
+                                                    Margin="5"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="20"
+                                                    Text="Sách 1: "/>
+
+                                                <ComboBox
+                                                    Grid.Column="1"
+                                                    Margin="5 "
+                                                    DisplayMemberPath="TenSach"
+                                                    SelectedItem="{Binding SelectedBook1, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                                    ItemsSource="{Binding BookList}"
+                                                    FontSize="20"
+                                                    materialDesign:HintAssist.Hint="Sách"/>
+
+                                            </Grid>
+
+                                            <Grid Grid.Column="1">
+                                                <Button
+                                                    Grid.Column="3"
+                                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                    Command="{Binding DeleteCommand1}"
+                                                    CommandParameter="{Binding ElementName=createIssue}"
+                                                    Background="#FFCE1A1A"
+                                                    Width="50"
+                                                    FontSize="20">
+                                                    <materialDesign:PackIcon Height="24" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Kind="CloseThick" />
+                                                </Button>
+                                            </Grid>
+
+                                            <Grid Grid.Column="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock
+                                                    Grid.Column="0"
+                                                    Margin="5"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="20"
+                                                    Text="Còn lại: "/>
+
+                                                <TextBlock
+                                                    Grid.Column="1"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding Rest1, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                    Margin="5"
+                                                    FontSize="20"
+                                                    materialDesign:HintAssist.Hint="{Binding Rest, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                            </Grid>
+                                        </Grid>
+
                                         <Grid Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="60"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0" Margin="0 0 0 10">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock
+                                                    Grid.Column="0"
+                                                    Margin="5"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="20"
+                                                    Text="Sách 2: "/>
+
+                                                <ComboBox
+                                                    IsEnabled="{Binding IsActive1, UpdateSourceTrigger=PropertyChanged}"
+                                                    Grid.Column="1"
+                                                    Margin="5 "
+                                                    DisplayMemberPath="TenSach"
+                                                    SelectedItem="{Binding SelectedBook2, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                                    ItemsSource="{Binding BookList}"
+                                                    FontSize="20"
+                                                    materialDesign:HintAssist.Hint="Sách"/>
+                                            </Grid>
+
+                                            <Grid Grid.Column="1">
+                                                <Button
+                                                    Grid.Column="3"
+                                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                    Command="{Binding DeleteCommand2}"
+                                                    CommandParameter="{Binding ElementName=createIssue}"
+                                                    Background="#FFCE1A1A"
+                                                    Width="50"
+                                                    FontSize="20">
+                                                    <materialDesign:PackIcon HorizontalAlignment="Center" VerticalAlignment="Center"  Height="24" Width="30" Kind="CloseThick" />
+                                                </Button>
+                                            </Grid>
+
+                                            <Grid Grid.Column="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock
+                                                    Grid.Column="0"
+                                                    Margin="5"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="20"
+                                                    Text="Còn lại: "/>
+
+                                                <TextBlock
+                                                    Grid.Column="1"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding Rest2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                    Margin="5"
+                                                    FontSize="20"
+                                                    materialDesign:HintAssist.Hint="{Binding Rest, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                            </Grid>
+                                        </Grid>
+
+                                        <Grid Grid.Row="3" Margin="0 0 0 10">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition></ColumnDefinition>
                                                 <ColumnDefinition Width="60"></ColumnDefinition>
@@ -234,16 +342,30 @@
                                                     Margin="5"
                                                     VerticalAlignment="Center"
                                                     FontSize="20"
-                                                    Text="Sách: "/>
+                                                    Text="Sách 3: "/>
 
                                                 <ComboBox
+                                                    IsEnabled="{Binding IsActive2, UpdateSourceTrigger=PropertyChanged}"
                                                     Grid.Column="1"
                                                     Margin="5 "
                                                     DisplayMemberPath="TenSach"
-                                                    SelectedItem="{Binding SelectedBook, Mode=TwoWay}"
+                                                    SelectedItem="{Binding SelectedBook3, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                                                     ItemsSource="{Binding BookList}"
                                                     FontSize="20"
                                                     materialDesign:HintAssist.Hint="Sách"/>
+                                            </Grid>
+
+                                            <Grid Grid.Column="1">
+                                                <Button
+                                                    Grid.Column="3"
+                                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                    Command="{Binding DeleteCommand3}"
+                                                    CommandParameter="{Binding ElementName=createIssue}"
+                                                    Background="#FFCE1A1A"
+                                                    Width="50"
+                                                    FontSize="20">
+                                                    <materialDesign:PackIcon Height="24" Width="30" Kind="CloseThick" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </Button>
                                             </Grid>
 
                                             <Grid Grid.Column="2">
@@ -256,19 +378,20 @@
                                                     Margin="5"
                                                     VerticalAlignment="Center"
                                                     FontSize="20"
-                                                    Text="Số lượng: "/>
+                                                    Text="Còn lại: "/>
 
-                                                <TextBox
+                                                <TextBlock
                                                     Grid.Column="1"
-                                                    Text="{Binding BookQuantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding Rest3, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                                     Margin="5"
                                                     FontSize="20"
-                                                    materialDesign:HintAssist.Hint="{Binding Rest, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                                    materialDesign:HintAssist.Hint="{Binding Rest3, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                                             </Grid>
                                         </Grid>
 
                                         <Grid 
-                                            Grid.Row="3">
+                                            Grid.Row="4">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition></ColumnDefinition>
                                                 <ColumnDefinition></ColumnDefinition>
@@ -286,14 +409,14 @@
                                                 Background="#FF1A88CE"
                                                 Width="160"
                                                 FontSize="20"
-                                                Command="{Binding }"
+                                                Command="{Binding SaveCommand}"
                                                 CommandParameter="{Binding ElementName=createIssue}"/>
                                             <Button
                                                 Grid.Column="3"
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="40"
                                                 Content="_Huỷ"
-                                                Command="{Binding }"
+                                                Command="{Binding CancelCommand}"
                                                 CommandParameter="{Binding ElementName=createIssue}"
                                                 Background="#FF1A88CE"
                                                 Width="160"
