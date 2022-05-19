@@ -33,11 +33,14 @@ namespace QuanLyThuVien.ViewModel
         public ICommand DeleteCommand { get; set; }
         public ICommand ConfirmCommand { get; set; }
         public ICommand ConfirmReturnBookCommand { get; set; }
+        public ICommand ConfirmIndemnifyBookCommand { get; set; }
         public ICommand BlockAccountCommand { get; set; }
         public ICommand BlockCustomerCommand { get; set; }
         public ICommand CreateIssueBookCommand { get; set; }
         public ICommand EditIssueBookCommand { get; set; }
         public ICommand SeeDetailIssueBookCommand { get; set; }
+        public ICommand SeeDetailIndemnifyBookCommand { get; set; }
+        public ICommand CompensationCommand { get; set; }
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -245,6 +248,25 @@ namespace QuanLyThuVien.ViewModel
                         IsVisible = "Visible";
                         break;
 
+                    case "Quản lí bồi thường":
+                        IndemnifyManageViewModel indemnifyManageViewModel = (IndemnifyManageViewModel)SelectView;
+                        IndemnifyList indemnifyList = (IndemnifyList)SelectedItem;
+                        var detailIndemnifyList = ((IEnumerable)DataProvider.Ins.DB.ChiTietPhieuBoiThuongs.Where(x => x.PhieuBoiThuong.ID == indemnifyList.IndemnifyBook.ID)).Cast<object>().ToList();
+                        foreach (ChiTietPhieuBoiThuong chiTiet in detailIndemnifyList)
+                        {
+                            chiTiet.Sach.SoLuong++;
+                            DataProvider.Ins.DB.ChiTietPhieuBoiThuongs.DeleteObject(chiTiet);
+                        }
+                        MessageText = "Đã xoá phiếu bồi thường có ID " + "\"" + indemnifyList.IndemnifyBook.ID + "\".";
+                        DataProvider.Ins.DB.PhieuBoiThuongs.DeleteObject(indemnifyList.IndemnifyBook);
+                        DataProvider.Ins.DB.SaveChanges();
+                        indemnifyManageViewModel.setDefault();
+                        CurrentView = SelectView;
+                        SelectView = null;
+                        p.Visibility = Visibility.Hidden;
+                        IsVisible = "Visible";
+                        break;
+
                     case "Quản lí nhân viên":
                         StaffManageViewModel staffManageViewModel = (StaffManageViewModel)SelectView;
                         StaffList staffList = (StaffList)SelectedItem;
@@ -352,19 +374,36 @@ namespace QuanLyThuVien.ViewModel
                 view.ShowDialog();
             });
 
-            EditIssueBookCommand = new RelayCommand<object>((p) =>
+            CompensationCommand = new RelayCommand<object>((p) =>
             {
                 if (SelectedItem == null)
                     return false;
-                return false;
+                return true;
             }, (p) =>
             {
-                IssueBookManageViewModel issueBook = (IssueBookManageViewModel)SelectView;
-                CreateIssueWindow view = new CreateIssueWindow();
-                view.ShowDialog();
-                //if (!view.IsActive)
-
+                IssueBookList phieuMuon = (IssueBookList)SelectedItem;
+                if (phieuMuon.IssueBook.TrangThai == 0)
+                    MessageBox.Show("Phiếu mượn đã tồn tại phiếu bồi thường.");
+                else
+                {
+                    CompensationWindow view = new CompensationWindow();
+                    view.ShowDialog();
+                }
+                    
             });
+
+            //EditIssueBookCommand = new RelayCommand<object>((p) =>
+            //{
+            //    if (SelectedItem == null)
+            //        return false;
+            //    return false;
+            //}, (p) =>
+            //{
+            //    CreateIssueWindow view = new CreateIssueWindow();
+            //    view.ShowDialog();
+            //    //if (!view.IsActive)
+
+            //});
 
             SeeDetailIssueBookCommand = new RelayCommand<object>((p) =>
             {
@@ -397,6 +436,39 @@ namespace QuanLyThuVien.ViewModel
                     "Đã huỷ xác nhận trả đối với phiếu mượn có ID" + "\"" + item.IssueBook.ID + "\"."
                     : "Đã xác nhận trả đối với phiếu mượn có ID" + "\"" + item.IssueBook.ID + "\".";
                 IsVisible = "Visible";
+            });
+
+            ConfirmIndemnifyBookCommand = new RelayCommand<Grid>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                var item = (IndemnifyList)SelectedItem;
+                item.IndemnifyBook.TrangThai = item.IndemnifyBook.TrangThai == 1 ? 0 : 1;
+                DataProvider.Ins.DB.SaveChanges();
+                ReturnBookManageViewModel returnBookManageViewModel = (ReturnBookManageViewModel)SelectView;
+                returnBookManageViewModel.setDefault();
+                CurrentView = SelectView;
+                SelectView = null;
+                p.Visibility = Visibility.Hidden;
+                MessageText = item.IndemnifyBook.TrangThai == 1 ?
+                    "Đã huỷ xác nhận trả đối với phiếu bồi thường có ID" + "\"" + item.IndemnifyBook.ID + "\"."
+                    : "Đã xác nhận trả đối với phiếu bồi thường có ID" + "\"" + item.IndemnifyBook.ID + "\".";
+                IsVisible = "Visible";
+            });
+
+            SeeDetailIndemnifyBookCommand = new RelayCommand<object>((p) =>
+            {
+                if (SelectedItem == null)
+                    return false;
+                return true;
+            }, (p) =>
+            {
+                DetailIndemnifyBookWindow view = new DetailIndemnifyBookWindow();
+                view.ShowDialog();
+
             });
         }
 

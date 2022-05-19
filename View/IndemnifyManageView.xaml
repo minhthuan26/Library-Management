@@ -29,22 +29,17 @@
                     Orientation="Horizontal" 
                     HorizontalAlignment="Left">
                     <ComboBox
+                        ItemsSource="{Binding SearchTypeList}"
+                        SelectedItem="{Binding SearchType, UpdateSourceTrigger=PropertyChanged}"
                         Margin="15 0 0 0"
                         FontSize="16"
                         materialDesign:HintAssist.Hint="Chọn loại tìm kiếm">
-                        <ComboBoxItem
-                            Content="Android" />
-                        <ComboBoxItem
-                            Content="iOS" />
-                        <ComboBoxItem
-                            Content="Linux" />
-                        <ComboBoxItem
-                            Content="Windows" />
                     </ComboBox>
 
                     <TextBox
                         Margin="15 0 0 0"
                         FontSize="16"
+                        Text="{Binding SearchValue, UpdateSourceTrigger=PropertyChanged}"
                         materialDesign:HintAssist.Hint="Nhập tìm kiếm"
                         materialDesign:HintAssist.HelperText=""
                         Width="300">
@@ -52,6 +47,7 @@
                     </TextBox>
 
                     <Button
+                        Command="{Binding SearchCommand}"
                         Background="#FF1A88CE"
                         Margin="15 0 0 0"
                         FontSize="16"
@@ -59,18 +55,19 @@
                         Width="150"
                         Content="Tìm kiếm"/>
 
-                    <ComboBox
+                    <TextBlock
                         Margin="15 0 0 0"
                         FontSize="16"
-                        materialDesign:HintAssist.Hint="Trạng thái phiếu bồi thường">
-                        <ComboBoxItem
-                            Content="Android" />
-                        <ComboBoxItem
-                            Content="iOS" />
-                        <ComboBoxItem
-                            Content="Linux" />
-                        <ComboBoxItem
-                            Content="Windows" />
+                        VerticalAlignment="Center"
+                        Text="Tình trạng phiếu mượn: "/>
+
+                    <ComboBox
+                        ItemsSource="{Binding IndemnifyStatusSearchList}"
+                        SelectedItem="{Binding IndemnifyStatusSearch, UpdateSourceTrigger=PropertyChanged}"
+                        Margin="15 0 0 0"
+                        FontSize="16"
+                        materialDesign:HintAssist.Hint="Trạng thái phiếu mượn">
+
                     </ComboBox>
                 </StackPanel>
 
@@ -84,14 +81,32 @@
         <Grid Margin="5" Grid.Row="2">
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
-                    <ListView FontSize="20">
+                    <ListView 
+                        x:Name="issueID"
+                        ItemsSource="{Binding List, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                        FontSize="20">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding}"></GridViewColumn>
-                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding PhieuBoiThuong.ID}"></GridViewColumn>
-                                <GridViewColumn Header="ID phiếu mượn" DisplayMemberBinding="{Binding PhieuMuon.ID}"></GridViewColumn>
-                                <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding PhieuBoiThuong.NgayLapPhieu}"></GridViewColumn>
-                                <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding PhieuBoiThuong.TrangThai}"></GridViewColumn>
+                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding IndemnifyBook.ID}"></GridViewColumn>
+                                <GridViewColumn Header="Người lập" DisplayMemberBinding="{Binding IndemnifyBook.NhanVien.HoVaTen}"></GridViewColumn>
+                                <GridViewColumn Header="Khách hàng" DisplayMemberBinding="{Binding IndemnifyBook.PhieuMuon.KhachHang.HoVaTen}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding IndemnifyBook.NgayLapPhieu, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
+                                <!--<GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button
+                                                Command="{Binding SeeDetailCommand}"
+                                                CommandParameter="{Binding ElementName=issueID}"
+                                                Background="#FF1A88CE"
+                                                FontSize="16"
+                                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                                Width="150"
+                                                Content="Chi tiết"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>-->
                             </GridView>
                         </ListView.View>
                     </ListView>

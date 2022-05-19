@@ -272,6 +272,7 @@
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
+                                                Command="{Binding CompensationCommand}"
                                                 Content="Lập phiếu bồi thường"
                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
@@ -312,7 +313,7 @@
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
-                                                Content="Xác nhận bồi thường"
+                                                Content="Xác nhận / Huỷ"
                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
@@ -321,7 +322,8 @@
                                                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                                 Height="auto"
                                                 MinWidth="120"
-                                                Content="Sửa"
+                                                Content="Xem chi tiết"
+                                                Command="{Binding SeeDetailIndemnifyBookCommand}"
                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>
@@ -331,6 +333,8 @@
                                                 Height="auto"
                                                 MinWidth="120"
                                                 Content="Xoá"
+                                                CommandParameter="{Binding ElementName=mainContent}"
+                                                Command="{Binding DeleteCommand}"
                                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                                 Background="#FFC32C2C"
                                                 FontSize="18"/>

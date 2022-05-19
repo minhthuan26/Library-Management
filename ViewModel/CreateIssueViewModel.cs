@@ -17,8 +17,6 @@ namespace QuanLyThuVien.ViewModel
         private ObservableCollection<Sach> _bookList;
         public ObservableCollection<Sach> BookList { get { return _bookList; } set { _bookList = value; OnPropertyChanged(); } }
 
-        //private string _bookQuantity;
-        //public string BookQuantity { get { return _bookQuantity; } set { _bookQuantity = value; OnPropertyChanged(); } }
         private string _id;
         public string ID 
         { 
@@ -34,22 +32,6 @@ namespace QuanLyThuVien.ViewModel
                 OnPropertyChanged();
             } 
         }
-
-        //private string _detailID;
-        //public string DetailID
-        //{
-        //    get
-        //    {
-        //        if (_detailID == null)
-        //            _detailID = Guid.NewGuid().ToString();
-        //        return _detailID;
-        //    }
-        //    set
-        //    {
-        //        _detailID = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
 
         private int _rest1 = -1;
         public int Rest1

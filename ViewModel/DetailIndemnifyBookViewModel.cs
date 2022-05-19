@@ -10,19 +10,19 @@ using System.Windows.Input;
 
 namespace QuanLyThuVien.ViewModel
 {
-    public class DetailIssueBookViewModel : BaseViewModel
+    public class DetailIndemnifyBookViewModel : BaseViewModel
     {
-        private IssueBookList _selectedItem;
-        public IssueBookList SelectedItem
+        private IndemnifyList _selectedItem;
+        public IndemnifyList SelectedItem
         {
             get
             {
-                return (IssueBookList)_selectedItem;
+                return (IndemnifyList)_selectedItem;
             }
             set
             {
                 _selectedItem = value;
-                _selectedItem = (IssueBookList)BaseViewModel.SelectedItem;
+                _selectedItem = (IndemnifyList)BaseViewModel.SelectedItem;
                 OnPropertyChanged();
             }
         }
@@ -33,14 +33,14 @@ namespace QuanLyThuVien.ViewModel
         private NhanVien _staff;
         public NhanVien Staff { get { return _staff; } set { _staff = value; OnPropertyChanged(); } }
         private string _status;
-        public string Status 
-        { 
-            get { return _status; } 
-            set 
+        public string Status
+        {
+            get { return _status; }
+            set
             {
-                _status = value; 
-                OnPropertyChanged(); 
-            } 
+                _status = value;
+                OnPropertyChanged();
+            }
         }
 
         private Sach _book1;
@@ -78,7 +78,7 @@ namespace QuanLyThuVien.ViewModel
 
         public ICommand ConfirmCommand { get; set; }
 
-        public DetailIssueBookViewModel()
+        public DetailIndemnifyBookViewModel()
         {
             setValues();
             ConfirmCommand = new RelayCommand<Window>((p) =>
@@ -92,28 +92,34 @@ namespace QuanLyThuVien.ViewModel
 
         private void setValues()
         {
-            SelectedItem = (IssueBookList)BaseViewModel.SelectedItem;
-            var chiTiet = ((IEnumerable)DataProvider.Ins.DB.ChiTietPhieuMuons.Where(x => x.IDPhieuMuon == SelectedItem.IssueBook.ID)).Cast<object>().ToArray();
-            ChiTietPhieuMuon detail = (ChiTietPhieuMuon)chiTiet[0];
-            Book1 = detail.Sach;
-            Customer = SelectedItem.IssueBook.KhachHang;
-            Staff = SelectedItem.IssueBook.NhanVien;
+            SelectedItem = (IndemnifyList)BaseViewModel.SelectedItem;
+            var chiTiet = ((IEnumerable)DataProvider.Ins.DB.ChiTietPhieuBoiThuongs.Where(x => x.IDPhieuBoiThuong == SelectedItem.IndemnifyBook.ID)).Cast<object>().ToArray();
+            if(chiTiet.Length == 1 )
+            {
+                ChiTietPhieuBoiThuong detail = (ChiTietPhieuBoiThuong)chiTiet[0];
+                if(detail.Gia != 0)
+                    Book1 = detail.Sach;
+            }
+            Customer = SelectedItem.IndemnifyBook.PhieuMuon.KhachHang;
+            Staff = SelectedItem.IndemnifyBook.NhanVien;
             if (SelectedItem != null)
             {
-                if (SelectedItem.IssueBook.TrangThai == 1)
-                    _status = "Chưa trả sách";
+                if (SelectedItem.IndemnifyBook.TrangThai == 1)
+                    _status = "Chưa thanh toán";
                 else
-                    _status = "Đã trả sách";
+                    _status = "Đã thanh toán";
             }
             if (chiTiet.Length > 1)
             {
-                ChiTietPhieuMuon detail2 = (ChiTietPhieuMuon)chiTiet[1];
-                Book2 = detail2.Sach;
+                ChiTietPhieuBoiThuong detail = (ChiTietPhieuBoiThuong)chiTiet[1];
+                if (detail.Gia != 0)
+                    Book2 = detail.Sach;
             }
             if (chiTiet.Length == 3)
             {
-                ChiTietPhieuMuon detail3 = (ChiTietPhieuMuon)chiTiet[2];
-                Book3 = detail3.Sach;
+                ChiTietPhieuBoiThuong detail = (ChiTietPhieuBoiThuong)chiTiet[2];
+                if (detail.Gia != 0)
+                    Book3 = detail.Sach;
             }
         }
     }
