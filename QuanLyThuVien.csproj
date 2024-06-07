@@ -9,17 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Model\Database.edmx" />
+    <None Remove="Model\Model1.edmx" />
   </ItemGroup>
 
   <ItemGroup>
-    <EntityDeploy Include="Model\Database.edmx">
+    <EntityDeploy Include="Model\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Database.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
     <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
   </ItemGroup>
@@ -30,10 +31,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Model\Database.Designer.cs">
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Model\Model1.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Database.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
   </ItemGroup>
 
