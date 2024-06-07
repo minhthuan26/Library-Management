@@ -15,4 +15,3 @@
   - [Le Minh Thuan](https://github.com/minhthuan26)
 ### Main Function & UI
   > - Login
-  >   ![](./assets/z5516742197894_c72a01ab69ccd83c04313ca82f7d2f6f.jpg) 
