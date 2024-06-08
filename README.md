@@ -9,7 +9,7 @@
   - Using MVVM model
   - It manage books in library, customer, employee, which customer borrows books, does the book returned, etc..
 ### Technology
-  - Language: C#: WPF, EF core
+  - Language: C#, WPF, EF core
   - Database: MSSQL Server
 ### Members
   - [Le Minh Thuan](https://github.com/minhthuan26)
