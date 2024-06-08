@@ -3,7 +3,7 @@
 
 > [!CAUTION]
 > The function **General Report** is **NOT COMPLETE**
-# Network Processing (Self-project)
+# Library Management (Self-project)
 ### Description
   - This project is use for manage library base on C#, WPF, EF core
   - Using MVVM model
